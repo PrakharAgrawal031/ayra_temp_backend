@@ -2,9 +2,10 @@
 from fastapi import FastAPI, HTTPException
 from pymongo import MongoClient
 from typing import List, Dict, Any
-
-
-MONGO_URI = "mongodb+srv://ayratempbackend:IM0NenVra30NIzX9@prakhar.eywoyo2.mongodb.net/?retryWrites=true&w=majority&appName=Prakhar"
+import os
+from dotenv import load_dotenv
+load_dotenv()
+MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME = "clinicalData"
 COLLECTION_NAME = "patients"
 
