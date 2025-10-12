@@ -8,21 +8,23 @@ annotated-types==0.7.0
     # via pydantic
 anyio==4.11.0
     # via starlette
+certifi==2025.10.5
+    # via -r requirements.in
 click==8.3.0
     # via uvicorn
 colorama==0.4.6
     # via click
 dnspython==2.8.0
     # via pymongo
-fastapi==0.118.3
+fastapi==0.118.0
     # via -r requirements.in
 h11==0.16.0
     # via uvicorn
 idna==3.10
     # via anyio
-pydantic==2.12.0
+pydantic==2.11.10
     # via fastapi
-pydantic-core==2.41.1
+pydantic-core==2.33.2
     # via pydantic
 pymongo==4.15.3
     # via -r requirements.in
