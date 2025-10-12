@@ -9,7 +9,7 @@ load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME = "clinicalData"
 COLLECTION_NAME = "patients"
-JSON_FILE_PATH = "model_evaluation_data.json"
+JSON_FILE_PATH = "new_temp_data.json"
 
 
 print("Connecting to MongoDB...")
