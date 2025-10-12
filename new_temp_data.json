@@ -1,0 +1,2718 @@
+[
+  {
+    "patient_name": "John Marsten",
+    "patient_id": "TEST_PT_001",
+    "archetype": "Archetype_1_Uncontrolled_Diabetic",
+    "demographics": {
+      "age": 58,
+      "sex": "M",
+      "race_ethnicity": "Hispanic/Latino"
+    },
+    "allergies": [
+      {
+        "allergen": "Sulfa drugs (Sulfamethoxazole)",
+        "reaction": "Rash, itching",
+        "severity": "moderate",
+        "onset": "2015"
+      },
+      {
+        "allergen": "Contrast dye (iodinated)",
+        "reaction": "Hives, concern for nephropathy",
+        "severity": "moderate",
+        "onset": "documented 2019"
+      }
+    ],
+    "ground_truth_correlations": [
+      {
+        "correlation_id": "CORR_001_A",
+        "type": "lab_trend",
+        "description": "Progressive HbA1c elevation from 8.2% to 10.8% over 7 months despite medication escalation",
+        "entities_involved": [
+          "HbA1c",
+          "Metformin",
+          "Glipizide",
+          "Insulin Glargine"
+        ],
+        "visits_involved": ["V1", "V3", "V5", "V6"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.88
+      },
+      {
+        "correlation_id": "CORR_001_B",
+        "type": "lab_trend",
+        "description": "Declining renal function with GFR drop from 68 to 48 mL/min and rising creatinine",
+        "entities_involved": ["GFR", "Creatinine", "Diabetic nephropathy"],
+        "visits_involved": ["V1", "V3", "V5", "V6"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.9
+      },
+      {
+        "correlation_id": "CORR_001_C",
+        "type": "symptom_lab_correlation",
+        "description": "Persistent fatigue correlating with worsening anemia (Hgb 13.2 to 10.1 g/dL)",
+        "entities_involved": ["Fatigue", "Hemoglobin", "Ferritin"],
+        "visits_involved": ["V2", "V4", "V5", "V6"],
+        "expected_severity": "medium",
+        "minimum_confidence_threshold": 0.82
+      },
+      {
+        "correlation_id": "CORR_001_D",
+        "type": "care_gap",
+        "description": "No retinal examination performed despite diabetic retinopathy risk and duration of diabetes >10 years",
+        "entities_involved": [
+          "Ophthalmology referral",
+          "Retinal exam",
+          "Diabetes duration"
+        ],
+        "visits_involved": ["V1", "V2", "V3", "V4", "V5", "V6"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.85
+      }
+    ],
+    "clinical_timeline": [
+      {
+        "visit_id": "V1",
+        "visit_date": "2024-03-15",
+        "visit_type": "office_visit",
+        "chief_complaint": "Follow-up for diabetes, feeling more tired lately",
+        "vitals": {
+          "temp_f": 98.4,
+          "bp_systolic": 142,
+          "bp_diastolic": 88,
+          "hr_bpm": 78,
+          "rr_bpm": 16,
+          "spo2_percent": 97.0,
+          "weight_lbs": 210.5,
+          "height_inches": 68.0,
+          "bmi": 32.0
+        },
+        "labs": {
+          "hba1c": 8.2,
+          "glucose_mg_dl": 178,
+          "creatinine_mg_dl": 1.3,
+          "gfr_ml_min": 68,
+          "hemoglobin_g_dl": 13.2,
+          "wbc_k_ul": 7.2,
+          "platelets_k_ul": 245,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 32,
+          "ast_u_l": 28,
+          "cholesterol_total_mg_dl": 198,
+          "ldl_mg_dl": 118,
+          "hdl_mg_dl": 42,
+          "triglycerides_mg_dl": 190,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": 145.0,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Metformin 1000mg twice daily",
+            "Lisinopril 10mg daily",
+            "Atorvastatin 40mg daily",
+            "Aspirin 81mg daily"
+          ],
+          "started": ["Glipizide 5mg daily"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus (E11.9)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "HbA1c recheck in 3 months",
+          "Basic metabolic panel in 3 months"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "A1c elevated at 8.2%, adding glipizide to regimen. Discussed diet and exercise. Patient reports difficulty with portion control. RTC 3 months.",
+        "patient_reported_adherence": "fair",
+        "social_history_updates": {
+          "smoking": "former",
+          "alcohol": "social",
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      },
+      {
+        "visit_id": "V2",
+        "visit_date": "2024-05-10",
+        "visit_type": "office_visit",
+        "chief_complaint": "Still feeling tired all the time, some tingling in feet",
+        "vitals": {
+          "temp_f": 98.1,
+          "bp_systolic": 138,
+          "bp_diastolic": 86,
+          "hr_bpm": 82,
+          "rr_bpm": 15,
+          "spo2_percent": 98.0,
+          "weight_lbs": 212.0,
+          "height_inches": 68.0,
+          "bmi": 32.2
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 195,
+          "creatinine_mg_dl": null,
+          "gfr_ml_min": null,
+          "hemoglobin_g_dl": 12.4,
+          "wbc_k_ul": null,
+          "platelets_k_ul": null,
+          "sodium_meq_l": null,
+          "potassium_meq_l": null,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": 285,
+          "folate_ng_ml": 8.2,
+          "ferritin_ng_ml": 98.0,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Metformin 1000mg twice daily",
+            "Glipizide 5mg daily",
+            "Lisinopril 10mg daily",
+            "Atorvastatin 40mg daily",
+            "Aspirin 81mg daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": ["Glipizide increased to 10mg daily"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus (E11.9)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)"
+          ],
+          "new_acute": ["Peripheral neuropathy, likely diabetic (E11.42)"],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Monofilament foot exam",
+          "Gabapentin trial for neuropathy"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "Patient reports persistent fatigue and paresthesias in feet. Hemoglobin slightly down at 12.4. B12 and folate normal. Starting gabapentin 300mg for neuropathy. Increased glipizide dose.",
+        "patient_reported_adherence": "fair",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V3",
+        "visit_date": "2024-06-28",
+        "visit_type": "office_visit",
+        "chief_complaint": "Diabetes check, foot numbness not much better",
+        "vitals": {
+          "temp_f": 98.6,
+          "bp_systolic": 145,
+          "bp_diastolic": 92,
+          "hr_bpm": 76,
+          "rr_bpm": 16,
+          "spo2_percent": 97.0,
+          "weight_lbs": 214.8,
+          "height_inches": 68.0,
+          "bmi": 32.6
+        },
+        "labs": {
+          "hba1c": 9.1,
+          "glucose_mg_dl": 215,
+          "creatinine_mg_dl": 1.5,
+          "gfr_ml_min": 58,
+          "hemoglobin_g_dl": 11.8,
+          "wbc_k_ul": 7.8,
+          "platelets_k_ul": 238,
+          "sodium_meq_l": 139,
+          "potassium_meq_l": 4.5,
+          "alt_u_l": 35,
+          "ast_u_l": 30,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Metformin 1000mg twice daily",
+            "Glipizide 10mg daily",
+            "Lisinopril 10mg daily",
+            "Atorvastatin 40mg daily",
+            "Aspirin 81mg daily",
+            "Gabapentin 300mg three times daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": ["Metformin increased to 1000mg three times daily"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus, uncontrolled (E11.65)",
+            "Diabetic peripheral neuropathy (E11.42)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)",
+            "Diabetic nephropathy (E11.21)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": ["Urine microalbumin", "Nephrology referral"],
+        "referrals": ["Nephrology for diabetic kidney disease"],
+        "provider_note_snippet": "A1c worsened to 9.1% despite medication increases. Creatinine now 1.5, GFR 58 - concerning for progressive nephropathy. Hemoglobin trending down. Referred to nephrology. Discussed insulin initiation if A1c not improved at next visit.",
+        "patient_reported_adherence": "fair",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": "insecure"
+        }
+      },
+      {
+        "visit_id": "V4",
+        "visit_date": "2024-08-16",
+        "visit_type": "office_visit",
+        "chief_complaint": "Fatigue getting worse, some swelling in ankles",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 148,
+          "bp_diastolic": 90,
+          "hr_bpm": 84,
+          "rr_bpm": 16,
+          "spo2_percent": 97.0,
+          "weight_lbs": 218.2,
+          "height_inches": 68.0,
+          "bmi": 33.2
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 228,
+          "creatinine_mg_dl": null,
+          "gfr_ml_min": null,
+          "hemoglobin_g_dl": 10.8,
+          "wbc_k_ul": 7.5,
+          "platelets_k_ul": 242,
+          "sodium_meq_l": 138,
+          "potassium_meq_l": 4.7,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": 72.0,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Metformin 1000mg three times daily",
+            "Glipizide 10mg daily",
+            "Atorvastatin 40mg daily",
+            "Aspirin 81mg daily",
+            "Gabapentin 300mg three times daily"
+          ],
+          "started": ["Ferrous sulfate 325mg daily"],
+          "stopped": [],
+          "dose_changed": ["Lisinopril increased to 20mg daily"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus, uncontrolled (E11.65)",
+            "Diabetic peripheral neuropathy (E11.42)",
+            "Diabetic nephropathy (E11.21)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)"
+          ],
+          "new_acute": ["Anemia, likely multifactorial (D63.1)"],
+          "differential": []
+        },
+        "procedures_ordered": ["Complete iron panel"],
+        "referrals": [],
+        "provider_note_snippet": "Hemoglobin continues to decline, now 10.8. Ferritin low at 72. Started iron supplementation. Patient missed nephrology appointment - will reschedule. Fatigue likely related to anemia and poor glucose control. Weight gain of 4 lbs, some pedal edema noted.",
+        "patient_reported_adherence": "poor",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V5",
+        "visit_date": "2024-09-20",
+        "visit_type": "office_visit",
+        "chief_complaint": "Diabetes follow-up, tired all the time, can barely get through work day",
+        "vitals": {
+          "temp_f": 98.5,
+          "bp_systolic": 152,
+          "bp_diastolic": 94,
+          "hr_bpm": 88,
+          "rr_bpm": 17,
+          "spo2_percent": 96.0,
+          "weight_lbs": 220.5,
+          "height_inches": 68.0,
+          "bmi": 33.5
+        },
+        "labs": {
+          "hba1c": 10.2,
+          "glucose_mg_dl": 248,
+          "creatinine_mg_dl": 1.7,
+          "gfr_ml_min": 52,
+          "hemoglobin_g_dl": 10.3,
+          "wbc_k_ul": 8.1,
+          "platelets_k_ul": 235,
+          "sodium_meq_l": 137,
+          "potassium_meq_l": 4.9,
+          "alt_u_l": 38,
+          "ast_u_l": 33,
+          "cholesterol_total_mg_dl": 212,
+          "ldl_mg_dl": 128,
+          "hdl_mg_dl": 38,
+          "triglycerides_mg_dl": 230,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": 85.0,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Metformin 1000mg three times daily",
+            "Glipizide 10mg daily",
+            "Lisinopril 20mg daily",
+            "Atorvastatin 40mg daily",
+            "Aspirin 81mg daily",
+            "Gabapentin 300mg three times daily",
+            "Ferrous sulfate 325mg daily"
+          ],
+          "started": ["Insulin glargine 10 units at bedtime"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus, uncontrolled (E11.65)",
+            "Diabetic peripheral neuropathy (E11.42)",
+            "Diabetic nephropathy, Stage 3 CKD (E11.21, N18.3)",
+            "Hypertension, uncontrolled (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)",
+            "Anemia of chronic disease (D63.1)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Diabetes education referral",
+          "HbA1c recheck in 6 weeks"
+        ],
+        "referrals": ["Diabetes education", "Endocrinology consult"],
+        "provider_note_snippet": "A1c now 10.2% - significantly elevated. Renal function worsening with GFR 52, creatinine 1.7. Anemia persistent despite iron supplementation. Starting basal insulin. Long discussion about medication adherence - patient reports financial barriers to medications and healthy food. Connected with social work.",
+        "patient_reported_adherence": "poor",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": "stable",
+          "food_security": "insecure"
+        }
+      },
+      {
+        "visit_id": "V6",
+        "visit_date": "2024-10-25",
+        "visit_type": "office_visit",
+        "chief_complaint": "Insulin follow-up, still very fatigued",
+        "vitals": {
+          "temp_f": 98.3,
+          "bp_systolic": 156,
+          "bp_diastolic": 96,
+          "hr_bpm": 90,
+          "rr_bpm": 18,
+          "spo2_percent": 96.0,
+          "weight_lbs": 222.0,
+          "height_inches": 68.0,
+          "bmi": 33.7
+        },
+        "labs": {
+          "hba1c": 10.8,
+          "glucose_mg_dl": 265,
+          "creatinine_mg_dl": 1.8,
+          "gfr_ml_min": 48,
+          "hemoglobin_g_dl": 10.1,
+          "wbc_k_ul": 8.4,
+          "platelets_k_ul": 228,
+          "sodium_meq_l": 136,
+          "potassium_meq_l": 5.1,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Metformin 1000mg three times daily",
+            "Glipizide 10mg daily",
+            "Lisinopril 20mg daily",
+            "Atorvastatin 40mg daily",
+            "Aspirin 81mg daily",
+            "Gabapentin 300mg three times daily",
+            "Ferrous sulfate 325mg daily"
+          ],
+          "started": ["Amlodipine 5mg daily"],
+          "stopped": [],
+          "dose_changed": ["Insulin glargine increased to 20 units at bedtime"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus, uncontrolled (E11.65)",
+            "Diabetic peripheral neuropathy (E11.42)",
+            "Diabetic nephropathy, Stage 3b CKD (E11.21, N18.32)",
+            "Hypertension, uncontrolled (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)",
+            "Anemia of chronic disease (D63.1)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": ["EPO level", "Nephrology urgent referral"],
+        "referrals": [],
+        "provider_note_snippet": "Diabetes control continues to deteriorate despite insulin initiation - A1c 10.8%. Patient admits not taking insulin consistently due to cost. GFR now 48, concerning for progression to Stage 3b CKD. Anemia worsening. NO RETINAL EXAM DOCUMENTED IN 18+ MONTHS - critical gap. Discussed urgent need for ophthalmology. Increased insulin dose and added amlodipine for BP control.",
+        "patient_reported_adherence": "poor",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": "insecure"
+        }
+      }
+    ],
+    "expected_llm_challenges": [
+      "Distinguishing medication non-adherence from treatment resistance",
+      "Connecting multiple organ system complications to underlying diabetes",
+      "Recognizing the interaction between anemia and fatigue in context of CKD",
+      "Detecting the critical care gap (missed retinal exam) amidst multiple other issues",
+      "Understanding social determinants (food insecurity, medication costs) as contributors to poor control"
+    ],
+    "evaluation_notes": "This case tests ability to: (1) track multiple lab trends simultaneously, (2) recognize progressive multi-organ diabetic complications, (3) identify medication non-response patterns, (4) detect preventive care gaps, and (5) incorporate social determinants into clinical reasoning. The LLM should flag the missing ophthalmology referral as high priority given duration and severity of diabetes.",
+    "biomistral_summary": [
+      {
+        "Primary Clinical Concern": "The primary clinical concern is uncontrolled Type 2 Diabetes Mellitus with progressive complications, worsening renal function, and anemia. The patient also has uncontrolled hypertension and persistent fatigue. Despite multiple medication adjustments and additions, key lab values like HbA1c, GFR, and hemoglobin have worsened over time. Patient-reported barriers include difficulty with diet, financial constraints affecting medication adherence, and healthy food access."
+      },
+      {
+        "Patient Allergies": "1. Sulfa drugs (Sulfamethoxazole): Rash, itching    2. Contrast dye (iodinated): Hives, concern for nephropathy"
+      },
+      {
+        "Key Lab Trends": "1. HbA1c: Worsened from 8.2% (2024-03-15) to 10.8% (2024-10-25).   2. GFR: Declined from 68 ml/min (2024-03-15) to 48 ml/min (2024-10-25).   3. Hemoglobin: Decreased from 13.2 g/dl (2024-03-15) to 10.1 g/dl (2024-10-25).   4. Creatinine: Increased from 1.3 mg/dl (2024-03-15) to 1.8 mg/dl (2024-10-25).   5. Potassium: Increased from 4.2 meq/l (2024-03-15) to 5.1 meq/l (2024-10-25)."
+      },
+      {
+        "Key Vital Sign Trends": "None documented in the provided patient data."
+      },
+      {
+        "Treatment Response Summary": "Despite multiple dose escalations of oral antidiabetic medications (Metformin, Glipizide) and initiation of basal insulin, diabetes control continued to deteriorate as evidenced by worsening HbA1c and glucose levels. Gabapentin for neuropathy provided little improvement in foot numbness. Ferrous sulfate failed to significantly improve hemoglobin levels, which continued to decline. Lisinopril dose increase and subsequent addition of Amlodipine suggest persistent uncontrolled hypertension."
+      },
+      {
+        "Medication Actions Taken": "1. 2024-03-15: Started Glipizide 5mg daily.   2. 2024-05-10: Glipizide increased to 10mg daily. Started Gabapentin 300mg.  3. 2024-06-28: Metformin increased to 1000mg three times daily.   4. 2024-08-16: Lisinopril increased to 20mg daily. Started Ferrous sulfate 325mg daily.   5. 2024-09-20: Started Insulin glargine 10 units at bedtime.   6.  2024-10-25: Insulin glargine increased to 20 units at bedtime. Started Amlodipine 5mg daily."
+      },
+      {
+        "Clinical Outcome of Changes": "Following medication changes, the patient's diabetes control worsened with increasing A1c and glucose levels. Renal function continued to decline (GFR decreased, creatinine increased). Anemia persisted and worsened despite iron supplementation. Peripheral neuropathy symptoms showed little improvement, and hypertension remained uncontrolled."
+      },
+      {
+        "Patient-Reported Barriers": "1. Difficulty with portion control.   2. Financial barriers to medications and healthy food.   3. Not taking insulin consistently due to cost."
+      },
+      {
+        "Identified Gaps": "1. Missed nephrology appointment.  2. NO RETINAL EXAM DOCUMENTED IN 18+ MONTHS."
+      }
+    ],
+    "correlations": {
+      "anchor": "Uncontrolled Type 2 Diabetes Mellitus",
+      "factors": [
+        {
+          "name": "A1c Levels",
+          "type": "direct",
+          "reasoning": "The patient's A1c levels consistently rose from 8.2% to 10.8% across visits, directly indicating a deterioration in glycemic control."
+        },
+        {
+          "name": "Glomerular Filtration Rate (GFR)",
+          "type": "direct",
+          "reasoning": "The GFR progressively decreased from 68 ml/min to 48 ml/min over the visits, leading to diagnoses of diabetic nephropathy and Stage 3b CKD, a direct complication of uncontrolled diabetes."
+        },
+        {
+          "name": "Peripheral Neuropathy Symptoms",
+          "type": "direct",
+          "reasoning": "The patient developed and reported persistent tingling and numbness in feet, leading to a diagnosis of peripheral neuropathy, a direct complication of diabetes."
+        },
+        {
+          "name": "Hemoglobin Levels and Anemia",
+          "type": "direct",
+          "reasoning": "Hemoglobin levels declined from 13.2 g/dl to 10.1 g/dl, leading to a diagnosis of anemia, specifically 'anemia of chronic disease' which is directly linked to worsening renal function secondary to uncontrolled diabetes."
+        },
+        {
+          "name": "Medication Adherence and Financial Barriers",
+          "type": "contextual",
+          "reasoning": "The patient explicitly reported financial barriers impacting medication adherence, particularly with insulin, providing a contextual explanation for the persistent uncontrolled diabetes despite escalating therapies."
+        }
+      ]
+    }
+  },
+
+  {
+    "patient_name": "Alan Miller",
+    "patient_id": "TEST_PT_003",
+    "archetype": "Archetype_3_Medication_Induced_Statin_Myopathy",
+    "demographics": {
+      "age": 67,
+      "sex": "M",
+      "race_ethnicity": "Caucasian"
+    },
+    "allergies": [
+      {
+        "allergen": "Atorvastatin",
+        "reaction": "Severe myopathy, CK elevation >1800, muscle weakness",
+        "severity": "severe",
+        "onset": "documented 2024 (this case)"
+      },
+      {
+        "allergen": "Penicillin",
+        "reaction": "Hives - childhood reaction",
+        "severity": "moderate",
+        "onset": "childhood"
+      }
+    ],
+    "ground_truth_correlations": [
+      {
+        "correlation_id": "CORR_003_A",
+        "type": "symptom_lab_correlation",
+        "description": "New onset muscle pain and weakness temporally associated with atorvastatin initiation and dose escalation",
+        "entities_involved": [
+          "Muscle pain",
+          "Weakness",
+          "Atorvastatin",
+          "CK elevation"
+        ],
+        "visits_involved": ["V1", "V2", "V3", "V4"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.9
+      },
+      {
+        "correlation_id": "CORR_003_B",
+        "type": "lab_trend",
+        "description": "Progressive CK elevation from normal baseline to 1850 U/L correlating with statin use",
+        "entities_involved": ["CK", "Atorvastatin dose"],
+        "visits_involved": ["V1", "V2", "V3", "V4"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.92
+      },
+      {
+        "correlation_id": "CORR_003_C",
+        "type": "symptom_lab_correlation",
+        "description": "Symptom and lab improvement after statin discontinuation, confirming causal relationship",
+        "entities_involved": [
+          "Muscle pain",
+          "CK",
+          "Atorvastatin discontinuation"
+        ],
+        "visits_involved": ["V4", "V5"],
+        "expected_severity": "medium",
+        "minimum_confidence_threshold": 0.88
+      },
+      {
+        "correlation_id": "CORR_003_D",
+        "type": "medication_nonresponse",
+        "description": "Continued symptom escalation despite dose adjustments, requiring drug class change",
+        "entities_involved": [
+          "Atorvastatin",
+          "Rosuvastatin",
+          "Muscle symptoms"
+        ],
+        "visits_involved": ["V2", "V3", "V4", "V5"],
+        "expected_severity": "medium",
+        "minimum_confidence_threshold": 0.85
+      }
+    ],
+    "clinical_timeline": [
+      {
+        "visit_id": "V1",
+        "visit_date": "2024-03-22",
+        "visit_type": "office_visit",
+        "chief_complaint": "Annual physical, discussing cholesterol results",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 132,
+          "bp_diastolic": 82,
+          "hr_bpm": 68,
+          "rr_bpm": 14,
+          "spo2_percent": 98.0,
+          "weight_lbs": 185.0,
+          "height_inches": 70.0,
+          "bmi": 26.5
+        },
+        "labs": {
+          "hba1c": 5.6,
+          "glucose_mg_dl": 98,
+          "creatinine_mg_dl": 1.0,
+          "gfr_ml_min": 88,
+          "hemoglobin_g_dl": 14.2,
+          "wbc_k_ul": 6.8,
+          "platelets_k_ul": 225,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.3,
+          "alt_u_l": 28,
+          "ast_u_l": 26,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": 2.4,
+          "cholesterol_total_mg_dl": 268,
+          "ldl_mg_dl": 175,
+          "hdl_mg_dl": 48,
+          "triglycerides_mg_dl": 225,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": 125
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Aspirin 81mg daily",
+            "Metoprolol 25mg twice daily"
+          ],
+          "started": ["Atorvastatin 40mg daily"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "History of MI 2018 (I25.2)",
+            "Coronary artery disease (I25.10)"
+          ],
+          "new_acute": ["Hyperlipidemia (E78.5)"],
+          "differential": []
+        },
+        "procedures_ordered": ["Lipid panel recheck in 6 weeks"],
+        "referrals": [],
+        "provider_note_snippet": "Annual exam. Patient doing well overall. LDL significantly elevated at 175. Given CAD history, starting atorvastatin 40mg. Discussed diet and exercise. Baseline CK normal at 125. Patient reports no muscle symptoms currently.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": "former",
+          "alcohol": "social",
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      },
+      {
+        "visit_id": "V2",
+        "visit_date": "2024-05-10",
+        "visit_type": "office_visit",
+        "chief_complaint": "Follow-up cholesterol, also some muscle aches in thighs and shoulders past few weeks",
+        "vitals": {
+          "temp_f": 98.4,
+          "bp_systolic": 128,
+          "bp_diastolic": 78,
+          "hr_bpm": 66,
+          "rr_bpm": 14,
+          "spo2_percent": 98.0,
+          "weight_lbs": 183.5,
+          "height_inches": 70.0,
+          "bmi": 26.3
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": 1.0,
+          "gfr_ml_min": 88,
+          "hemoglobin_g_dl": null,
+          "wbc_k_ul": null,
+          "platelets_k_ul": null,
+          "sodium_meq_l": null,
+          "potassium_meq_l": null,
+          "alt_u_l": 32,
+          "ast_u_l": 35,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": 188,
+          "ldl_mg_dl": 105,
+          "hdl_mg_dl": 52,
+          "triglycerides_mg_dl": 155,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": 385
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Aspirin 81mg daily",
+            "Metoprolol 25mg twice daily",
+            "Atorvastatin 40mg daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "History of MI 2018 (I25.2)",
+            "Coronary artery disease (I25.10)",
+            "Hyperlipidemia (E78.5)"
+          ],
+          "new_acute": ["Myalgia (M79.1)"],
+          "differential": []
+        },
+        "procedures_ordered": [],
+        "referrals": [],
+        "provider_note_snippet": "Excellent lipid response to atorvastatin - LDL down from 175 to 105. Patient reports mild muscle aches in thighs and shoulders for past 3-4 weeks. CK mildly elevated at 385 (was 125 baseline). Discussed that mild CK elevation can occur with statins. Will monitor. Advised patient to report worsening symptoms.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V3",
+        "visit_date": "2024-06-28",
+        "visit_type": "office_visit",
+        "chief_complaint": "Muscle pain getting worse, now having trouble climbing stairs and lifting things",
+        "vitals": {
+          "temp_f": 98.1,
+          "bp_systolic": 130,
+          "bp_diastolic": 80,
+          "hr_bpm": 70,
+          "rr_bpm": 14,
+          "spo2_percent": 98.0,
+          "weight_lbs": 182.0,
+          "height_inches": 70.0,
+          "bmi": 26.1
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": 1.1,
+          "gfr_ml_min": 85,
+          "hemoglobin_g_dl": 14.0,
+          "wbc_k_ul": 7.2,
+          "platelets_k_ul": 218,
+          "sodium_meq_l": 139,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 45,
+          "ast_u_l": 52,
+          "crp_mg_l": 8.2,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": 892
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Aspirin 81mg daily",
+            "Metoprolol 25mg twice daily"
+          ],
+          "started": ["Coenzyme Q10 200mg daily"],
+          "stopped": [],
+          "dose_changed": ["Atorvastatin reduced to 20mg daily"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "History of MI 2018 (I25.2)",
+            "Coronary artery disease (I25.10)",
+            "Hyperlipidemia (E78.5)"
+          ],
+          "new_acute": ["Statin-induced myopathy, suspected (G72.0)"],
+          "differential": []
+        },
+        "procedures_ordered": ["Repeat CK in 2 weeks"],
+        "referrals": [],
+        "provider_note_snippet": "Patient with worsening myalgias and now functional impairment - difficulty with stairs and lifting. CK further elevated to 892 (>7x baseline). ALT/AST also elevated. Strong suspicion for statin-induced myopathy. Reduced atorvastatin to 20mg and added CoQ10. Will recheck CK in 2 weeks. If no improvement, will need to discontinue statin and consider alternative agent.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V4",
+        "visit_date": "2024-07-15",
+        "visit_type": "office_visit",
+        "chief_complaint": "Muscle pain and weakness even worse, now affecting daily activities",
+        "vitals": {
+          "temp_f": 98.3,
+          "bp_systolic": 126,
+          "bp_diastolic": 78,
+          "hr_bpm": 68,
+          "rr_bpm": 14,
+          "spo2_percent": 98.0,
+          "weight_lbs": 180.5,
+          "height_inches": 70.0,
+          "bmi": 25.9
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": 1.2,
+          "gfr_ml_min": 82,
+          "hemoglobin_g_dl": null,
+          "wbc_k_ul": null,
+          "platelets_k_ul": null,
+          "sodium_meq_l": null,
+          "potassium_meq_l": null,
+          "alt_u_l": 58,
+          "ast_u_l": 68,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": 1850
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Aspirin 81mg daily",
+            "Metoprolol 25mg twice daily",
+            "Coenzyme Q10 200mg daily"
+          ],
+          "started": [],
+          "stopped": ["Atorvastatin discontinued"],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "History of MI 2018 (I25.2)",
+            "Coronary artery disease (I25.10)",
+            "Hyperlipidemia (E78.5)"
+          ],
+          "new_acute": ["Statin-induced myopathy (G72.0)"],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "CK recheck in 3 weeks",
+          "Lipid panel in 6 weeks"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "No improvement with dose reduction - CK now 1850, nearly 15x baseline. Patient reports significant weakness affecting ADLs, unable to get up from chair without using arms. This is moderate-severe statin myopathy. DISCONTINUED atorvastatin immediately. Will allow 4-6 week washout period then reassess lipid management options. May trial low-dose rosuvastatin or ezetimibe. Patient counseled on symptoms to watch for rhabdomyolysis.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V5",
+        "visit_date": "2024-08-30",
+        "visit_type": "office_visit",
+        "chief_complaint": "Follow-up after stopping statin, muscle symptoms much improved",
+        "vitals": {
+          "temp_f": 98.4,
+          "bp_systolic": 128,
+          "bp_diastolic": 80,
+          "hr_bpm": 66,
+          "rr_bpm": 14,
+          "spo2_percent": 98.0,
+          "weight_lbs": 182.0,
+          "height_inches": 70.0,
+          "bmi": 26.1
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 102,
+          "creatinine_mg_dl": 1.0,
+          "gfr_ml_min": 88,
+          "hemoglobin_g_dl": 14.1,
+          "wbc_k_ul": 6.9,
+          "platelets_k_ul": 222,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.3,
+          "alt_u_l": 26,
+          "ast_u_l": 28,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": 242,
+          "ldl_mg_dl": 158,
+          "hdl_mg_dl": 50,
+          "triglycerides_mg_dl": 170,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": 165
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Aspirin 81mg daily",
+            "Metoprolol 25mg twice daily",
+            "Coenzyme Q10 200mg daily"
+          ],
+          "started": ["Ezetimibe 10mg daily"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "History of MI 2018 (I25.2)",
+            "Coronary artery disease (I25.10)",
+            "Hyperlipidemia (E78.5)",
+            "Statin intolerance (Z88.6)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Lipid panel in 8 weeks",
+          "Consider PCSK9 inhibitor if ezetimibe insufficient"
+        ],
+        "referrals": ["Cardiology for lipid management discussion"],
+        "provider_note_snippet": "Excellent improvement after statin discontinuation. Patient reports muscle pain nearly resolved, strength back to baseline. CK normalized at 165, liver enzymes normalized. LDL rebounded to 158 off statin. Given CAD history, need aggressive lipid management but patient is statin-intolerant. Started ezetimibe. Referred to cardiology to discuss PCSK9 inhibitor options given high CV risk.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      }
+    ],
+    "expected_llm_challenges": [
+      "Recognizing the temporal relationship between statin initiation and symptom onset",
+      "Connecting progressive CK elevation with worsening clinical symptoms",
+      "Distinguishing statin myopathy from other causes of muscle pain in elderly patient",
+      "Recognizing that dose reduction was insufficient and discontinuation was necessary",
+      "Understanding the confirmatory pattern of symptom/lab resolution after drug discontinuation"
+    ],
+    "evaluation_notes": "This case tests ability to: (1) detect temporal associations between medication starts and new symptoms, (2) track progressive laboratory abnormalities correlating with drug exposure, (3) recognize medication non-response to dose adjustment, (4) identify causal relationships through drug discontinuation and symptom resolution, and (5) understand severity grading of adverse drug reactions. The LLM should recognize statin myopathy by Visit 2-3 based on CK elevation and myalgias, and should flag the need for discontinuation by Visit 3 when CK exceeded 5x normal with functional impairment.",
+    "biomistral_summary": [
+      {
+        "Primary Clinical Concern": "The patient's primary clinical concern revolves around managing hyperlipidemia in the context of coronary artery disease and a history of MI. Initially, atorvastatin successfully lowered LDL, but subsequently led to progressive and severe statin-induced myopathy with significant muscle pain, weakness, and elevated CK levels, requiring its discontinuation. After stopping the statin, symptoms resolved, but LDL rebounded, necessitating alternative lipid management strategies."
+      },
+      {
+        "Patient Allergies": "1. Atorvastatin: Severe myopathy, CK elevation >1800, muscle weakness  2. Penicillin: Hives - childhood reaction"
+      },
+      {
+        "Key Lab Trends": "1.  CK (Creatine Kinase): Significantly worsened from a baseline of 125 U/L on 2024-03-22 to 385 U/L on 2024-05-10, then to 892 U/L on 2024-06-28, and critically to 1850 U/L on 2024-07-15.   2.  AST (Aspartate Aminotransferase): Worsened from 26 U/L on 2024-03-22 to 35 U/L on 2024-05-10, then to 52 U/L on 2024-06-28, and to 68 U/L on 2024-07-15.    3.  ALT (Alanine Aminotransferase): Worsened from 28 U/L on 2024-03-22 to 32 U/L on 2024-05-10, then to 45 U/L on 2024-06-28, and to 58 U/L on 2024-07-15."
+      },
+      {
+        "Key Vital Sign Trends": "None documented in the provided patient data."
+      },
+      {
+        "Treatment Response Summary": "Atorvastatin 40mg daily initially resulted in an excellent lipid response, lowering LDL from 175 mg/dl to 105 mg/dl. However, it led to increasing muscle aches and weakness, with CK levels rising significantly. Reducing atorvastatin to 20mg daily did not improve muscle pain or weakness, and CK levels continued to rise. Discontinuation of atorvastatin led to significant improvement in muscle symptoms, strength returning to baseline, and normalization of CK and liver enzymes. Ezetimibe 10mg daily was started for lipid management after atorvastatin intolerance was established."
+      },
+      {
+        "Medication Actions Taken": "- 2024-03-22: Started Atorvastatin 40mg daily.   - 2024-06-28: Atorvastatin dose reduced to 20mg daily. Started Coenzyme Q10 200mg daily.   - 2024-07-15: Atorvastatin discontinued.   - 2024-08-30: Started Ezetimibe 10mg daily."
+      },
+      {
+        "Clinical Outcome of Changes": "After atorvastatin was discontinued on 2024-07-15, the patient reported muscle pain nearly resolved and strength returned to baseline by 2024-08-30. Key lab trends improved with CK normalizing to 165 U/L and liver enzymes normalizing. However, LDL rebounded to 158 mg/dl after stopping the statin."
+      },
+      {
+        "Patient-Reported Barriers": "The patient reported progressively worsening muscle aches, leading to difficulty climbing stairs and lifting things (2024-06-28), and eventually significant weakness affecting daily activities, making it difficult to get up from a chair without using arms (2024-07-15). These side effects from atorvastatin acted as a significant barrier to continued statin therapy."
+      },
+      { "Identified Gaps": "None documented." }
+    ],
+    "correlations": {
+      "anchor": "Statin-induced myopathy",
+      "factors": [
+        {
+          "name": "Atorvastatin Use",
+          "type": "direct",
+          "reasoning": "The onset and progressive worsening of myopathy symptoms and elevation of CK levels directly followed the initiation of Atorvastatin, and symptoms/labs improved upon its discontinuation."
+        },
+        {
+          "name": "CK Levels",
+          "type": "direct",
+          "reasoning": "CK levels rose significantly from a baseline of 125 U/L to a peak of 1850 U/L while on atorvastatin, then normalized to 165 U/L after the drug was stopped, directly correlating with muscle damage and recovery."
+        },
+        {
+          "name": "Muscle Pain and Weakness (Chief Complaint)",
+          "type": "direct",
+          "reasoning": "The patient's reported muscle aches, increasing pain, weakness, and functional impairment directly coincided with the period of atorvastatin use and elevated CK, and improved significantly after discontinuation."
+        },
+        {
+          "name": "LDL Cholesterol Levels",
+          "type": "direct",
+          "reasoning": "LDL levels decreased effectively with atorvastatin (175 mg/dl to 105 mg/dl) but rebounded after its discontinuation (105 mg/dl to 158 mg/dl), illustrating the drug's efficacy and the subsequent challenge of lipid management post-myopathy."
+        },
+        {
+          "name": "Coronary Artery Disease / History of MI",
+          "type": "contextual",
+          "reasoning": "These pre-existing high-risk cardiovascular conditions provided the critical clinical context and necessity for aggressive lipid-lowering therapy, making the statin-induced myopathy a significant and challenging adverse event."
+        }
+      ]
+    }
+  },
+
+  {
+    "patient_name": "Samantha Jones",
+    "patient_id": "TEST_PT_009",
+    "archetype": "Archetype_5_CHF_Acute_Exacerbation",
+    "demographics": {
+      "age": 73,
+      "sex": "F",
+      "race_ethnicity": "Caucasian"
+    },
+    "allergies": [
+      {
+        "allergen": "ACE inhibitors (Lisinopril)",
+        "reaction": "Angioedema - facial swelling, difficulty breathing",
+        "severity": "severe",
+        "onset": "2018"
+      },
+      {
+        "allergen": "Shellfish",
+        "reaction": "Hives, throat tightness",
+        "severity": "moderate",
+        "onset": "adult"
+      }
+    ],
+    "ground_truth_correlations": [
+      {
+        "correlation_id": "CORR_009_A",
+        "type": "symptom_lab_correlation",
+        "description": "Rapid weight gain (12 lbs in 10 days) correlating with worsening dyspnea and edema in CHF patient",
+        "entities_involved": ["Weight", "Dyspnea", "Edema", "BNP elevation"],
+        "visits_involved": ["V2", "V3", "V4"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.94
+      },
+      {
+        "correlation_id": "CORR_009_B",
+        "type": "lab_trend",
+        "description": "Dramatically elevated BNP from baseline 450 to 2800 pg/mL indicating acute decompensated heart failure",
+        "entities_involved": ["BNP", "Weight gain", "Crackles on exam"],
+        "visits_involved": ["V1", "V3", "V4"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.92
+      },
+      {
+        "correlation_id": "CORR_009_C",
+        "type": "persistent_symptom",
+        "description": "Progressive orthopnea and paroxysmal nocturnal dyspnea signaling volume overload",
+        "entities_involved": [
+          "Orthopnea",
+          "PND",
+          "Shortness of breath",
+          "Weight gain"
+        ],
+        "visits_involved": ["V2", "V3", "V4"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.88
+      },
+      {
+        "correlation_id": "CORR_009_D",
+        "type": "medication_nonresponse",
+        "description": "Inadequate diuretic dosing for acute volume overload requiring IV diuretics and hospitalization",
+        "entities_involved": [
+          "Furosemide dose",
+          "Weight",
+          "Urine output",
+          "IV diuretics"
+        ],
+        "visits_involved": ["V3", "V4", "V5"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.85
+      }
+    ],
+    "clinical_timeline": [
+      {
+        "visit_id": "V1",
+        "visit_date": "2024-06-14",
+        "visit_type": "office_visit",
+        "chief_complaint": "Heart failure follow-up, doing well",
+        "vitals": {
+          "temp_f": 98.3,
+          "bp_systolic": 118,
+          "bp_diastolic": 72,
+          "hr_bpm": 68,
+          "rr_bpm": 16,
+          "spo2_percent": 97.0,
+          "weight_lbs": 152.0,
+          "height_inches": 64.0,
+          "bmi": 26.1
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 102,
+          "creatinine_mg_dl": 1.1,
+          "gfr_ml_min": 68,
+          "hemoglobin_g_dl": 12.8,
+          "wbc_k_ul": 6.5,
+          "platelets_k_ul": 235,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 28,
+          "ast_u_l": 26,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Sacubitril-valsartan 97-103mg twice daily",
+            "Metoprolol succinate 100mg daily",
+            "Furosemide 40mg daily",
+            "Spironolactone 25mg daily",
+            "Atorvastatin 80mg daily",
+            "Aspirin 81mg daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Heart failure with reduced ejection fraction, EF 30% (I50.22)",
+            "Coronary artery disease, history of CABG 2020 (I25.10, Z95.1)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Chronic kidney disease Stage 3a (N18.3)",
+            "Atrial fibrillation, rate controlled (I48.91)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": ["Echo in 6 months", "BNP baseline"],
+        "referrals": [],
+        "provider_note_snippet": "Stable CHF visit. EF 30% on last echo 3 months ago. Patient doing well on GDMT (guideline-directed medical therapy). No dyspnea at rest, able to walk 2 blocks without symptoms. Dry weight 152 lbs. No edema on exam. Lungs clear. JVP not elevated. BNP 450 (stable from prior). Continue current medications. Reinforced daily weights and low-sodium diet.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": "never",
+          "alcohol": "none",
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      },
+      {
+        "visit_id": "V2",
+        "visit_date": "2024-08-02",
+        "visit_type": "office_visit",
+        "chief_complaint": "Noticed some ankle swelling past few days, feeling a bit more winded",
+        "vitals": {
+          "temp_f": 98.1,
+          "bp_systolic": 132,
+          "bp_diastolic": 78,
+          "hr_bpm": 76,
+          "rr_bpm": 18,
+          "spo2_percent": 95.0,
+          "weight_lbs": 157.0,
+          "height_inches": 64.0,
+          "bmi": 27.0
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": 1.2,
+          "gfr_ml_min": 64,
+          "hemoglobin_g_dl": null,
+          "wbc_k_ul": null,
+          "platelets_k_ul": null,
+          "sodium_meq_l": 138,
+          "potassium_meq_l": 4.4,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Sacubitril-valsartan 97-103mg twice daily",
+            "Metoprolol succinate 100mg daily",
+            "Spironolactone 25mg daily",
+            "Atorvastatin 80mg daily",
+            "Aspirin 81mg daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": ["Furosemide increased to 60mg daily"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Heart failure with reduced ejection fraction, EF 30% (I50.22)",
+            "Coronary artery disease, history of CABG 2020 (I25.10, Z95.1)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Chronic kidney disease Stage 3a (N18.3)",
+            "Atrial fibrillation, rate controlled (I48.91)"
+          ],
+          "new_acute": ["Volume overload, mild (E87.70)"],
+          "differential": []
+        },
+        "procedures_ordered": ["Daily weights at home", "Recheck in 5-7 days"],
+        "referrals": [],
+        "provider_note_snippet": "Patient with 5 lb weight gain from dry weight (152 to 157 lbs). Reports increased ankle swelling and mild dyspnea with usual activities. 1+ pitting edema bilateral ankles. Lungs still clear. Patient admits eating more salty foods at family gathering last weekend. Increased furosemide to 60mg daily. Reinforced strict low-sodium diet. Daily weights. RTC if weight increases further or dyspnea worsens.",
+        "patient_reported_adherence": "fair",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V3",
+        "visit_date": "2024-08-12",
+        "visit_type": "urgent_care",
+        "chief_complaint": "Much more short of breath, can't sleep lying flat, legs very swollen",
+        "vitals": {
+          "temp_f": 98.4,
+          "bp_systolic": 148,
+          "bp_diastolic": 86,
+          "hr_bpm": 88,
+          "rr_bpm": 24,
+          "spo2_percent": 91.0,
+          "weight_lbs": 164.0,
+          "height_inches": 64.0,
+          "bmi": 28.2
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 115,
+          "creatinine_mg_dl": 1.5,
+          "gfr_ml_min": 52,
+          "hemoglobin_g_dl": 12.2,
+          "wbc_k_ul": 7.8,
+          "platelets_k_ul": 242,
+          "sodium_meq_l": 135,
+          "potassium_meq_l": 4.6,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Sacubitril-valsartan 97-103mg twice daily",
+            "Metoprolol succinate 100mg daily",
+            "Furosemide 60mg daily",
+            "Spironolactone 25mg daily",
+            "Atorvastatin 80mg daily",
+            "Aspirin 81mg daily"
+          ],
+          "started": ["Furosemide 80mg IV x1 dose given in urgent care"],
+          "stopped": [],
+          "dose_changed": ["Furosemide increased to 80mg PO twice daily"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Heart failure with reduced ejection fraction, EF 30% (I50.22)",
+            "Coronary artery disease, history of CABG 2020 (I25.10, Z95.1)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Chronic kidney disease Stage 3a (N18.3)",
+            "Atrial fibrillation, rate controlled (I48.91)"
+          ],
+          "new_acute": [
+            "Acute decompensated heart failure (I50.23)",
+            "Volume overload, severe (E87.70)"
+          ],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Chest X-ray - shows pulmonary edema, cardiomegaly",
+          "BNP - pending",
+          "EKG - atrial fibrillation, rate 88"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "ACUTE CHF EXACERBATION. Patient with 12 lb weight gain in 10 days (152 to 164 lbs). Significant respiratory distress with orthopnea (sleeps on 3 pillows now vs usual 1), PND x3 nights. 3+ pitting edema to knees bilaterally. Crackles bilateral bases. JVP elevated to 12cm. SpO2 91% on room air. CXR shows pulmonary edema. Patient admits dietary indiscretion - eating restaurant meals daily. Given furosemide 80mg IV with good response (urinated 800cc in 2 hours). Increased PO furosemide to 80mg BID. Patient stable for outpatient management but needs close follow-up. If no improvement in 24-48 hours, will need hospital admission.",
+        "patient_reported_adherence": "poor",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V4",
+        "visit_date": "2024-08-14",
+        "visit_type": "emergency",
+        "chief_complaint": "Worse shortness of breath, can't breathe lying down at all, coughing up pink frothy sputum",
+        "vitals": {
+          "temp_f": 98.6,
+          "bp_systolic": 162,
+          "bp_diastolic": 94,
+          "hr_bpm": 102,
+          "rr_bpm": 28,
+          "spo2_percent": 86.0,
+          "weight_lbs": 166.0,
+          "height_inches": 64.0,
+          "bmi": 28.5
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 128,
+          "creatinine_mg_dl": 1.7,
+          "gfr_ml_min": 46,
+          "hemoglobin_g_dl": 11.8,
+          "wbc_k_ul": 8.5,
+          "platelets_k_ul": 245,
+          "sodium_meq_l": 133,
+          "potassium_meq_l": 4.8,
+          "alt_u_l": 52,
+          "ast_u_l": 48,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Sacubitril-valsartan 97-103mg twice daily",
+            "Metoprolol succinate 100mg daily",
+            "Spironolactone 25mg daily",
+            "Atorvastatin 80mg daily",
+            "Aspirin 81mg daily"
+          ],
+          "started": [
+            "Furosemide 80mg IV every 8 hours",
+            "Metolazone 5mg daily",
+            "BiPAP therapy",
+            "Oxygen 4L nasal cannula"
+          ],
+          "stopped": ["Oral furosemide switched to IV"],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Heart failure with reduced ejection fraction, EF 30% (I50.22)",
+            "Coronary artery disease, history of CABG 2020 (I25.10, Z95.1)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Chronic kidney disease Stage 3b (N18.32)",
+            "Atrial fibrillation, rate controlled (I48.91)"
+          ],
+          "new_acute": [
+            "Acute decompensated heart failure with pulmonary edema (I50.23)",
+            "Acute hypoxemic respiratory failure (J96.01)",
+            "Cardiorenal syndrome (N17.9, I50.23)"
+          ],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Chest X-ray - severe pulmonary edema, bilateral pleural effusions",
+          "BNP 2800 pg/mL (was 450 at baseline)",
+          "Troponin - negative",
+          "Echo - EF 25% (decreased from 30%), severe volume overload",
+          "Admitted to CCU"
+        ],
+        "referrals": ["Cardiology consult", "Heart failure team"],
+        "provider_note_snippet": "SEVERE ACUTE DECOMPENSATED HEART FAILURE. Patient failed outpatient diuresis, continued to gain weight (now 166 lbs, 14 lbs above dry weight). Presenting with acute pulmonary edema - pink frothy sputum, severe respiratory distress, SpO2 86% on room air. Tachypneic at 28/min, tachycardic to 102. Diffuse crackles throughout lung fields, large pleural effusions on CXR. JVP >15cm. 3+ edema to thighs. BNP critically elevated at 2800 (baseline 450). Echo shows EF declined to 25%, severe volume overload. Cardiorenal syndrome developing (Cr 1.7, Na 133). Started on BiPAP with improvement in work of breathing. IV furosemide 80mg Q8H + metolazone 5mg for aggressive diuresis. ADMITTED TO CCU. Patient needs intensive monitoring, possible ultrafiltration if diuretics inadequate.",
+        "patient_reported_adherence": "poor",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V5",
+        "visit_date": "2024-09-06",
+        "visit_type": "office_visit",
+        "chief_complaint": "Follow-up after hospital discharge, breathing much better now",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 122,
+          "bp_diastolic": 74,
+          "hr_bpm": 70,
+          "rr_bpm": 16,
+          "spo2_percent": 96.0,
+          "weight_lbs": 150.0,
+          "height_inches": 64.0,
+          "bmi": 25.8
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 98,
+          "creatinine_mg_dl": 1.2,
+          "gfr_ml_min": 64,
+          "hemoglobin_g_dl": 12.4,
+          "wbc_k_ul": 6.8,
+          "platelets_k_ul": 238,
+          "sodium_meq_l": 139,
+          "potassium_meq_l": 4.3,
+          "alt_u_l": 32,
+          "ast_u_l": 28,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Sacubitril-valsartan 97-103mg twice daily",
+            "Metoprolol succinate 100mg daily",
+            "Spironolactone 25mg daily",
+            "Atorvastatin 80mg daily",
+            "Aspirin 81mg daily"
+          ],
+          "started": [
+            "Furosemide 80mg twice daily (continuing higher dose)",
+            "Metolazone 2.5mg three times weekly (Mon-Wed-Fri)"
+          ],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Heart failure with reduced ejection fraction, EF 25% (I50.22)",
+            "Coronary artery disease, history of CABG 2020 (I25.10, Z95.1)",
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Chronic kidney disease Stage 3a (N18.3)",
+            "Atrial fibrillation, rate controlled (I48.91)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Weekly weights to clinic for 1 month",
+          "Echo in 3 months",
+          "Cardiology follow-up in 2 weeks",
+          "Dietary consult - strict 2g sodium diet",
+          "Home health nursing for medication reconciliation and education"
+        ],
+        "referrals": [
+          "Registered dietitian",
+          "Home health nursing",
+          "Cardiac rehabilitation"
+        ],
+        "provider_note_snippet": "Post-discharge follow-up after 7-day CCU admission. Patient received aggressive IV diuresis (total net negative 18 liters), ultimately required single session of ultrafiltration. Discharged on increased diuretic regimen. Currently at NEW dry weight of 150 lbs (2 lbs below previous dry weight of 152). No dyspnea at rest, no orthopnea. Trace edema only. Lungs clear. EF declined from 30% to 25% on discharge echo - concerning progression. Long discussion about dietary sodium restriction, medication adherence, and daily weight monitoring. Patient very motivated after this hospitalization. Enrolled in home health for close monitoring and education. Weekly weight checks in clinic x1 month. Considering ICD/CRT evaluation given EF decline.",
+        "patient_reported_adherence": "excellent",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      }
+    ],
+    "expected_llm_challenges": [
+      "Recognizing rapid weight gain as the critical early warning sign of CHF decompensation",
+      "Connecting orthopnea and PND with volume overload before overt pulmonary edema",
+      "Understanding the significance of BNP elevation from 450 to 2800 pg/mL",
+      "Distinguishing inadequate outpatient diuresis from true diuretic resistance",
+      "Recognizing cardiorenal syndrome (worsening kidney function despite diuresis need)",
+      "Understanding the escalation from oral to IV diuretics to ultrafiltration"
+    ],
+    "evaluation_notes": "This case tests ability to: (1) recognize acute-on-chronic heart failure exacerbation through weight and symptom tracking, (2) understand the clinical significance of orthopnea, PND, and progressive edema, (3) correlate laboratory values (BNP, creatinine) with clinical deterioration, (4) recognize treatment failure requiring escalation of care, (5) understand cardiorenal syndrome complicating diuresis, and (6) appreciate the importance of medication adherence and dietary factors in CHF management. The LLM should flag early warning signs at V2 with 5 lb weight gain, recognize acute decompensation by V3, identify critical status requiring hospitalization at V4, and understand the long-term implications of EF decline by V5.",
+    "biomistral_summary": [
+      {
+        "Primary Clinical Concern": "The patient's primary clinical concern is heart failure with reduced ejection fraction (initially 30%, declined to 25%). Her condition started stable but progressively worsened due to volume overload, exacerbated by dietary indiscretion. This led to acute decompensated heart failure with pulmonary edema and acute hypoxemic respiratory failure, requiring hospitalization in the CCU. Following aggressive diuresis and ultrafiltration, her condition improved, but her ejection fraction remains lower."
+      },
+      {
+        "Patient Allergies": "1. ACE inhibitors (Lisinopril): Angioedema - facial swelling, difficulty breathing   2. Shellfish: Hives, throat tightness"
+      },
+      {
+        "Key Lab Trends": "1.  Creatinine: Worsened from 1.1 mg/dl (2024-06-14) to 1.7 mg/dl (2024-08-14), then improved to 1.2 mg/dl (2024-09-06).  2.  GFR: Worsened from 68 ml/min (2024-06-14) to 46 ml/min (2024-08-14), then improved to 64 ml/min (2024-09-06).  3.  BNP: Increased from a stable 450 (2024-06-14, 2024-08-02 note) to critically elevated 2800 (2024-08-14 note)."
+      },
+      {
+        "Key Vital Sign Trends": "1.  Weight: Increased from a dry weight of 152 lbs (2024-06-14) to 166 lbs (2024-08-14), then decreased to a new dry weight of 150 lbs (2024-09-06).   2.  SpO2: Decreased from 91% on room air (2024-08-12) to 86% on room air (2024-08-14).   3.  Respiratory Status: Progressed from no dyspnea (2024-06-14) to mild dyspnea with usual activities (2024-08-02), then significant respiratory distress with orthopnea and PND (2024-08-12), and severe respiratory distress with pink frothy sputum and tachypnea (2024-08-14)."
+      },
+      {
+        "Treatment Response Summary": "Initially, the patient was stable on guideline-directed medical therapy. When mild volume overload occurred, increasing furosemide from 40mg to 60mg daily had limited effect. With severe decompensation, an 80mg IV dose of furosemide showed good initial response (800cc urination). However, subsequent oral diuresis failed, leading to severe acute decompensation. Aggressive IV furosemide (80mg Q8H) combined with metolazone 5mg, BiPAP, oxygen, and ultimately ultrafiltration during hospitalization led to significant improvement in symptoms and fluid status."
+      },
+      {
+        "Medication Actions Taken": "- 2024-08-02: Furosemide dose increased from 40mg daily to 60mg daily.  2024-08-12: Furosemide 80mg IV given once in urgent care. Oral Furosemide increased from 60mg daily to 80mg twice daily.  2024-08-14 (Admission): Oral furosemide stopped and switched to IV Furosemide 80mg every 8 hours. Metolazone 5mg daily started. BiPAP therapy and Oxygen 4L nasal cannula started.  2024-09-06 (Discharge): Furosemide 80mg twice daily continued. Metolazone 2.5mg three times weekly (Mon-Wed-Fri) started."
+      },
+      {
+        "Clinical Outcome of Changes": "Following initial diuretic increases, the patient's volume overload and symptoms worsened, leading to severe acute decompensated heart failure, pulmonary edema, hypoxemic respiratory failure, and acute kidney injury (cardiorenal syndrome). After aggressive IV diuresis, metolazone, BiPAP, oxygen, and ultrafiltration during a CCU admission, the patient's respiratory symptoms resolved, volume overload improved, weight decreased, and kidney function improved. However, her ejection fraction declined from 30% to 25%."
+      },
+      {
+        "Patient-Reported Barriers": "The patient admitted to 'eating more salty foods at family gathering' (2024-08-02) and 'dietary indiscretion - eating restaurant meals daily' (2024-08-12), indicating difficulty adhering to a low-sodium diet."
+      },
+      {
+        "Identified Gaps": "No explicit care gaps such as missed appointments or screenings are documented. However, the provider noted 'Considering ICD/CRT evaluation given EF decline' as a future consideration for care."
+      }
+    ],
+    "correlations": {
+      "anchor": "Acute Decompensated Heart Failure (ADHF)",
+      "factors": [
+        {
+          "name": "Chief Complaint / Symptoms (Dyspnea, Swelling, Orthopnea)",
+          "type": "direct",
+          "reasoning": "The patient's reported symptoms of ankle swelling and mild dyspnea progressively worsened to severe shortness of breath, orthopnea, and pink frothy sputum, directly mirroring the escalation of heart failure decompensation from mild volume overload to severe acute pulmonary edema, and improved with resolution of ADHF."
+        },
+        {
+          "name": "Weight Gain / Volume Overload",
+          "type": "direct",
+          "reasoning": "The patient's weight increased steadily (5 lbs, then 12 lbs, then 14 lbs above dry weight) from Visit 2 to Visit 4, directly correlating with the development and worsening of ADHF and signs of fluid overload (edema, crackles, JVP). Aggressive diuresis in hospital led to significant weight loss and resolution of ADHF symptoms."
+        },
+        {
+          "name": "Chronic Kidney Disease (Creatinine/GFR changes)",
+          "type": "direct",
+          "reasoning": "Creatinine levels rose (1.1 -> 1.7 mg/dL) and GFR declined (68 -> 46 mL/min) as ADHF worsened and volume overload became severe, leading to a diagnosis of cardiorenal syndrome. These kidney function parameters improved post-diuresis (Cr 1.2, GFR 64)."
+        },
+        {
+          "name": "Ejection Fraction (EF) Decline",
+          "type": "direct",
+          "reasoning": "The patient's baseline EF of 30% was noted to have declined to 25% during the severe ADHF exacerbation at Visit 4, and remained at 25% post-discharge, indicating a direct negative impact of the acute decompensation on cardiac function."
+        },
+        {
+          "name": "Dietary Indiscretion (High Sodium Intake)",
+          "type": "direct",
+          "reasoning": "Provider notes explicitly attribute the initial weight gain and mild volume overload (V2) to 'eating more salty foods' and the subsequent severe ADHF exacerbation (V3) to 'eating restaurant meals daily,' demonstrating a direct causal link between dietary sodium intake and heart failure decompensation."
+        }
+      ]
+    }
+  },
+
+  {
+    "patient_name": "Prateek Patidar",
+    "patient_id": "TEST_PT_010",
+    "archetype": "Archetype_6_Occult_Cancer_Colon",
+    "demographics": {
+      "age": 71,
+      "sex": "M",
+      "race_ethnicity": "Caucasian"
+    },
+    "allergies": [
+      {
+        "allergen": "Codeine",
+        "reaction": "Severe nausea, vomiting",
+        "severity": "moderate",
+        "onset": "2010"
+      },
+      {
+        "allergen": "Latex",
+        "reaction": "Contact dermatitis, skin irritation",
+        "severity": "mild",
+        "onset": "2005"
+      }
+    ],
+    "ground_truth_correlations": [
+      {
+        "correlation_id": "CORR_010_A",
+        "type": "persistent_symptom",
+        "description": "Progressive unintentional weight loss (22 lbs over 6 months) without clear benign etiology",
+        "entities_involved": ["Weight loss", "Appetite", "BMI decline"],
+        "visits_involved": ["V1", "V2", "V3", "V4", "V5"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.92
+      },
+      {
+        "correlation_id": "CORR_010_B",
+        "type": "symptom_lab_correlation",
+        "description": "Progressive iron deficiency anemia despite supplementation, concerning for GI blood loss",
+        "entities_involved": [
+          "Hemoglobin",
+          "Ferritin",
+          "Iron saturation",
+          "Occult blood"
+        ],
+        "visits_involved": ["V1", "V2", "V3", "V4", "V5"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.94
+      },
+      {
+        "correlation_id": "CORR_010_C",
+        "type": "persistent_symptom",
+        "description": "Intermittent abdominal pain and change in bowel habits persisting across multiple visits",
+        "entities_involved": [
+          "Abdominal pain",
+          "Constipation",
+          "Bowel habit changes"
+        ],
+        "visits_involved": ["V2", "V3", "V4", "V5"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.88
+      },
+      {
+        "correlation_id": "CORR_010_D",
+        "type": "care_gap",
+        "description": "Delayed colonoscopy despite red flag symptoms (weight loss, anemia, age >70, bowel changes) - 4+ month delay",
+        "entities_involved": [
+          "Colonoscopy",
+          "Weight loss",
+          "Anemia",
+          "Age",
+          "Symptoms"
+        ],
+        "visits_involved": ["V2", "V3", "V4", "V5"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.9
+      }
+    ],
+    "clinical_timeline": [
+      {
+        "visit_id": "V1",
+        "visit_date": "2024-03-28",
+        "visit_type": "office_visit",
+        "chief_complaint": "Annual physical, also noticed losing some weight without trying",
+        "vitals": {
+          "temp_f": 98.3,
+          "bp_systolic": 138,
+          "bp_diastolic": 82,
+          "hr_bpm": 74,
+          "rr_bpm": 15,
+          "spo2_percent": 98.0,
+          "weight_lbs": 182.0,
+          "height_inches": 70.0,
+          "bmi": 26.1
+        },
+        "labs": {
+          "hba1c": 5.8,
+          "glucose_mg_dl": 102,
+          "creatinine_mg_dl": 1.0,
+          "gfr_ml_min": 85,
+          "hemoglobin_g_dl": 12.8,
+          "wbc_k_ul": 7.5,
+          "platelets_k_ul": 385,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 32,
+          "ast_u_l": 28,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": 2.4,
+          "cholesterol_total_mg_dl": 198,
+          "ldl_mg_dl": 118,
+          "hdl_mg_dl": 48,
+          "triglycerides_mg_dl": 160,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": 38.0,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Atorvastatin 20mg daily",
+            "Aspirin 81mg daily"
+          ],
+          "started": ["Ferrous sulfate 325mg daily"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": ["Hypertension (I10)", "Hyperlipidemia (E78.5)"],
+          "new_acute": ["Anemia, unspecified (D64.9)", "Weight loss (R63.4)"],
+          "differential": []
+        },
+        "procedures_ordered": ["Stool guaiac test"],
+        "referrals": [],
+        "provider_note_snippet": "Annual physical. Patient reports 8 lb unintentional weight loss over past 3 months (was 190 lbs, now 182 lbs). Attributes to 'eating less' but no clear reason. Hemoglobin slightly low at 12.8, ferritin low at 38 suggesting iron deficiency. No obvious bleeding source. Stool guaiac ordered. Started iron supplementation. Patient last colonoscopy was 12 years ago (age 59) - overdue for screening. Will schedule if stool guaiac positive.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": "former (quit 10 years ago, 20 pack-year history)",
+          "alcohol": "moderate",
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      },
+      {
+        "visit_id": "V2",
+        "visit_date": "2024-05-17",
+        "visit_type": "office_visit",
+        "chief_complaint": "Follow-up on weight loss and anemia, now having some belly discomfort",
+        "vitals": {
+          "temp_f": 98.1,
+          "bp_systolic": 134,
+          "bp_diastolic": 80,
+          "hr_bpm": 76,
+          "rr_bpm": 15,
+          "spo2_percent": 98.0,
+          "weight_lbs": 178.0,
+          "height_inches": 70.0,
+          "bmi": 25.5
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": null,
+          "gfr_ml_min": null,
+          "hemoglobin_g_dl": 12.2,
+          "wbc_k_ul": 7.8,
+          "platelets_k_ul": 398,
+          "sodium_meq_l": null,
+          "potassium_meq_l": null,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": 385,
+          "folate_ng_ml": 10.2,
+          "ferritin_ng_ml": 42.0,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Atorvastatin 20mg daily",
+            "Aspirin 81mg daily",
+            "Ferrous sulfate 325mg daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Anemia, iron deficiency (D50.9)"
+          ],
+          "new_acute": ["Weight loss (R63.4)", "Abdominal pain (R10.9)"],
+          "differential": ["Gastritis", "Peptic ulcer", "Malabsorption"]
+        },
+        "procedures_ordered": ["Upper endoscopy", "Celiac panel"],
+        "referrals": ["GI for EGD"],
+        "provider_note_snippet": "Patient with continued weight loss - now down to 178 lbs (12 lbs total over 4 months). Hemoglobin declining despite iron supplementation (12.8 to 12.2). Ferritin minimally improved. Stool guaiac was negative. Now reports vague intermittent lower abdominal cramping and notes stools sometimes harder to pass. B12 and folate normal. Referred for upper endoscopy to evaluate for gastric source of bleeding/malabsorption. Patient hesitant about colonoscopy, wants to 'see what EGD shows first.'",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V3",
+        "visit_date": "2024-06-28",
+        "visit_type": "office_visit",
+        "chief_complaint": "EGD results follow-up, weight still dropping, constipation worse",
+        "vitals": {
+          "temp_f": 98.0,
+          "bp_systolic": 130,
+          "bp_diastolic": 78,
+          "hr_bpm": 78,
+          "rr_bpm": 15,
+          "spo2_percent": 98.0,
+          "weight_lbs": 172.0,
+          "height_inches": 70.0,
+          "bmi": 24.7
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 98,
+          "creatinine_mg_dl": 1.0,
+          "gfr_ml_min": 85,
+          "hemoglobin_g_dl": 11.4,
+          "wbc_k_ul": 8.2,
+          "platelets_k_ul": 412,
+          "sodium_meq_l": 139,
+          "potassium_meq_l": 4.1,
+          "alt_u_l": 35,
+          "ast_u_l": 32,
+          "crp_mg_l": 18.5,
+          "esr_mm_hr": 42,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": 35.0,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Atorvastatin 20mg daily",
+            "Aspirin 81mg daily",
+            "Ferrous sulfate 325mg daily"
+          ],
+          "started": ["Polyethylene glycol 3350 17g daily for constipation"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Anemia, iron deficiency (D50.9)"
+          ],
+          "new_acute": [
+            "Weight loss, progressive (R63.4)",
+            "Constipation (K59.00)",
+            "Abdominal pain (R10.9)"
+          ],
+          "differential": ["Inflammatory bowel disease", "Malignancy", "IBS"]
+        },
+        "procedures_ordered": ["Colonoscopy ordered - patient to schedule"],
+        "referrals": [],
+        "provider_note_snippet": "EGD results: mild gastritis, no ulcers, biopsies benign. This does NOT explain progressive weight loss and anemia. Patient now down 18 lbs total (190 to 172 lbs over 5 months). Hemoglobin continues to decline (11.4). Ferritin not improving despite iron therapy. New complaints of worsening constipation and crampy abdominal pain. CRP and ESR elevated suggesting inflammation. NEED COLONOSCOPY - this could be colon cancer, IBD, or other colonic pathology. Strongly recommended colonoscopy. Patient agrees but wants to wait until after daughter's wedding in 6 weeks.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V4",
+        "visit_date": "2024-08-09",
+        "visit_type": "office_visit",
+        "chief_complaint": "Weight loss continues, very fatigued, noticed blood on toilet paper few times",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 126,
+          "bp_diastolic": 76,
+          "hr_bpm": 82,
+          "rr_bpm": 16,
+          "spo2_percent": 97.0,
+          "weight_lbs": 168.0,
+          "height_inches": 70.0,
+          "bmi": 24.1
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": 1.0,
+          "gfr_ml_min": 85,
+          "hemoglobin_g_dl": 10.2,
+          "wbc_k_ul": 8.8,
+          "platelets_k_ul": 445,
+          "sodium_meq_l": 138,
+          "potassium_meq_l": 4.0,
+          "alt_u_l": 38,
+          "ast_u_l": 35,
+          "crp_mg_l": 28.4,
+          "esr_mm_hr": 58,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": 28.0,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Atorvastatin 20mg daily",
+            "Aspirin 81mg daily",
+            "Ferrous sulfate 325mg daily",
+            "Polyethylene glycol 3350 17g daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Anemia, iron deficiency (D50.9)"
+          ],
+          "new_acute": [
+            "Weight loss, severe (R63.4)",
+            "Hematochezia (K62.5)",
+            "Fatigue (R53.83)"
+          ],
+          "differential": ["Colorectal cancer", "IBD", "Colonic polyps"]
+        },
+        "procedures_ordered": [
+          "Colonoscopy URGENT - called GI to expedite",
+          "CEA level"
+        ],
+        "referrals": ["GI urgent colonoscopy"],
+        "provider_note_snippet": "ALARMING PROGRESSION. Patient now 22 lbs below baseline weight (190 to 168 lbs over 6 months). Hemoglobin 10.2 - moderate anemia worsening despite iron. Now reports visible blood on toilet paper with bowel movements. Severe fatigue limiting activities. Platelets elevated at 445 (reactive thrombocytosis - concerning for malignancy). CRP and ESR markedly elevated. This is RED FLAG constellation: age >70 + progressive weight loss + worsening anemia + GI bleeding + inflammatory markers. HIGH SUSPICION FOR COLORECTAL CANCER. Called GI to expedite colonoscopy - scheduled for next week. Ordered CEA tumor marker.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V5",
+        "visit_date": "2024-08-23",
+        "visit_type": "office_visit",
+        "chief_complaint": "Colonoscopy results discussion",
+        "vitals": {
+          "temp_f": 98.1,
+          "bp_systolic": 132,
+          "bp_diastolic": 80,
+          "hr_bpm": 80,
+          "rr_bpm": 16,
+          "spo2_percent": 97.0,
+          "weight_lbs": 166.0,
+          "height_inches": 70.0,
+          "bmi": 23.8
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": 1.0,
+          "gfr_ml_min": 85,
+          "hemoglobin_g_dl": 9.8,
+          "wbc_k_ul": 9.2,
+          "platelets_k_ul": 468,
+          "sodium_meq_l": 139,
+          "potassium_meq_l": 4.1,
+          "alt_u_l": 42,
+          "ast_u_l": 38,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Lisinopril 10mg daily",
+            "Atorvastatin 20mg daily",
+            "Aspirin 81mg daily",
+            "Ferrous sulfate 325mg daily"
+          ],
+          "started": [],
+          "stopped": ["Polyethylene glycol discontinued"],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": ["Hypertension (I10)", "Hyperlipidemia (E78.5)"],
+          "new_acute": [
+            "Adenocarcinoma of sigmoid colon, Stage II (C18.7)",
+            "Anemia secondary to malignancy (D63.0)"
+          ],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "CT chest/abdomen/pelvis for staging",
+          "PET scan",
+          "Surgical oncology consultation",
+          "Nutritional support consultation"
+        ],
+        "referrals": ["Surgical oncology", "Medical oncology", "Nutrition"],
+        "provider_note_snippet": "COLONOSCOPY RESULTS: Large, partially obstructing mass in sigmoid colon (5cm). Biopsies confirm moderately differentiated adenocarcinoma. CEA elevated at 42 ng/mL (normal <5). This explains entire clinical picture - progressive weight loss, iron deficiency anemia, bowel changes, bleeding, inflammatory markers. CT staging pending but no obvious metastases on initial imaging. Likely Stage II or III. Referred urgently to surgical oncology for resection. Patient and family devastated but also relieved to have diagnosis. In retrospect, colonoscopy should have been done 4-5 months ago when red flags first appeared. Delay may have allowed progression. Important lesson about acting quickly on alarm symptoms.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      }
+    ],
+    "expected_llm_challenges": [
+      "Recognizing the constellation of alarm symptoms (weight loss + anemia + age >70) early in the timeline",
+      "Understanding that negative stool guaiac does NOT rule out GI malignancy",
+      "Identifying the pattern of progressive anemia despite iron supplementation as highly concerning",
+      "Recognizing reactive thrombocytosis and elevated inflammatory markers as potential cancer signals",
+      "Understanding the critical delay in performing colonoscopy despite multiple red flags",
+      "Connecting seemingly disparate symptoms (weight loss, anemia, constipation, fatigue) to a unifying diagnosis"
+    ],
+    "evaluation_notes": "This case tests ability to: (1) recognize occult cancer presentation through progressive symptoms over time, (2) identify alarm symptoms requiring urgent investigation, (3) understand that normal or minimally helpful initial tests do not exclude serious pathology, (4) track multiple converging clinical indicators (weight loss, anemia, bleeding, inflammatory markers), (5) recognize critical diagnostic delays as care gaps, and (6) appreciate the urgency needed when multiple red flags are present. The LLM should flag concern by V1-V2 with weight loss and anemia in elderly patient, recognize high suspicion for malignancy by V3 with progressive symptoms and normal EGD, identify critical urgency by V4 with overt bleeding and severe anemia, and understand that the 4-5 month delay to colonoscopy was a significant care gap that may have affected outcomes.",
+    "biomistral_summary": [
+      {
+        "Primary Clinical Concern": "The patient presented for an annual physical with unintentional weight loss. Over several months, this progressed to worsening iron deficiency anemia, persistent weight loss (total 22 lbs), new onset abdominal pain, worsening constipation, and eventual hematochezia and severe fatigue. This constellation of symptoms and lab abnormalities (declining hemoglobin/ferritin, elevated inflammatory markers, reactive thrombocytosis) ultimately led to a diagnosis of Stage II adenocarcinoma of the sigmoid colon."
+      },
+      {
+        "Patient Allergies": "1. Codeine: Severe nausea, vomiting   2. Latex: Contact dermatitis, skin irritation"
+      },
+      {
+        "Key Lab Trends": "1. Hemoglobin: Declined from 12.8 g/dl (2024-03-28) to 9.8 g/dl (2024-08-23).   2. Ferritin: Declined from 38.0 ng/ml (2024-03-28) to 28.0 ng/ml (2024-08-09).   3. Platelets: Increased from 385 k/ul (2024-03-28) to 468 k/ul (2024-08-23)."
+      },
+      {
+        "Key Vital Sign Trends": "None documented in the provided patient data."
+      },
+      {
+        "Treatment Response Summary": "Ferrous sulfate 325mg daily was started for anemia but hemoglobin continued to decline and ferritin levels did not improve, suggesting a non-responsive iron deficiency. Polyethylene glycol 3350 17g daily was started for constipation, but its effectiveness is not explicitly detailed; it was later discontinued."
+      },
+      {
+        "Medication Actions Taken": "2024-03-28: Ferrous sulfate 325mg daily started.  2024-06-28: Polyethylene glycol 3350 17g daily started.  2024-08-23: Polyethylene glycol discontinued."
+      },
+      {
+        "Clinical Outcome of Changes": "Despite starting iron supplementation, the patient's anemia worsened progressively. The patient's weight loss continued, and new gastrointestinal symptoms like abdominal pain, worsening constipation, and hematochezia developed, indicating a deterioration of the primary clinical concern. Overall, the patient's key problems and lab trends worsened, ultimately leading to a cancer diagnosis."
+      },
+      {
+        "Patient-Reported Barriers": "1. Patient was hesitant about colonoscopy, wanting to 'see what EGD shows first'.  2.Patient agreed to colonoscopy but wanted to wait until after daughter's wedding in 6 weeks."
+      },
+      {
+        "Identified Gaps": "1. Patient was overdue for screening colonoscopy (last one 12 years prior at age 59). 2. There was a delay in performing colonoscopy after red flags appeared, which the provider noted 'may have allowed progression.'"
+      }
+    ],
+    "correlations": {
+      "anchor": "Adenocarcinoma of sigmoid colon (C18.7)",
+      "factors": [
+        {
+          "name": "Progressive Weight Loss (R63.4)",
+          "type": "direct",
+          "reasoning": "The patient's unintentional weight loss started at Visit 1 and progressively worsened throughout the clinical course, ultimately explained by the diagnosed malignancy."
+        },
+        {
+          "name": "Worsening Iron Deficiency Anemia (D50.9, D63.0)",
+          "type": "direct",
+          "reasoning": "Initial anemia at Visit 1, characterized by low hemoglobin and ferritin, continued to decline despite iron supplementation and was eventually diagnosed as secondary to malignancy, explained by chronic blood loss from the tumor."
+        },
+        {
+          "name": "Changes in Bowel Habits (Abdominal Pain, Constipation, Hematochezia)",
+          "type": "direct",
+          "reasoning": "Vague abdominal discomfort progressed to worsening constipation and cramping abdominal pain, followed by reports of blood on toilet paper (hematochezia), all symptomatic of the colonic adenocarcinoma."
+        },
+        {
+          "name": "Elevated Inflammatory Markers (CRP, ESR) and Thrombocytosis",
+          "type": "direct",
+          "reasoning": "Elevated CRP and ESR, along with reactive thrombocytosis (elevated platelets), were observed as the disease progressed, indicating systemic inflammation commonly associated with malignancy."
+        },
+        {
+          "name": "Elevated CEA (Carcinoembryonic Antigen)",
+          "type": "direct",
+          "reasoning": "The CEA level of 42 ng/mL (normal <5) was found to be significantly elevated following the diagnosis, serving as a tumor marker directly correlated with the adenocarcinoma."
+        }
+      ]
+    }
+  },
+
+  {
+    "patient_name": "Haily Brown",
+    "patient_id": "TEST_PT_015",
+    "archetype": "Archetype_10_Preeclampsia_Trajectory",
+    "demographics": {
+      "age": 28,
+      "sex": "F",
+      "race_ethnicity": "African American"
+    },
+    "allergies": [
+      {
+        "allergen": "Penicillin",
+        "reaction": "Rash, unknown details (patient report from childhood)",
+        "severity": "unknown",
+        "onset": "childhood per patient"
+      }
+    ],
+    "ground_truth_correlations": [
+      {
+        "correlation_id": "CORR_015_A",
+        "type": "lab_trend",
+        "description": "Progressive BP elevation from 112/68 at baseline to 168/108, indicating preeclampsia development",
+        "entities_involved": [
+          "BP systolic",
+          "BP diastolic",
+          "Gestational age",
+          "Proteinuria"
+        ],
+        "visits_involved": ["V1", "V2", "V3", "V4", "V5"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.94
+      },
+      {
+        "correlation_id": "CORR_015_B",
+        "type": "symptom_lab_correlation",
+        "description": "Rising proteinuria (negative to 4+ protein) correlating with BP elevation and symptoms",
+        "entities_involved": [
+          "Proteinuria",
+          "BP",
+          "Headache",
+          "Visual changes",
+          "Edema"
+        ],
+        "visits_involved": ["V2", "V3", "V4", "V5"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.92
+      },
+      {
+        "correlation_id": "CORR_015_C",
+        "type": "lab_trend",
+        "description": "Declining platelet count and elevated liver enzymes indicating HELLP syndrome development",
+        "entities_involved": ["Platelets", "AST", "ALT", "LDH", "Hemoglobin"],
+        "visits_involved": ["V4", "V5"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.95
+      },
+      {
+        "correlation_id": "CORR_015_D",
+        "type": "persistent_symptom",
+        "description": "Warning symptoms (severe headache, RUQ pain, visual changes) preceding severe preeclampsia with features",
+        "entities_involved": [
+          "Headache",
+          "RUQ pain",
+          "Visual disturbance",
+          "BP",
+          "Labs"
+        ],
+        "visits_involved": ["V4", "V5"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.93
+      }
+    ],
+    "clinical_timeline": [
+      {
+        "visit_id": "V1",
+        "visit_date": "2024-04-12",
+        "visit_type": "office_visit",
+        "chief_complaint": "First prenatal visit, about 10 weeks pregnant",
+        "vitals": {
+          "temp_f": 98.3,
+          "bp_systolic": 112,
+          "bp_diastolic": 68,
+          "hr_bpm": 76,
+          "rr_bpm": 16,
+          "spo2_percent": 99.0,
+          "weight_lbs": 145.0,
+          "height_inches": 65.0,
+          "bmi": 24.1
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 88,
+          "creatinine_mg_dl": 0.7,
+          "gfr_ml_min": 125,
+          "hemoglobin_g_dl": 12.6,
+          "wbc_k_ul": 7.8,
+          "platelets_k_ul": 245,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.1,
+          "alt_u_l": 18,
+          "ast_u_l": 22,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": 1.6,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [],
+          "started": ["Prenatal vitamins daily"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [],
+          "new_acute": ["Intrauterine pregnancy, 10 weeks (Z34.00)"],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Dating ultrasound - single viable IUP, 10w3d, EDD November 22, 2024",
+          "First trimester labs - all normal",
+          "Urinalysis - negative protein, no infection"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "First prenatal visit. G1P0 (primigravida). 28 yo African American female. Risk factors for preeclampsia: African American race, primigravida, family history (mother had preeclampsia). Pre-pregnancy weight 142 lbs, current 145 lbs. BMI 24.1 - normal. Baseline BP 112/68. No proteinuria. Patient healthy, no chronic conditions. Discussed warning signs of preeclampsia given risk factors. Standard prenatal care plan.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": "never",
+          "alcohol": "none",
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      },
+      {
+        "visit_id": "V2",
+        "visit_date": "2024-06-21",
+        "visit_type": "office_visit",
+        "chief_complaint": "Routine visit, 20 weeks, anatomy scan completed",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 118,
+          "bp_diastolic": 74,
+          "hr_bpm": 78,
+          "rr_bpm": 16,
+          "spo2_percent": 99.0,
+          "weight_lbs": 155.0,
+          "height_inches": 65.0,
+          "bmi": 25.8
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": null,
+          "gfr_ml_min": null,
+          "hemoglobin_g_dl": 11.8,
+          "wbc_k_ul": null,
+          "platelets_k_ul": null,
+          "sodium_meq_l": null,
+          "potassium_meq_l": null,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": ["Prenatal vitamins daily"],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [],
+          "new_acute": ["Intrauterine pregnancy, 20 weeks (Z34.00)"],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Anatomy ultrasound - normal male fetus, all structures normal",
+          "Urinalysis - negative protein"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "20 week visit. Weight 155 lbs (10 lb gain, appropriate). BP 118/74 (stable). Anatomy scan normal. Fundal height appropriate. Fetal movement felt. No complaints. Hemoglobin 11.8 - borderline, monitoring. Continue routine prenatal care.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V3",
+        "visit_date": "2024-08-16",
+        "visit_type": "office_visit",
+        "chief_complaint": "28 week visit, noticed some swelling in hands and feet past week",
+        "vitals": {
+          "temp_f": 98.4,
+          "bp_systolic": 138,
+          "bp_diastolic": 86,
+          "hr_bpm": 84,
+          "rr_bpm": 17,
+          "spo2_percent": 98.0,
+          "weight_lbs": 168.0,
+          "height_inches": 65.0,
+          "bmi": 28.0
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": 0.8,
+          "gfr_ml_min": 118,
+          "hemoglobin_g_dl": 11.2,
+          "wbc_k_ul": 9.5,
+          "platelets_k_ul": 228,
+          "sodium_meq_l": 138,
+          "potassium_meq_l": 4.0,
+          "alt_u_l": 24,
+          "ast_u_l": 26,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": ["Prenatal vitamins daily"],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [],
+          "new_acute": [
+            "Intrauterine pregnancy, 28 weeks (Z34.00)",
+            "Gestational edema (O12.05)"
+          ],
+          "differential": ["Preeclampsia"]
+        },
+        "procedures_ordered": [
+          "Urinalysis - trace protein (100mg)",
+          "24-hour urine protein ordered",
+          "Uric acid 5.2 mg/dL"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "28 weeks. Weight 168 lbs (23 lb gain, upper limit of normal). BP 138/86 - ELEVATED from baseline 112/68. 1+ pitting edema bilateral hands and feet. Patient reports rings tight. Trace proteinuria on dipstick. Concerning for early preeclampsia. Ordered 24-hour urine protein. Uric acid 5.2 (borderline). Labs otherwise normal including platelets 228, liver enzymes normal. Patient to monitor BP at home twice daily. Return in 1 week for recheck. Instructed on warning signs: severe headache, vision changes, RUQ pain, decreased fetal movement. If 24-hr protein >300mg, diagnosis of preeclampsia confirmed.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V4",
+        "visit_date": "2024-09-06",
+        "visit_type": "office_visit",
+        "chief_complaint": "Follow-up visit, 31 weeks, having headaches past few days",
+        "vitals": {
+          "temp_f": 98.3,
+          "bp_systolic": 152,
+          "bp_diastolic": 96,
+          "hr_bpm": 88,
+          "rr_bpm": 18,
+          "spo2_percent": 98.0,
+          "weight_lbs": 173.0,
+          "height_inches": 65.0,
+          "bmi": 28.8
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 92,
+          "creatinine_mg_dl": 0.9,
+          "gfr_ml_min": 108,
+          "hemoglobin_g_dl": 10.8,
+          "wbc_k_ul": 10.2,
+          "platelets_k_ul": 185,
+          "sodium_meq_l": 137,
+          "potassium_meq_l": 4.1,
+          "alt_u_l": 42,
+          "ast_u_l": 48,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": ["Prenatal vitamins daily"],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [],
+          "new_acute": [
+            "Intrauterine pregnancy, 31 weeks (Z34.00)",
+            "Preeclampsia without severe features (O14.00)"
+          ],
+          "differential": ["Preeclampsia with severe features"]
+        },
+        "procedures_ordered": [
+          "24-hour urine protein result: 450mg (ELEVATED, confirms preeclampsia)",
+          "Urinalysis - 2+ protein",
+          "Uric acid 6.8 mg/dL (elevated)",
+          "NST - reactive",
+          "Growth ultrasound - fetus 45th percentile"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "PREECLAMPSIA DIAGNOSED. 24-hr urine protein 450mg (>300 confirms diagnosis). BP 152/96. 2+ proteinuria. 2+ edema now to knees. Patient reports frontal headaches daily x3 days, responding to Tylenol. No visual changes, no RUQ pain. Platelets declining to 185 (from 228 three weeks ago). Liver enzymes mildly elevated: ALT 42, AST 48. Uric acid 6.8. This is preeclampsia without severe features currently, but trending worse. NST reactive. Fetus appropriate size. Plan: twice weekly NSTs and labs starting now. Steroids for fetal lung maturity given. Goal to reach 37 weeks if stable, but deliver earlier if severe features develop. Patient on modified bed rest. Home BP monitoring.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V5",
+        "visit_date": "2024-09-13",
+        "visit_type": "emergency",
+        "chief_complaint": "Severe headache that won't go away, seeing spots, pain under right ribs",
+        "vitals": {
+          "temp_f": 98.6,
+          "bp_systolic": 168,
+          "bp_diastolic": 108,
+          "hr_bpm": 96,
+          "rr_bpm": 20,
+          "spo2_percent": 97.0,
+          "weight_lbs": 176.0,
+          "height_inches": 65.0,
+          "bmi": 29.3
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 98,
+          "creatinine_mg_dl": 1.2,
+          "gfr_ml_min": 85,
+          "hemoglobin_g_dl": 9.8,
+          "wbc_k_ul": 11.5,
+          "platelets_k_ul": 98,
+          "sodium_meq_l": 135,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 168,
+          "ast_u_l": 242,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": ["Prenatal vitamins daily"],
+          "started": [
+            "Magnesium sulfate IV for seizure prophylaxis",
+            "Labetalol IV for BP control",
+            "Betamethasone IM for fetal lung maturity (completed)"
+          ],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [],
+          "new_acute": [
+            "Intrauterine pregnancy, 32 weeks (Z34.00)",
+            "Severe preeclampsia with severe features (O14.12)",
+            "HELLP syndrome (O14.2)"
+          ],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Urinalysis - 4+ protein",
+          "LDH 685 U/L (elevated)",
+          "Peripheral smear - schistocytes present",
+          "Coagulation panel - normal",
+          "NST - reactive",
+          "Emergency cesarean section performed"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "SEVERE PREECLAMPSIA WITH HELLP SYNDROME - OBSTETRIC EMERGENCY. Patient presenting at 32w1d with severe unrelenting headache, visual disturbances (scotomas), and severe RUQ/epigastric pain. BP 168/108. HELLP SYNDROME CRITERIA MET: Hemolysis (Hgb 9.8 down from 10.8, LDH 685, schistocytes on smear), Elevated Liver enzymes (AST 242, ALT 168), Low Platelets (98, down from 185). 4+ proteinuria. Creatinine rising to 1.2. This represents severe preeclampsia with severe features. Started magnesium sulfate for seizure prophylaxis. Labetalol IV for BP control. Steroids completed. IMMEDIATE DELIVERY INDICATED despite 32 weeks gestation - maternal life-threatening condition. Cesarean section performed - delivered 32w1d male infant, 3 lbs 14 oz, Apgars 7/8, admitted to NICU. Patient to ICU for monitoring. This case demonstrates rapid progression from preeclampsia to HELLP syndrome over 1 week.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V6",
+        "visit_date": "2024-10-25",
+        "visit_type": "office_visit",
+        "chief_complaint": "Postpartum visit, 6 weeks after emergency delivery",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 132,
+          "bp_diastolic": 82,
+          "hr_bpm": 74,
+          "rr_bpm": 16,
+          "spo2_percent": 99.0,
+          "weight_lbs": 152.0,
+          "height_inches": 65.0,
+          "bmi": 25.3
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": 0.8,
+          "gfr_ml_min": 118,
+          "hemoglobin_g_dl": 11.8,
+          "wbc_k_ul": 7.5,
+          "platelets_k_ul": 242,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.1,
+          "alt_u_l": 28,
+          "ast_u_l": 26,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [],
+          "started": [],
+          "stopped": ["All postpartum medications discontinued"],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "History of severe preeclampsia/HELLP syndrome (Z86.32)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": ["Urinalysis - no protein"],
+        "referrals": [],
+        "provider_note_snippet": "6 week postpartum visit. Patient recovered well from severe preeclampsia/HELLP. Spent 4 days in ICU post-delivery, platelets and liver enzymes normalized by post-op day 3. Discharged on post-op day 5. BP normalized immediately after delivery. Current BP 132/82 - borderline but acceptable. No proteinuria. Labs normalized - platelets 242, liver enzymes normal, hemoglobin recovered. Weight 152 lbs (7 lbs above pre-pregnancy). Incision healed well. Baby in NICU for 3 weeks, now home and doing well. IMPORTANT COUNSELING: Patient at HIGH RISK for preeclampsia in future pregnancies (25-50% recurrence risk). Also at increased risk for chronic hypertension and cardiovascular disease later in life. Discussed low-dose aspirin for future pregnancies starting at 12 weeks. Recommended close preconception counseling before next pregnancy. Patient choosing long-acting reversible contraception (IUD) given risks.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      }
+    ],
+    "expected_llm_challenges": [
+      "Recognizing the progression from normal BP to preeclampsia to severe preeclampsia with HELLP",
+      "Understanding the significance of rising BP in conjunction with proteinuria",
+      "Identifying warning symptoms (headache, visual changes, RUQ pain) as severe features",
+      "Recognizing HELLP syndrome criteria (hemolysis, elevated liver enzymes, low platelets)",
+      "Understanding the rapidity of progression requiring emergency delivery despite prematurity",
+      "Appreciating long-term cardiovascular risk after preeclampsia/HELLP"
+    ],
+    "evaluation_notes": "This case tests ability to: (1) track progressive BP elevation across pregnancy, (2) recognize preeclampsia development through BP + proteinuria, (3) identify laboratory trends indicating worsening disease (declining platelets, rising liver enzymes), (4) connect warning symptoms with severe features requiring immediate intervention, (5) understand HELLP syndrome as life-threatening complication, (6) recognize the need for emergency delivery despite prematurity, and (7) appreciate long-term health implications. The LLM should flag concern at V3 with elevated BP and edema, recognize preeclampsia diagnosis at V4, identify rapid progression and severe features at V5 requiring emergency intervention, and understand at V6 the implications for future pregnancy and cardiovascular health. This case demonstrates how quickly preeclampsia can progress from mild to life-threatening.",
+    "biomistral_summary": [
+      {
+        "Primary Clinical Concern": "The primary clinical concern was an intrauterine pregnancy (G1P0) complicated by the rapid onset and progression of preeclampsia, culminating in severe preeclampsia with HELLP syndrome requiring emergency delivery at 32 weeks. The patient presented for her first prenatal visit at 10 weeks, and by 28 weeks, developed elevated blood pressure and edema, raising concerns for preeclampsia. By 31 weeks, preeclampsia without severe features was diagnosed. One week later, at 32 weeks, her condition acutely worsened with severe headache, visual changes, and right upper quadrant pain, leading to a diagnosis of severe preeclampsia with HELLP syndrome. An emergency Cesarean section was performed. Post-delivery, the patient recovered well, with normalization of lab values and blood pressure by her 6-week postpartum visit, though she remains at high risk for future cardiovascular issues and preeclampsia in subsequent pregnancies."
+      },
+      {
+        "Patient Allergies": "Penicillin: Rash (patient report from childhood)"
+      },
+      {
+        "Key Lab Trends": "1.  Platelets (k/uL): Decreased from 245 (2024-04-12) to 185 (2024-09-06) to 98 (2024-09-13).   2. ALT (U/L): Increased from 18 (2024-04-12) to 42 (2024-09-06) to 168 (2024-09-13).   3. AST (U/L): Increased from 22 (2024-04-12) to 48 (2024-09-06) to 242 (2024-09-13)."
+      },
+      {
+        "Key Vital Sign Trends": "Blood Pressure (mmHg): Increased from baseline 112/68 (2024-04-12) to 138/86 (2024-08-16), then to 152/96 (2024-09-06), and severely to 168/108 (2024-09-13)."
+      },
+      {
+        "Treatment Response Summary": "Prenatal vitamins were continued throughout the pregnancy. Magnesium sulfate and Labetalol were started for seizure prophylaxis and BP control, respectively, at the time of severe preeclampsia and HELLP syndrome, in conjunction with Betamethasone for fetal lung maturity. The definitive treatment of delivery for severe preeclampsia with HELLP syndrome led to a resolution of the severe symptoms and normalization of blood pressure and lab abnormalities postpartum."
+      },
+      {
+        "Medication Actions Taken": "Started : Prenatal vitamins daily (2024-04-12),  Magnesium sulfate IV for seizure prophylaxis (2024-09-13), Labetalol IV for BP control (2024-09-13), Betamethasone IM for fetal lung maturity (completed) (2024-09-13)          Continued: Prenatal vitamins daily (from 2024-06-21 to 2024-09-13)             Stopped: All postpartum medications discontinued (2024-10-25)"
+      },
+      {
+        "Clinical Outcome of Changes": "Following the emergency delivery and supportive medications, the patient's critical condition resolved. Her blood pressure normalized immediately, and platelets and liver enzymes normalized by post-op day 3. At the 6-week postpartum visit, she had recovered well, with normal lab values and acceptable blood pressure."
+      },
+      {
+        "Patient-Reported Barriers": "No patient-reported barriers to treatment were documented."
+      },
+      {
+        "Identified Gaps": "No documented care gaps, such as missed appointments or screenings, were identified in the provided timeline."
+      }
+    ],
+
+    "correlations": {
+      "anchor": "Severe Preeclampsia with HELLP syndrome",
+      "factors": [
+        {
+          "name": "Elevated Blood Pressure",
+          "type": "direct",
+          "reasoning": "Patient's BP progressively rose from a baseline of 112/68 to 152/96 (preeclampsia) and then 168/108 (severe preeclampsia/HELLP), normalizing postpartum."
+        },
+        {
+          "name": "Proteinuria",
+          "type": "direct",
+          "reasoning": "Trace proteinuria developed at 28 weeks, progressed to 450mg in 24 hours at 31 weeks (confirming preeclampsia), and then 4+ at 32 weeks, resolving postpartum."
+        },
+        {
+          "name": "Declining Platelet Count",
+          "type": "direct",
+          "reasoning": "Platelet count declined from 228 to 185, and then critically to 98 (meeting HELLP criteria) before normalizing postpartum."
+        },
+        {
+          "name": "Elevated Liver Enzymes (ALT/AST)",
+          "type": "direct",
+          "reasoning": "Liver enzymes (ALT/AST) rose from normal levels to mildly elevated (42/48) with preeclampsia, and then significantly to 168/242 (meeting HELLP criteria), normalizing postpartum."
+        },
+        {
+          "name": "Patient Symptoms (Headache, Visual Changes, RUQ Pain)",
+          "type": "direct",
+          "reasoning": "Patient reported increasing headaches, and later developed severe headache, visual disturbances ('seeing spots'), and right upper quadrant pain ('pain under right ribs'), which are severe features of preeclampsia and HELLP syndrome."
+        }
+      ]
+    }
+  }
+]
