@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 import certifi
 from gemini import evaluate_patient_record
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI")
@@ -13,7 +14,19 @@ DB_NAME = "clinicalData"
 COLLECTION_NAME = "patients"
 
 
+
+
 app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Ensure the MongoDB connection uses the certifi CA file for compatibility
 client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
 db = client[DB_NAME]
@@ -67,7 +80,7 @@ async def get_patient_details(patient_id: str):
 
 
 @app.get("/api/v1/patients/report/{patient_id}", response_model=Dict[str, Any])
-async def get_patient_details(patient_id: str):
+async def get_patient_reports(patient_id: str):
     """
     Retrieves a comprehensive set of details for a single patient,
     including demographics, allergies, clinical timeline, and AI-generated summaries.
