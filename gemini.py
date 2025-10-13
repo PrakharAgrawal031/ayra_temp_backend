@@ -27,7 +27,7 @@ def evaluate_patient_record(patient_data):
     """
     Evaluates patient record using Gemini API and structures it into fixed UI sections:
     - Last Visit Summary(Well elaborated 1-2 paragraphs)
-    - Correlation Matrix(2-3 words maximum)
+    - Correlation Matrix //this should contain 2-3 words at most for every correlation
     - Family History
     - Comparison of Prominent Data Points
     - Important Vitals
