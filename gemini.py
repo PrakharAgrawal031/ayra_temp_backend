@@ -27,7 +27,7 @@ def evaluate_patient_record(patient_data):
     """
     Evaluates patient record using Gemini API and structures it into fixed UI sections:
     - Last Visit Summary
-    - Correlation Matrix
+    - Correlation Matrix(4-5 words maximum)
     - Family History
     - Comparison of Prominent Data Points
     - Important Vitals
@@ -40,11 +40,6 @@ You are given a patient's medical record or report data.
 You must return a JSON response structured strictly as follows:
 
 {{
- //add color codes here where necessary
-  "Overall Summary": {{
-      "Observation": {{"...",
-  }}, 
-   //add color codes here where necessary
   "LastVisitSummary": "...",
   "CorrelationMatrix": {{
       "Observation": "...",
@@ -56,7 +51,7 @@ You must return a JSON response structured strictly as follows:
   }},
   
   //This will be a table with following Columns: Data Points, Last Visit, Current Evaluation, Change, Connection to Symptoms. You are allowed to make changes in JSON format of ComparisonOfProminentDataPoints to achieve this 
-   //add color codes here where necessary
+  
   "ComparisonOfProminentDataPoints": [
       {{
           "DataPoint": "...",
@@ -66,7 +61,7 @@ You must return a JSON response structured strictly as follows:
           "Connection": "..."
       }}
   ],
-  //add color codes here where necessary
+ 
   "ImportantVitals": {{
       "BloodPressure": "...",
       "HeartRate": "...",
@@ -81,13 +76,13 @@ Guidelines:
 - Use the provided patient data to fill all sections.
 - If data is missing, use "Not Available".
 - Be concise and factual.
-- You can use biomistral_summary as reference
 - Legend -> (Chronology: #754BAB
              Vitals: #DF7635
              Condition: #2BA27D)
+-Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend. Do this for all sections except correlation matrix.
 - At the end of each section(Except ComparisonOfProminentDataPoints) you should add sources JSON Object as well which will have source of information marked. for ex: "Sources": ["Notes": "dd-mm-yyyy", "Blood Report": "dd-mm-yyyy"....] there might not be any sources listed for now so you can fabricate your own as example based on data provided.
+-This is only for demo so generate fake Family history for demo purpose if it suits the patient's condition.
 - Respond **only** with valid JSON (no extra text, explanation, or markdown).
-
 Here is the patient data:
 {json.dumps(patient_data, indent=2)}
 """
