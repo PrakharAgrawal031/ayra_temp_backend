@@ -92,7 +92,7 @@ Guidelines:
 - Legend -> (Chronology: #754BAB
              Vitals: #DF7635
              Condition: #2BA27D)
-- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend. Do this for all sections except correlation matrix's key and impact values.
+- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
 - At the end of each section(Except ComparisonOfProminentDataPoints) you should add sources JSON Object as well which will have source of information marked. for ex: "Sources": ["Notes": "dd-mm-yyyy", "Blood Report": "dd-mm-yyyy"....] there might not be any sources listed for now so you can fabricate your own as example based on data provided.
 - This is only for demo so generate fake Family history for demo purpose if it suits the patient's condition.
 - Respond **only** with valid JSON (no extra text, explanation, or markdown).
