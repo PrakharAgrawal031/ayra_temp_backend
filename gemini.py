@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-GEMINI_KEY = os.getenv("GEMINI_KEY")
+GEMINI_KEY = os.getenv("GEMINI_KEY") or "AIzaSyCzVYKe8ROV0e-7E3flTm_2Xm1uQjwWbvw"
 
 if not GEMINI_KEY:
     raise ValueError("GEMINI_KEY environment variable is not set. Please add it to your .env file.")

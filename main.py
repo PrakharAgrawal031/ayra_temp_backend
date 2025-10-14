@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 load_dotenv()
-MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI = os.getenv("MONGO_URI") or "mongodb+srv://ayratempbackend:IM0NenVra30NIzX9@prakhar.eywoyo2.mongodb.net/?retryWrites=true&w=majority&appName=Prakhar"
 DB_NAME = "clinicalData"
 COLLECTION_NAME = "patients"
 
