@@ -7,16 +7,35 @@ from dotenv import load_dotenv
 import certifi
 from gemini import evaluate_patient_record
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 
 load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME = "clinicalData"
 COLLECTION_NAME = "patients"
 
+mongodb_client = None
+collection = None
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global mongodb_client, collection
+    print("Connecting to MongoDB...")
+    mongodb_client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
+    db = mongodb_client[DB_NAME]
+    collection = db[COLLECTION_NAME]
+    print("MongoDB connection established.")
+    
+    yield
+    
+    print("Closing MongoDB connection...")
+    if mongodb_client:
+        mongodb_client.close()
+    print("MongoDB connection closed.")
 
-app = FastAPI()
+
+app = FastAPI(lifespan=lifespan)
 
 origins = ["*"]
 
@@ -27,10 +46,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# Ensure the MongoDB connection uses the certifi CA file for compatibility
-client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
-db = client[DB_NAME]
-collection = db[COLLECTION_NAME]
 
 
 
@@ -82,10 +97,8 @@ async def get_patient_details(patient_id: str):
 @app.get("/api/v1/patients/report/{patient_id}", response_model=Dict[str, Any])
 async def get_patient_reports(patient_id: str):
     """
-    Retrieves a comprehensive set of details for a single patient,
-    including demographics, allergies, clinical timeline, and AI-generated summaries.
+    Retrieves a comprehensive AI-generated report for a single patient using Gemini API.
     """
-    # Updated projection to include all the new fields
     projection = {
         "_id": 0,
         "patient_id": 1,
@@ -99,6 +112,14 @@ async def get_patient_reports(patient_id: str):
 
     patient = collection.find_one({"patient_id": patient_id}, projection)
 
-    if patient:
+    if not patient:
+        raise HTTPException(status_code=404, detail=f"Patient with ID '{patient_id}' not found.")
+    
+    try:
         return evaluate_patient_record(patient)
-    raise HTTPException(status_code=404, detail=f"Patient with ID '{patient_id}' not found.")
+    except ValueError as e:
+        raise HTTPException(status_code=500, detail=f"AI response parsing error: {str(e)}")
+    except RuntimeError as e:
+        raise HTTPException(status_code=503, detail=f"AI service error: {str(e)}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Unexpected error generating report: {str(e)}")

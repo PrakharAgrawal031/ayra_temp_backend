@@ -3,26 +3,21 @@ import re
 import json
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 GEMINI_KEY = os.getenv("GEMINI_KEY")
 
+if not GEMINI_KEY:
+    raise ValueError("GEMINI_KEY environment variable is not set. Please add it to your .env file.")
 
-# The client gets the API key from the environment variable `GEMINI_API_KEY`.
 try:
-    # Replace "YOUR_API_KEY_HERE" with your key from Google AI Studio
     genai.configure(api_key=GEMINI_KEY)
+    client = genai.GenerativeModel('gemini-2.5-flash')
 except Exception as e:
-    print(f"Error configuring API. Make sure you've replaced 'YOUR_API_KEY_HERE'. Error: {e}")
+    raise RuntimeError(f"Failed to configure Gemini API: {e}")
 
-client = genai.GenerativeModel('gemini-2.5-flash')
 
 def evaluate_patient_record(patient_data):
-    GEMINI_KEY = os.getenv("GEMINI_KEY")
-    try:
-        # Replace "YOUR_API_KEY_HERE" with your key from Google AI Studio
-        genai.configure(api_key=GEMINI_KEY)
-    except Exception as e:
-        print(f"Error configuring API. Make sure you've replaced 'YOUR_API_KEY_HERE'. Error: {e}")
 
     """
     Evaluates patient record using Gemini API and structures it into fixed UI sections:
@@ -118,8 +113,11 @@ Here is the patient data:
         result = json.loads(cleaned_text)
         return result
 
+    except json.JSONDecodeError as e:
+        print(f"JSON parsing error: {e}")
+        print(f"Response text: {cleaned_text[:500]}...")
+        raise ValueError(f"Failed to parse AI response as JSON: {str(e)}")
+    
     except Exception as e:
-        print("Error evaluating patient record:", e)
-        # Re-raise the exception after printing, or return an error structure
-        # raise
-        return {"error": str(e)}  # Return a simple error structure for demonstration
+        print(f"Error evaluating patient record: {e}")
+        raise RuntimeError(f"Failed to evaluate patient record: {str(e)}")
