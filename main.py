@@ -5,8 +5,9 @@ from typing import List, Dict, Any
 import os
 from dotenv import load_dotenv
 import certifi
-from gemini import evaluate_patient_record
+from gemini import evaluate_patient_record, generate_graph_data
 from fastapi.middleware.cors import CORSMiddleware
+from models import GraphRequest, GraphResponse
 
 load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI")
@@ -31,8 +32,6 @@ app.add_middleware(
 client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
 db = client[DB_NAME]
 collection = db[COLLECTION_NAME]
-
-
 
 @app.get("/")
 def read_root():
@@ -102,3 +101,28 @@ async def get_patient_reports(patient_id: str):
     if patient:
         return evaluate_patient_record(patient)
     raise HTTPException(status_code=404, detail=f"Patient with ID '{patient_id}' not found.")
+
+
+@app.post("/api/v1/patients/graph/{patient_id}", response_model=GraphResponse)
+async def get_graph_data_for_patient(patient_id: str, request: GraphRequest):
+    """
+    Generates time-series data for a specific metric from a patient's clinical timeline
+    based on a natural language prompt. Returns data along with axis labels.
+    """
+    projection = {
+        "_id": 0,
+        "patient_id": 1,
+        "clinical_timeline": 1
+    }
+
+    patient = collection.find_one({"patient_id": patient_id}, projection)
+
+    if not patient or "clinical_timeline" not in patient:
+        raise HTTPException(status_code=404, detail=f"Clinical timeline for patient with ID '{patient_id}' not found.")
+
+    graph_data = generate_graph_data(patient["clinical_timeline"], request.prompt)
+
+    if "error" in graph_data:
+        raise HTTPException(status_code=500, detail=f"Failed to generate graph data: {graph_data['error']}")
+
+    return graph_data
