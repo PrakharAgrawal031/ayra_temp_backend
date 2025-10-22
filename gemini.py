@@ -91,15 +91,15 @@ You must return a JSON response structured strictly as follows:
 }}
 
 Guidelines:
-- Use the provided patient data to fill all sections.
+- Use the provided patient data to fill all sections. 
 - If data is missing, use "Not Available".
 - Be concise and factual.
-- Last visit summary should be short and concise and in bullet points. Should be easy to read and should contain only the most important information that would best describe the visit.
+- Last visit summary should be short and concise and in points. Should be easy to read and should contain only the most important information that would best describe the visit. This field should be a array of strings where each string represent a point.
 - In correlations matrix key should only be 2-3 words long and description should be either 1 sentence or 2 short sentences. Also impact field can have value either "direct" or "indirect". You must mention at least one indirect correlation if it looks necessary in patient data. 
 - Legend -> (Chronology: #754BAB
              Vitals: #DF7635
              Condition: #2BA27D)
-- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
+- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> <span style="color: #754BAB;">25-12-2025</span>. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
 - At the end of each section(Except ComparisonOfProminentDataPoints) you should add sources JSON Object as well which will have source of information marked. for ex: "Sources": ["Notes": "dd-mm-yyyy", "Blood Report": "dd-mm-yyyy"....] there might not be any sources listed for now so you can fabricate your own as example based on data provided.
 - This is only for demo so generate fake Family history for demo purpose if it suits the patient's condition. It should also contain the relation of that family member to patient.
 - Respond **only** with valid JSON (no extra text, explanation, or markdown).
@@ -150,45 +150,79 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
     Generates data for a graph based on a user prompt and clinical timeline.
     """
     graph_prompt = f"""
-You are a Clinical Data Extraction AI for Graphing.
+    You are an advanced Clinical Data Extraction AI for Graphing.
 
-You will be given a user's prompt asking for specific data points over time and a patient's clinical timeline.
-Your task is to extract the relevant data and return it as a single JSON object.
+    You will be given a user's prompt and a patient's clinical timeline.
+    Your task is to intelligently determine the X and Y axes from the prompt and extract the relevant data points for a graph.
 
-**Strict Output Format:**
-The output **must** be a valid JSON object with three keys: "xAxisLabel", "yAxisLabel", and "data".
-- "xAxisLabel": Should always be "Date".
-- "yAxisLabel": Should be a descriptive label for the data points, including units if available (e.g., "Weight (Kg)", "Blood Pressure (mmHg)", "CK Level (U/L)"). Infer this from the user's prompt and the data.
-- "data": Should be a JSON array of objects, where each object has two keys: "date" and "value".
-  - The "value" must be a number (integer or float), not a string. Extract only the numerical value. For example, if the data is "75 kg", the value should be 75.
+    You must handle two different types of requests:
 
-**Example Output:**
-```json
-{{
-  "xAxisLabel": "Date",
-  "yAxisLabel": "Weight (Kg)",
-  "data": [
-    {{
-      "date": "2023-01-15",
-      "value": 75
-    }},
-    {{
-      "date": "2023-03-22",
-      "value": 76.5
-    }}
-  ]
-}}
-Instructions:
-- Analyze the user's prompt to understand which data point they want to graph.
-- Scan the clinical_timeline provided.
-- For each entry in the timeline that contains the requested data point, create a JSON object for the "data" array.
-- If the requested data is not found, return an object with an empty "data" array.
-- Respond only with the valid JSON object.
-HERE IS THE DATA TO ANALYZE:
+    1.  **Time-Series Request:** If the prompt asks for a value "overtime" or "against time" or something similar (e.g., "Generate graph for weight changes overtime").
+        * **X-Axis:** Date
+        * **Y-Axis:** The requested variable (e.g., Weight)
 
-User's Prompt: "{user_prompt}"
+    2.  **Correlated Data Request:** If the prompt asks for one value against another (e.g., "Generate graph for weight changes with change in GFR" or "Weight vs. GFR").
+        * **X-Axis:** One variable (e.g., GFR)
+        * **Y-Axis:** The other variable (e.g., Weight)
 
-Patient's Clinical Timeline: {json.dumps(clinical_timeline, indent=2)} """
+    ---
+    **Strict Output Format:**
+    The output **must** be a valid JSON object with three keys: "xAxisLabel", "yAxisLabel", and "data".
+
+    - "xAxisLabel": A descriptive label for the X-axis (e.g., "Date", "GFR (mL/min/1.73m²)")
+    - "yAxisLabel": A descriptive label for the Y-axis (e.g., "Weight (Kg)")
+    - "data": A JSON array of objects. Each object **must** have two keys: "x" and "y".
+      - "x": The value for the X-axis (this can be a date string OR a number).
+      - "y": The value for the Y-axis (this must be a number).
+
+    ---
+    **Example 1: Time-Series Request**
+    * **User Prompt:** "Show me the patient's CK levels over time."
+    * **Example Output:**
+        ```json
+        {{
+          "xAxisLabel": "Date",
+          "yAxisLabel": "CK Level (U/L)",
+          "data": [
+            {{"x": "2023-01-15", "y": 120}},
+            {{"x": "2023-03-22", "y": 125}}
+          ]
+        }}
+        ```
+
+    **Example 2: Correlated Data Request**
+    * **User Prompt:** "Plot weight against GFR."
+    * **Example Output:** (Note: data is sorted by x)
+        ```json
+        {{
+          "xAxisLabel": "GFR (mL/min/1.73m²)",
+          "yAxisLabel": "Weight (Kg)",
+          "data": [
+            {{"x": 58, "y": 76.5}},
+            {{"x": 60, "y": 75}}
+          ]
+        }}
+        ```
+
+    ---
+    **Instructions:**
+    1.  **Analyze the Prompt:** First, determine if it's a Time-Series or Correlated Data request.
+    2.  **For Time-Series:** Scan the timeline. For each entry that contains the requested Y-axis data point, create a data object using the entry's `date` as `x` and the data point's numerical value as `y`. (Data is naturally sorted by date).
+    3.  **For Correlated Data (CRITICAL):** Scan the timeline. Find single entries that contain **BOTH** the X-axis variable and the Y-axis variable. Create a data object for each pair.
+    4.  **NEW: Sort Correlated Data:** For Correlated Data requests only, **you must sort the final `data` array in ascending order based on the `x` value.**
+    5.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
+    6.  **Empty Data:** If no data or no correlated data is found, return an object with the correct labels and an empty "data" array `[]`.
+    7.  **Response:** Respond **only** with the valid JSON object.
+
+    ---
+    HERE IS THE DATA TO ANALYZE:
+
+    **User's Prompt:**
+    "{user_prompt}"
+
+    **Patient's Clinical Timeline:**
+    {json.dumps(clinical_timeline, indent=2)}
+    """
     try:
         response = client.generate_content(graph_prompt)
 
