@@ -521,66 +521,7 @@
       "Detecting the critical care gap (missed retinal exam) amidst multiple other issues",
       "Understanding social determinants (food insecurity, medication costs) as contributors to poor control"
     ],
-    "evaluation_notes": "This case tests ability to: (1) track multiple lab trends simultaneously, (2) recognize progressive multi-organ diabetic complications, (3) identify medication non-response patterns, (4) detect preventive care gaps, and (5) incorporate social determinants into clinical reasoning. The LLM should flag the missing ophthalmology referral as high priority given duration and severity of diabetes.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The primary clinical concern is uncontrolled Type 2 Diabetes Mellitus with progressive complications, worsening renal function, and anemia. The patient also has uncontrolled hypertension and persistent fatigue. Despite multiple medication adjustments and additions, key lab values like HbA1c, GFR, and hemoglobin have worsened over time. Patient-reported barriers include difficulty with diet, financial constraints affecting medication adherence, and healthy food access."
-      },
-      {
-        "Patient Allergies": "1. Sulfa drugs (Sulfamethoxazole): Rash, itching    2. Contrast dye (iodinated): Hives, concern for nephropathy"
-      },
-      {
-        "Key Lab Trends": "1. HbA1c: Worsened from 8.2% (2024-03-15) to 10.8% (2024-10-25).   2. GFR: Declined from 68 ml/min (2024-03-15) to 48 ml/min (2024-10-25).   3. Hemoglobin: Decreased from 13.2 g/dl (2024-03-15) to 10.1 g/dl (2024-10-25).   4. Creatinine: Increased from 1.3 mg/dl (2024-03-15) to 1.8 mg/dl (2024-10-25).   5. Potassium: Increased from 4.2 meq/l (2024-03-15) to 5.1 meq/l (2024-10-25)."
-      },
-      {
-        "Key Vital Sign Trends": "None documented in the provided patient data."
-      },
-      {
-        "Treatment Response Summary": "Despite multiple dose escalations of oral antidiabetic medications (Metformin, Glipizide) and initiation of basal insulin, diabetes control continued to deteriorate as evidenced by worsening HbA1c and glucose levels. Gabapentin for neuropathy provided little improvement in foot numbness. Ferrous sulfate failed to significantly improve hemoglobin levels, which continued to decline. Lisinopril dose increase and subsequent addition of Amlodipine suggest persistent uncontrolled hypertension."
-      },
-      {
-        "Medication Actions Taken": "1. 2024-03-15: Started Glipizide 5mg daily.   2. 2024-05-10: Glipizide increased to 10mg daily. Started Gabapentin 300mg.  3. 2024-06-28: Metformin increased to 1000mg three times daily.   4. 2024-08-16: Lisinopril increased to 20mg daily. Started Ferrous sulfate 325mg daily.   5. 2024-09-20: Started Insulin glargine 10 units at bedtime.   6.  2024-10-25: Insulin glargine increased to 20 units at bedtime. Started Amlodipine 5mg daily."
-      },
-      {
-        "Clinical Outcome of Changes": "Following medication changes, the patient's diabetes control worsened with increasing A1c and glucose levels. Renal function continued to decline (GFR decreased, creatinine increased). Anemia persisted and worsened despite iron supplementation. Peripheral neuropathy symptoms showed little improvement, and hypertension remained uncontrolled."
-      },
-      {
-        "Patient-Reported Barriers": "1. Difficulty with portion control.   2. Financial barriers to medications and healthy food.   3. Not taking insulin consistently due to cost."
-      },
-      {
-        "Identified Gaps": "1. Missed nephrology appointment.  2. NO RETINAL EXAM DOCUMENTED IN 18+ MONTHS."
-      }
-    ],
-    "correlations": {
-      "anchor": "Uncontrolled Type 2 Diabetes Mellitus",
-      "factors": [
-        {
-          "name": "A1c Levels",
-          "type": "direct",
-          "reasoning": "The patient's A1c levels consistently rose from 8.2% to 10.8% across visits, directly indicating a deterioration in glycemic control."
-        },
-        {
-          "name": "Glomerular Filtration Rate (GFR)",
-          "type": "direct",
-          "reasoning": "The GFR progressively decreased from 68 ml/min to 48 ml/min over the visits, leading to diagnoses of diabetic nephropathy and Stage 3b CKD, a direct complication of uncontrolled diabetes."
-        },
-        {
-          "name": "Peripheral Neuropathy Symptoms",
-          "type": "direct",
-          "reasoning": "The patient developed and reported persistent tingling and numbness in feet, leading to a diagnosis of peripheral neuropathy, a direct complication of diabetes."
-        },
-        {
-          "name": "Hemoglobin Levels and Anemia",
-          "type": "direct",
-          "reasoning": "Hemoglobin levels declined from 13.2 g/dl to 10.1 g/dl, leading to a diagnosis of anemia, specifically 'anemia of chronic disease' which is directly linked to worsening renal function secondary to uncontrolled diabetes."
-        },
-        {
-          "name": "Medication Adherence and Financial Barriers",
-          "type": "contextual",
-          "reasoning": "The patient explicitly reported financial barriers impacting medication adherence, particularly with insulin, providing a contextual explanation for the persistent uncontrolled diabetes despite escalating therapies."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) track multiple lab trends simultaneously, (2) recognize progressive multi-organ diabetic complications, (3) identify medication non-response patterns, (4) detect preventive care gaps, and (5) incorporate social determinants into clinical reasoning. The LLM should flag the missing ophthalmology referral as high priority given duration and severity of diabetes."
   },
 
   {
@@ -1030,65 +971,8 @@
       "Recognizing that dose reduction was insufficient and discontinuation was necessary",
       "Understanding the confirmatory pattern of symptom/lab resolution after drug discontinuation"
     ],
-    "evaluation_notes": "This case tests ability to: (1) detect temporal associations between medication starts and new symptoms, (2) track progressive laboratory abnormalities correlating with drug exposure, (3) recognize medication non-response to dose adjustment, (4) identify causal relationships through drug discontinuation and symptom resolution, and (5) understand severity grading of adverse drug reactions. The LLM should recognize statin myopathy by Visit 2-3 based on CK elevation and myalgias, and should flag the need for discontinuation by Visit 3 when CK exceeded 5x normal with functional impairment.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The patient's primary clinical concern revolves around managing hyperlipidemia in the context of coronary artery disease and a history of MI. Initially, atorvastatin successfully lowered LDL, but subsequently led to progressive and severe statin-induced myopathy with significant muscle pain, weakness, and elevated CK levels, requiring its discontinuation. After stopping the statin, symptoms resolved, but LDL rebounded, necessitating alternative lipid management strategies."
-      },
-      {
-        "Patient Allergies": "1. Atorvastatin: Severe myopathy, CK elevation >1800, muscle weakness  2. Penicillin: Hives - childhood reaction"
-      },
-      {
-        "Key Lab Trends": "1.  CK (Creatine Kinase): Significantly worsened from a baseline of 125 U/L on 2024-03-22 to 385 U/L on 2024-05-10, then to 892 U/L on 2024-06-28, and critically to 1850 U/L on 2024-07-15.   2.  AST (Aspartate Aminotransferase): Worsened from 26 U/L on 2024-03-22 to 35 U/L on 2024-05-10, then to 52 U/L on 2024-06-28, and to 68 U/L on 2024-07-15.    3.  ALT (Alanine Aminotransferase): Worsened from 28 U/L on 2024-03-22 to 32 U/L on 2024-05-10, then to 45 U/L on 2024-06-28, and to 58 U/L on 2024-07-15."
-      },
-      {
-        "Key Vital Sign Trends": "None documented in the provided patient data."
-      },
-      {
-        "Treatment Response Summary": "Atorvastatin 40mg daily initially resulted in an excellent lipid response, lowering LDL from 175 mg/dl to 105 mg/dl. However, it led to increasing muscle aches and weakness, with CK levels rising significantly. Reducing atorvastatin to 20mg daily did not improve muscle pain or weakness, and CK levels continued to rise. Discontinuation of atorvastatin led to significant improvement in muscle symptoms, strength returning to baseline, and normalization of CK and liver enzymes. Ezetimibe 10mg daily was started for lipid management after atorvastatin intolerance was established."
-      },
-      {
-        "Medication Actions Taken": "- 2024-03-22: Started Atorvastatin 40mg daily.   - 2024-06-28: Atorvastatin dose reduced to 20mg daily. Started Coenzyme Q10 200mg daily.   - 2024-07-15: Atorvastatin discontinued.   - 2024-08-30: Started Ezetimibe 10mg daily."
-      },
-      {
-        "Clinical Outcome of Changes": "After atorvastatin was discontinued on 2024-07-15, the patient reported muscle pain nearly resolved and strength returned to baseline by 2024-08-30. Key lab trends improved with CK normalizing to 165 U/L and liver enzymes normalizing. However, LDL rebounded to 158 mg/dl after stopping the statin."
-      },
-      {
-        "Patient-Reported Barriers": "The patient reported progressively worsening muscle aches, leading to difficulty climbing stairs and lifting things (2024-06-28), and eventually significant weakness affecting daily activities, making it difficult to get up from a chair without using arms (2024-07-15). These side effects from atorvastatin acted as a significant barrier to continued statin therapy."
-      },
-      { "Identified Gaps": "None documented." }
-    ],
-    "correlations": {
-      "anchor": "Statin-induced myopathy",
-      "factors": [
-        {
-          "name": "Atorvastatin Use",
-          "type": "direct",
-          "reasoning": "The onset and progressive worsening of myopathy symptoms and elevation of CK levels directly followed the initiation of Atorvastatin, and symptoms/labs improved upon its discontinuation."
-        },
-        {
-          "name": "CK Levels",
-          "type": "direct",
-          "reasoning": "CK levels rose significantly from a baseline of 125 U/L to a peak of 1850 U/L while on atorvastatin, then normalized to 165 U/L after the drug was stopped, directly correlating with muscle damage and recovery."
-        },
-        {
-          "name": "Muscle Pain and Weakness (Chief Complaint)",
-          "type": "direct",
-          "reasoning": "The patient's reported muscle aches, increasing pain, weakness, and functional impairment directly coincided with the period of atorvastatin use and elevated CK, and improved significantly after discontinuation."
-        },
-        {
-          "name": "LDL Cholesterol Levels",
-          "type": "direct",
-          "reasoning": "LDL levels decreased effectively with atorvastatin (175 mg/dl to 105 mg/dl) but rebounded after its discontinuation (105 mg/dl to 158 mg/dl), illustrating the drug's efficacy and the subsequent challenge of lipid management post-myopathy."
-        },
-        {
-          "name": "Coronary Artery Disease / History of MI",
-          "type": "contextual",
-          "reasoning": "These pre-existing high-risk cardiovascular conditions provided the critical clinical context and necessity for aggressive lipid-lowering therapy, making the statin-induced myopathy a significant and challenging adverse event."
-        }
-      ]
-    }
-  },
+    "evaluation_notes": "This case tests ability to: (1) detect temporal associations between medication starts and new symptoms, (2) track progressive laboratory abnormalities correlating with drug exposure, (3) recognize medication non-response to dose adjustment, (4) identify causal relationships through drug discontinuation and symptom resolution, and (5) understand severity grading of adverse drug reactions. The LLM should recognize statin myopathy by Visit 2-3 based on CK elevation and myalgias, and should flag the need for discontinuation by Visit 3 when CK exceeded 5x normal with functional impairment."
+ },
 
   {
     "patient_name": "Samantha Jones",
@@ -1583,66 +1467,7 @@
       "Recognizing cardiorenal syndrome (worsening kidney function despite diuresis need)",
       "Understanding the escalation from oral to IV diuretics to ultrafiltration"
     ],
-    "evaluation_notes": "This case tests ability to: (1) recognize acute-on-chronic heart failure exacerbation through weight and symptom tracking, (2) understand the clinical significance of orthopnea, PND, and progressive edema, (3) correlate laboratory values (BNP, creatinine) with clinical deterioration, (4) recognize treatment failure requiring escalation of care, (5) understand cardiorenal syndrome complicating diuresis, and (6) appreciate the importance of medication adherence and dietary factors in CHF management. The LLM should flag early warning signs at V2 with 5 lb weight gain, recognize acute decompensation by V3, identify critical status requiring hospitalization at V4, and understand the long-term implications of EF decline by V5.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The patient's primary clinical concern is heart failure with reduced ejection fraction (initially 30%, declined to 25%). Her condition started stable but progressively worsened due to volume overload, exacerbated by dietary indiscretion. This led to acute decompensated heart failure with pulmonary edema and acute hypoxemic respiratory failure, requiring hospitalization in the CCU. Following aggressive diuresis and ultrafiltration, her condition improved, but her ejection fraction remains lower."
-      },
-      {
-        "Patient Allergies": "1. ACE inhibitors (Lisinopril): Angioedema - facial swelling, difficulty breathing   2. Shellfish: Hives, throat tightness"
-      },
-      {
-        "Key Lab Trends": "1.  Creatinine: Worsened from 1.1 mg/dl (2024-06-14) to 1.7 mg/dl (2024-08-14), then improved to 1.2 mg/dl (2024-09-06).  2.  GFR: Worsened from 68 ml/min (2024-06-14) to 46 ml/min (2024-08-14), then improved to 64 ml/min (2024-09-06).  3.  BNP: Increased from a stable 450 (2024-06-14, 2024-08-02 note) to critically elevated 2800 (2024-08-14 note)."
-      },
-      {
-        "Key Vital Sign Trends": "1.  Weight: Increased from a dry weight of 152 lbs (2024-06-14) to 166 lbs (2024-08-14), then decreased to a new dry weight of 150 lbs (2024-09-06).   2.  SpO2: Decreased from 91% on room air (2024-08-12) to 86% on room air (2024-08-14).   3.  Respiratory Status: Progressed from no dyspnea (2024-06-14) to mild dyspnea with usual activities (2024-08-02), then significant respiratory distress with orthopnea and PND (2024-08-12), and severe respiratory distress with pink frothy sputum and tachypnea (2024-08-14)."
-      },
-      {
-        "Treatment Response Summary": "Initially, the patient was stable on guideline-directed medical therapy. When mild volume overload occurred, increasing furosemide from 40mg to 60mg daily had limited effect. With severe decompensation, an 80mg IV dose of furosemide showed good initial response (800cc urination). However, subsequent oral diuresis failed, leading to severe acute decompensation. Aggressive IV furosemide (80mg Q8H) combined with metolazone 5mg, BiPAP, oxygen, and ultimately ultrafiltration during hospitalization led to significant improvement in symptoms and fluid status."
-      },
-      {
-        "Medication Actions Taken": "- 2024-08-02: Furosemide dose increased from 40mg daily to 60mg daily.  2024-08-12: Furosemide 80mg IV given once in urgent care. Oral Furosemide increased from 60mg daily to 80mg twice daily.  2024-08-14 (Admission): Oral furosemide stopped and switched to IV Furosemide 80mg every 8 hours. Metolazone 5mg daily started. BiPAP therapy and Oxygen 4L nasal cannula started.  2024-09-06 (Discharge): Furosemide 80mg twice daily continued. Metolazone 2.5mg three times weekly (Mon-Wed-Fri) started."
-      },
-      {
-        "Clinical Outcome of Changes": "Following initial diuretic increases, the patient's volume overload and symptoms worsened, leading to severe acute decompensated heart failure, pulmonary edema, hypoxemic respiratory failure, and acute kidney injury (cardiorenal syndrome). After aggressive IV diuresis, metolazone, BiPAP, oxygen, and ultrafiltration during a CCU admission, the patient's respiratory symptoms resolved, volume overload improved, weight decreased, and kidney function improved. However, her ejection fraction declined from 30% to 25%."
-      },
-      {
-        "Patient-Reported Barriers": "The patient admitted to 'eating more salty foods at family gathering' (2024-08-02) and 'dietary indiscretion - eating restaurant meals daily' (2024-08-12), indicating difficulty adhering to a low-sodium diet."
-      },
-      {
-        "Identified Gaps": "No explicit care gaps such as missed appointments or screenings are documented. However, the provider noted 'Considering ICD/CRT evaluation given EF decline' as a future consideration for care."
-      }
-    ],
-    "correlations": {
-      "anchor": "Acute Decompensated Heart Failure (ADHF)",
-      "factors": [
-        {
-          "name": "Chief Complaint / Symptoms (Dyspnea, Swelling, Orthopnea)",
-          "type": "direct",
-          "reasoning": "The patient's reported symptoms of ankle swelling and mild dyspnea progressively worsened to severe shortness of breath, orthopnea, and pink frothy sputum, directly mirroring the escalation of heart failure decompensation from mild volume overload to severe acute pulmonary edema, and improved with resolution of ADHF."
-        },
-        {
-          "name": "Weight Gain / Volume Overload",
-          "type": "direct",
-          "reasoning": "The patient's weight increased steadily (5 lbs, then 12 lbs, then 14 lbs above dry weight) from Visit 2 to Visit 4, directly correlating with the development and worsening of ADHF and signs of fluid overload (edema, crackles, JVP). Aggressive diuresis in hospital led to significant weight loss and resolution of ADHF symptoms."
-        },
-        {
-          "name": "Chronic Kidney Disease (Creatinine/GFR changes)",
-          "type": "direct",
-          "reasoning": "Creatinine levels rose (1.1 -> 1.7 mg/dL) and GFR declined (68 -> 46 mL/min) as ADHF worsened and volume overload became severe, leading to a diagnosis of cardiorenal syndrome. These kidney function parameters improved post-diuresis (Cr 1.2, GFR 64)."
-        },
-        {
-          "name": "Ejection Fraction (EF) Decline",
-          "type": "direct",
-          "reasoning": "The patient's baseline EF of 30% was noted to have declined to 25% during the severe ADHF exacerbation at Visit 4, and remained at 25% post-discharge, indicating a direct negative impact of the acute decompensation on cardiac function."
-        },
-        {
-          "name": "Dietary Indiscretion (High Sodium Intake)",
-          "type": "direct",
-          "reasoning": "Provider notes explicitly attribute the initial weight gain and mild volume overload (V2) to 'eating more salty foods' and the subsequent severe ADHF exacerbation (V3) to 'eating restaurant meals daily,' demonstrating a direct causal link between dietary sodium intake and heart failure decompensation."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) recognize acute-on-chronic heart failure exacerbation through weight and symptom tracking, (2) understand the clinical significance of orthopnea, PND, and progressive edema, (3) correlate laboratory values (BNP, creatinine) with clinical deterioration, (4) recognize treatment failure requiring escalation of care, (5) understand cardiorenal syndrome complicating diuresis, and (6) appreciate the importance of medication adherence and dietary factors in CHF management. The LLM should flag early warning signs at V2 with 5 lb weight gain, recognize acute decompensation by V3, identify critical status requiring hospitalization at V4, and understand the long-term implications of EF decline by V5."
   },
 
   {
@@ -2097,66 +1922,7 @@
       "Understanding the critical delay in performing colonoscopy despite multiple red flags",
       "Connecting seemingly disparate symptoms (weight loss, anemia, constipation, fatigue) to a unifying diagnosis"
     ],
-    "evaluation_notes": "This case tests ability to: (1) recognize occult cancer presentation through progressive symptoms over time, (2) identify alarm symptoms requiring urgent investigation, (3) understand that normal or minimally helpful initial tests do not exclude serious pathology, (4) track multiple converging clinical indicators (weight loss, anemia, bleeding, inflammatory markers), (5) recognize critical diagnostic delays as care gaps, and (6) appreciate the urgency needed when multiple red flags are present. The LLM should flag concern by V1-V2 with weight loss and anemia in elderly patient, recognize high suspicion for malignancy by V3 with progressive symptoms and normal EGD, identify critical urgency by V4 with overt bleeding and severe anemia, and understand that the 4-5 month delay to colonoscopy was a significant care gap that may have affected outcomes.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The patient presented for an annual physical with unintentional weight loss. Over several months, this progressed to worsening iron deficiency anemia, persistent weight loss (total 22 lbs), new onset abdominal pain, worsening constipation, and eventual hematochezia and severe fatigue. This constellation of symptoms and lab abnormalities (declining hemoglobin/ferritin, elevated inflammatory markers, reactive thrombocytosis) ultimately led to a diagnosis of Stage II adenocarcinoma of the sigmoid colon."
-      },
-      {
-        "Patient Allergies": "1. Codeine: Severe nausea, vomiting   2. Latex: Contact dermatitis, skin irritation"
-      },
-      {
-        "Key Lab Trends": "1. Hemoglobin: Declined from 12.8 g/dl (2024-03-28) to 9.8 g/dl (2024-08-23).   2. Ferritin: Declined from 38.0 ng/ml (2024-03-28) to 28.0 ng/ml (2024-08-09).   3. Platelets: Increased from 385 k/ul (2024-03-28) to 468 k/ul (2024-08-23)."
-      },
-      {
-        "Key Vital Sign Trends": "None documented in the provided patient data."
-      },
-      {
-        "Treatment Response Summary": "Ferrous sulfate 325mg daily was started for anemia but hemoglobin continued to decline and ferritin levels did not improve, suggesting a non-responsive iron deficiency. Polyethylene glycol 3350 17g daily was started for constipation, but its effectiveness is not explicitly detailed; it was later discontinued."
-      },
-      {
-        "Medication Actions Taken": "2024-03-28: Ferrous sulfate 325mg daily started.  2024-06-28: Polyethylene glycol 3350 17g daily started.  2024-08-23: Polyethylene glycol discontinued."
-      },
-      {
-        "Clinical Outcome of Changes": "Despite starting iron supplementation, the patient's anemia worsened progressively. The patient's weight loss continued, and new gastrointestinal symptoms like abdominal pain, worsening constipation, and hematochezia developed, indicating a deterioration of the primary clinical concern. Overall, the patient's key problems and lab trends worsened, ultimately leading to a cancer diagnosis."
-      },
-      {
-        "Patient-Reported Barriers": "1. Patient was hesitant about colonoscopy, wanting to 'see what EGD shows first'.  2.Patient agreed to colonoscopy but wanted to wait until after daughter's wedding in 6 weeks."
-      },
-      {
-        "Identified Gaps": "1. Patient was overdue for screening colonoscopy (last one 12 years prior at age 59). 2. There was a delay in performing colonoscopy after red flags appeared, which the provider noted 'may have allowed progression.'"
-      }
-    ],
-    "correlations": {
-      "anchor": "Adenocarcinoma of sigmoid colon (C18.7)",
-      "factors": [
-        {
-          "name": "Progressive Weight Loss (R63.4)",
-          "type": "direct",
-          "reasoning": "The patient's unintentional weight loss started at Visit 1 and progressively worsened throughout the clinical course, ultimately explained by the diagnosed malignancy."
-        },
-        {
-          "name": "Worsening Iron Deficiency Anemia (D50.9, D63.0)",
-          "type": "direct",
-          "reasoning": "Initial anemia at Visit 1, characterized by low hemoglobin and ferritin, continued to decline despite iron supplementation and was eventually diagnosed as secondary to malignancy, explained by chronic blood loss from the tumor."
-        },
-        {
-          "name": "Changes in Bowel Habits (Abdominal Pain, Constipation, Hematochezia)",
-          "type": "direct",
-          "reasoning": "Vague abdominal discomfort progressed to worsening constipation and cramping abdominal pain, followed by reports of blood on toilet paper (hematochezia), all symptomatic of the colonic adenocarcinoma."
-        },
-        {
-          "name": "Elevated Inflammatory Markers (CRP, ESR) and Thrombocytosis",
-          "type": "direct",
-          "reasoning": "Elevated CRP and ESR, along with reactive thrombocytosis (elevated platelets), were observed as the disease progressed, indicating systemic inflammation commonly associated with malignancy."
-        },
-        {
-          "name": "Elevated CEA (Carcinoembryonic Antigen)",
-          "type": "direct",
-          "reasoning": "The CEA level of 42 ng/mL (normal <5) was found to be significantly elevated following the diagnosis, serving as a tumor marker directly correlated with the adenocarcinoma."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) recognize occult cancer presentation through progressive symptoms over time, (2) identify alarm symptoms requiring urgent investigation, (3) understand that normal or minimally helpful initial tests do not exclude serious pathology, (4) track multiple converging clinical indicators (weight loss, anemia, bleeding, inflammatory markers), (5) recognize critical diagnostic delays as care gaps, and (6) appreciate the urgency needed when multiple red flags are present. The LLM should flag concern by V1-V2 with weight loss and anemia in elderly patient, recognize high suspicion for malignancy by V3 with progressive symptoms and normal EGD, identify critical urgency by V4 with overt bleeding and severe anemia, and understand that the 4-5 month delay to colonoscopy was a significant care gap that may have affected outcomes."
   },
 
   {
@@ -2653,67 +2419,7 @@
       "Understanding the rapidity of progression requiring emergency delivery despite prematurity",
       "Appreciating long-term cardiovascular risk after preeclampsia/HELLP"
     ],
-    "evaluation_notes": "This case tests ability to: (1) track progressive BP elevation across pregnancy, (2) recognize preeclampsia development through BP + proteinuria, (3) identify laboratory trends indicating worsening disease (declining platelets, rising liver enzymes), (4) connect warning symptoms with severe features requiring immediate intervention, (5) understand HELLP syndrome as life-threatening complication, (6) recognize the need for emergency delivery despite prematurity, and (7) appreciate long-term health implications. The LLM should flag concern at V3 with elevated BP and edema, recognize preeclampsia diagnosis at V4, identify rapid progression and severe features at V5 requiring emergency intervention, and understand at V6 the implications for future pregnancy and cardiovascular health. This case demonstrates how quickly preeclampsia can progress from mild to life-threatening.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The primary clinical concern was an intrauterine pregnancy (G1P0) complicated by the rapid onset and progression of preeclampsia, culminating in severe preeclampsia with HELLP syndrome requiring emergency delivery at 32 weeks. The patient presented for her first prenatal visit at 10 weeks, and by 28 weeks, developed elevated blood pressure and edema, raising concerns for preeclampsia. By 31 weeks, preeclampsia without severe features was diagnosed. One week later, at 32 weeks, her condition acutely worsened with severe headache, visual changes, and right upper quadrant pain, leading to a diagnosis of severe preeclampsia with HELLP syndrome. An emergency Cesarean section was performed. Post-delivery, the patient recovered well, with normalization of lab values and blood pressure by her 6-week postpartum visit, though she remains at high risk for future cardiovascular issues and preeclampsia in subsequent pregnancies."
-      },
-      {
-        "Patient Allergies": "Penicillin: Rash (patient report from childhood)"
-      },
-      {
-        "Key Lab Trends": "1.  Platelets (k/uL): Decreased from 245 (2024-04-12) to 185 (2024-09-06) to 98 (2024-09-13).   2. ALT (U/L): Increased from 18 (2024-04-12) to 42 (2024-09-06) to 168 (2024-09-13).   3. AST (U/L): Increased from 22 (2024-04-12) to 48 (2024-09-06) to 242 (2024-09-13)."
-      },
-      {
-        "Key Vital Sign Trends": "Blood Pressure (mmHg): Increased from baseline 112/68 (2024-04-12) to 138/86 (2024-08-16), then to 152/96 (2024-09-06), and severely to 168/108 (2024-09-13)."
-      },
-      {
-        "Treatment Response Summary": "Prenatal vitamins were continued throughout the pregnancy. Magnesium sulfate and Labetalol were started for seizure prophylaxis and BP control, respectively, at the time of severe preeclampsia and HELLP syndrome, in conjunction with Betamethasone for fetal lung maturity. The definitive treatment of delivery for severe preeclampsia with HELLP syndrome led to a resolution of the severe symptoms and normalization of blood pressure and lab abnormalities postpartum."
-      },
-      {
-        "Medication Actions Taken": "Started : Prenatal vitamins daily (2024-04-12),  Magnesium sulfate IV for seizure prophylaxis (2024-09-13), Labetalol IV for BP control (2024-09-13), Betamethasone IM for fetal lung maturity (completed) (2024-09-13)          Continued: Prenatal vitamins daily (from 2024-06-21 to 2024-09-13)             Stopped: All postpartum medications discontinued (2024-10-25)"
-      },
-      {
-        "Clinical Outcome of Changes": "Following the emergency delivery and supportive medications, the patient's critical condition resolved. Her blood pressure normalized immediately, and platelets and liver enzymes normalized by post-op day 3. At the 6-week postpartum visit, she had recovered well, with normal lab values and acceptable blood pressure."
-      },
-      {
-        "Patient-Reported Barriers": "No patient-reported barriers to treatment were documented."
-      },
-      {
-        "Identified Gaps": "No documented care gaps, such as missed appointments or screenings, were identified in the provided timeline."
-      }
-    ],
-
-    "correlations": {
-      "anchor": "Severe Preeclampsia with HELLP syndrome",
-      "factors": [
-        {
-          "name": "Elevated Blood Pressure",
-          "type": "direct",
-          "reasoning": "Patient's BP progressively rose from a baseline of 112/68 to 152/96 (preeclampsia) and then 168/108 (severe preeclampsia/HELLP), normalizing postpartum."
-        },
-        {
-          "name": "Proteinuria",
-          "type": "direct",
-          "reasoning": "Trace proteinuria developed at 28 weeks, progressed to 450mg in 24 hours at 31 weeks (confirming preeclampsia), and then 4+ at 32 weeks, resolving postpartum."
-        },
-        {
-          "name": "Declining Platelet Count",
-          "type": "direct",
-          "reasoning": "Platelet count declined from 228 to 185, and then critically to 98 (meeting HELLP criteria) before normalizing postpartum."
-        },
-        {
-          "name": "Elevated Liver Enzymes (ALT/AST)",
-          "type": "direct",
-          "reasoning": "Liver enzymes (ALT/AST) rose from normal levels to mildly elevated (42/48) with preeclampsia, and then significantly to 168/242 (meeting HELLP criteria), normalizing postpartum."
-        },
-        {
-          "name": "Patient Symptoms (Headache, Visual Changes, RUQ Pain)",
-          "type": "direct",
-          "reasoning": "Patient reported increasing headaches, and later developed severe headache, visual disturbances ('seeing spots'), and right upper quadrant pain ('pain under right ribs'), which are severe features of preeclampsia and HELLP syndrome."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) track progressive BP elevation across pregnancy, (2) recognize preeclampsia development through BP + proteinuria, (3) identify laboratory trends indicating worsening disease (declining platelets, rising liver enzymes), (4) connect warning symptoms with severe features requiring immediate intervention, (5) understand HELLP syndrome as life-threatening complication, (6) recognize the need for emergency delivery despite prematurity, and (7) appreciate long-term health implications. The LLM should flag concern at V3 with elevated BP and edema, recognize preeclampsia diagnosis at V4, identify rapid progression and severe features at V5 requiring emergency intervention, and understand at V6 the implications for future pregnancy and cardiovascular health. This case demonstrates how quickly preeclampsia can progress from mild to life-threatening."
   },
   {
     "patient_id": "TEST_PT_020",
@@ -3218,66 +2924,7 @@
       "Understanding contrast allergy management in emergency cardiac catheterization",
       "Tracking recovery trajectory through serial EF measurements"
     ],
-    "evaluation_notes": "This case tests ability to: (1) recognize acute STEMI presentation and need for emergency intervention, (2) understand impact of time-to-treatment on outcomes, (3) track troponin kinetics and correlation with infarct size, (4) recognize post-MI complications (heart failure development), (5) understand importance of secondary prevention medications, (6) appreciate role of lifestyle modifications and cardiac rehabilitation in recovery, and (7) recognize allergy considerations affecting treatment choices (clopidogrel allergy requiring ticagrelor, contrast allergy requiring premedication). The LLM should identify the critical nature of delayed presentation at V1, recognize massive MI with high troponin at V2, identify post-MI heart failure at V3, and track positive recovery trajectory through V4-V5 with lifestyle modifications.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The patient initially presented with a severe ST-elevation myocardial infarction (STEMI) due to a 100% right coronary artery occlusion, complicated by a 12-hour delay in seeking care, leading to a large infarct and acute systolic heart failure with an initial ejection fraction (EF) of 35%. His trajectory involved intensive cardiac care, including PCI and guideline-directed medical therapy, followed by progressive improvement in cardiac function (EF improved to 42%), resolution of heart failure symptoms, and significant lifestyle modifications (weight loss, smoking cessation) over six months."
-      },
-      {
-        "Patient Allergies": "1. Contrast dye (iodinated): Hives, mild bronchospasm   2. Clopidogrel: Severe rash"
-      },
-      {
-        "Key Lab Trends": "1.  CK: Peaked significantly from 485 U/L (2024-06-15) to 2850 U/L (2024-06-16), indicating extensive myocardial damage.   2.  Troponin: Rose significantly from 8.5 (2024-06-15, noted) to a peak of 45.2 (2024-06-16, noted), confirming acute MI.  3.  Creatinine: Increased from 1.2 mg/dL (2024-06-15) to 1.4 mg/dL (2024-06-16), possibly indicating contrast-induced nephropathy or cardiorenal effects."
-      },
-      {
-        "Key Vital Sign Trends": "None documented in the provided patient data."
-      },
-      {
-        "Treatment Response Summary": "The patient's severe chest pain resolved following emergent percutaneous coronary intervention (PCI). His ejection fraction improved from 35% to 42%, and BNP levels decreased significantly, indicating improvement in heart failure. LDL cholesterol levels reached goal with high-dose statin therapy, and diabetes control improved with Metformin, with A1c decreasing from 7.8 to 6.8. Overall, the patient showed excellent functional recovery and adherence to lifestyle modifications and medications."
-      },
-      {
-        "Medication Actions Taken": "1.   2024-06-15: Started Aspirin 325mg (chewed), Nitroglycerin sublingual 0.4mg, Morphine 4mg IV, Heparin IV bolus then infusion, Metoprolol 5mg IV. Continued Atorvastatin 20mg daily, Metformin 1000mg twice daily.   2.   2024-06-16: Started Aspirin 81mg daily, Ticagrelor 90mg twice daily, Metoprolol succinate 50mg daily, Lisinopril 5mg daily, Insulin sliding scale. Dose of Atorvastatin increased to 80mg daily. Continued Metformin 1000mg twice daily, Heparin infusion.   3.   2024-06-20: Started Furosemide 40mg daily, Spironolactone 25mg daily. Stopped Heparin, Insulin sliding scale. Dose of Lisinopril increased to 10mg daily. Continued Aspirin 81mg daily, Ticagrelor 90mg twice daily, Metoprolol succinate 50mg daily, Atorvastatin 80mg daily, Metformin 1000mg twice daily."
-      },
-      {
-        "Clinical Outcome of Changes": "Following medication adjustments and PCI, the patient's chest pain resolved. While initially developing acute systolic heart failure due to a large MI, subsequent medication optimization led to improvement in ejection fraction, reduction in heart failure symptoms, and better control of hyperlipidemia and diabetes. The patient reported significant weight loss and successfully quit smoking."
-      },
-      {
-        "Patient-Reported Barriers": "The patient delayed seeking care for 12 hours after symptom onset, hoping his symptoms would resolve."
-      },
-      {
-        "Identified Gaps": "1.  Delayed presentation for acute myocardial infarction (12 hours from symptom onset).   2.  Suboptimal diabetes control (A1c 7.8) at the 4-week post-MI follow-up."
-      }
-    ],
-    "correlations": {
-      "anchor": "Acute ST-elevation myocardial infarction (STEMI) with subsequent systolic heart failure",
-      "factors": [
-        {
-          "name": "Delayed Presentation to Care",
-          "type": "direct",
-          "reasoning": "The provider notes explicitly state that the 12-hour delayed presentation of chest pain resulted in significant myocardial necrosis and contributed to the development of acute systolic heart failure."
-        },
-        {
-          "name": "Clopidogrel Allergy",
-          "type": "direct",
-          "reasoning": "Due to a documented severe rash allergy to Clopidogrel, Ticagrelor was prescribed as an alternative P2Y12 inhibitor for post-PCI dual antiplatelet therapy."
-        },
-        {
-          "name": "Pre-existing Cardiovascular Risk Factors (Diabetes, Hyperlipidemia, Hypertension, Obesity)",
-          "type": "contextual",
-          "reasoning": "The patient's active chronic diagnoses of Type 2 Diabetes Mellitus, Hyperlipidemia, Obesity, and Hypertension are identified in the provider note as risk factors for the STEMI."
-        },
-        {
-          "name": "Adherence to Cardiac Rehabilitation and Lifestyle Modifications (smoking cessation, diet, exercise)",
-          "type": "direct",
-          "reasoning": "Subsequent visits document the patient's engagement in cardiac rehab, weight loss, and smoking cessation, which are directly correlated with improvements in EF, BNP, HbA1c, and LDL levels."
-        },
-        {
-          "name": "Contrast Dye Allergy",
-          "type": "direct",
-          "reasoning": "The patient's history of iodinated contrast dye allergy necessitated pre-treatment with IV fluids and antihistamines prior to the emergent cardiac catheterization for PCI."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) recognize acute STEMI presentation and need for emergency intervention, (2) understand impact of time-to-treatment on outcomes, (3) track troponin kinetics and correlation with infarct size, (4) recognize post-MI complications (heart failure development), (5) understand importance of secondary prevention medications, (6) appreciate role of lifestyle modifications and cardiac rehabilitation in recovery, and (7) recognize allergy considerations affecting treatment choices (clopidogrel allergy requiring ticagrelor, contrast allergy requiring premedication). The LLM should identify the critical nature of delayed presentation at V1, recognize massive MI with high troponin at V2, identify post-MI heart failure at V3, and track positive recovery trajectory through V4-V5 with lifestyle modifications."
   },
 
   {
@@ -3725,67 +3372,7 @@
       "Understanding the difference between rate control and anticoagulation in AFib",
       "Recognizing preventable nature of the stroke with earlier/better anticoagulation"
     ],
-    "evaluation_notes": "This case tests ability to: (1) recognize new-onset atrial fibrillation and its clinical significance, (2) calculate stroke risk using CHA2DS2-VASc score, (3) identify delayed anticoagulation as a care gap despite clear indications, (4) understand the relationship between subtherapeutic anticoagulation and stroke risk, (5) recognize medication non-adherence and its consequences, (6) understand advantages of DOACs over warfarin for certain patient populations, and (7) identify the preventable nature of complications when guideline-directed therapy is not followed. The LLM should flag high stroke risk at V2 when AFib is diagnosed, identify the care gap of delayed anticoagulation at V2-V3, recognize subtherapeutic INR as critical finding at V4, connect poor adherence with stroke occurrence, and understand the improved safety/adherence profile with DOAC switch at V5. This case emphasizes that strokes from AFib are largely preventable with appropriate anticoagulation.",
-
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "Primary Clinical Concern**: The patient initially presented with palpitations and racing heart, leading to a diagnosis of paroxysmal Atrial Fibrillation (AFib). Despite a high CHA2DS2-VASc score indicating high stroke risk, the patient initially declined anticoagulation. After agreement and starting warfarin, inconsistent adherence led to a subtherapeutic INR and a Transient Ischemic Attack (TIA). The primary concern evolved from AFib symptom management to stroke prevention, particularly addressing medication adherence and optimal anticoagulation."
-      },
-      {
-        "Patient Allergies": "None documented."
-      },
-      {
-        "Key Lab Trends": "1.  Subtherapeutic INR of 1.4 (target 2-3) on 2024-06-28, which was explicitly noted as critical and led to a TIA."
-      },
-      {
-        "Key Vital Sign Trends": "1.  Elevated heart rate of 118 bpm on 2024-04-05 during initial presentation with palpitations."
-      },
-      {
-        "Treatment Response Summary": "Metoprolol tartrate was started and later dose-increased, leading to better heart rate control. Warfarin was started for anticoagulation but was ineffective due to inconsistent patient adherence, resulting in a TIA. After the TIA, atorvastatin 80mg daily was started, significantly improving LDL levels from 132 mg/dL to 78 mg/dL. Warfarin was then discontinued and apixaban 5mg twice daily was started; the patient reported excellent adherence and no recurrent neurologic symptoms, indicating effective stroke prevention."
-      },
-      {
-        "Medication Actions Taken": "1.  2024-04-05: Started Metoprolol tartrate 25mg twice daily.  2.  2024-04-22: Metoprolol tartrate dose increased to 50mg twice daily.  3.  2024-05-24: Started Warfarin 5mg daily.   4.  2024-06-28: Started Atorvastatin 80mg daily.   5.  2024-07-26: Started Apixaban 5mg twice daily. Stopped Warfarin."
-      },
-      {
-        "Clinical Outcome of Changes": "Initial metoprolol improved heart rate control. However, inconsistent warfarin adherence led to a subtherapeutic INR and a TIA. After switching to apixaban and starting atorvastatin, the patient achieved good anticoagulation adherence, no recurrent neurologic symptoms, and improved lipid control."
-      },
-      {
-        "Patient-Reported Barriers": "1.  Patient was very anxious about 'blood thinners' and initially declined anticoagulation after reading online.   2.  Patient preferred warfarin over DOACs due to cost/insurance coverage.   3.  Patient admitted inconsistent warfarin dosing (sometimes forgets, sometimes takes double dose) and inconsistent dietary intake of leafy greens."
-      },
-      {
-        "Identified Gaps": "1.  Initial patient hesitancy and refusal to start anticoagulation despite high stroke risk (2024-04-22).   2.  Inconsistent adherence to prescribed warfarin dosing and dietary recommendations (2024-06-28)."
-      }
-    ],
-    "correlations": {
-      "anchor": "Atrial Fibrillation and Cardioembolic Stroke",
-      "factors": [
-        {
-          "name": "Palpitations / Heart Racing",
-          "type": "direct",
-          "reasoning": "The patient's chief complaints of heart racing and fluttering sensation directly led to the diagnostic workup that identified Atrial Fibrillation."
-        },
-        {
-          "name": "CHA2DS2-VASc Score",
-          "type": "direct",
-          "reasoning": "The calculated CHA2DS2-VASc score (initially 4, then 5 with DVT history) directly quantified the patient's high risk for cardioembolic stroke, indicating the need for anticoagulation due to Atrial Fibrillation."
-        },
-        {
-          "name": "Subtherapeutic INR",
-          "type": "direct",
-          "reasoning": "The INR level of 1.4, noted as subtherapeutic in Visit 4, directly indicates inadequate anticoagulation with warfarin, failing to prevent the subsequent TIA/stroke."
-        },
-        {
-          "name": "Warfarin Non-adherence",
-          "type": "direct",
-          "reasoning": "The patient's admission of inconsistent warfarin dosing and dietary choices directly led to the subtherapeutic INR and was identified as a primary cause of the preventable TIA/stroke."
-        },
-        {
-          "name": "Transient Ischemic Attack (TIA) / Acute Infarct",
-          "type": "direct",
-          "reasoning": "The sudden onset of slurred speech and weakness, diagnosed as a TIA with an acute infarct on MRI, was a direct and preventable complication of untreated/undertreated Atrial Fibrillation and subtherapeutic anticoagulation."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) recognize new-onset atrial fibrillation and its clinical significance, (2) calculate stroke risk using CHA2DS2-VASc score, (3) identify delayed anticoagulation as a care gap despite clear indications, (4) understand the relationship between subtherapeutic anticoagulation and stroke risk, (5) recognize medication non-adherence and its consequences, (6) understand advantages of DOACs over warfarin for certain patient populations, and (7) identify the preventable nature of complications when guideline-directed therapy is not followed. The LLM should flag high stroke risk at V2 when AFib is diagnosed, identify the care gap of delayed anticoagulation at V2-V3, recognize subtherapeutic INR as critical finding at V4, connect poor adherence with stroke occurrence, and understand the improved safety/adherence profile with DOAC switch at V5. This case emphasizes that strokes from AFib are largely preventable with appropriate anticoagulation."
   },
 
   {
@@ -4234,67 +3821,7 @@
     "Understanding the importance of post-surgical maintenance therapy to prevent recurrence",
     "Identifying the care gap of delayed ENT referral despite multiple treatment failures"
   ],
-  "evaluation_notes": "This case tests ability to: (1) recognize recurrent sinusitis pattern (5 episodes in 8 months) indicating chronic disease, (2) identify treatment failure with multiple antibiotic courses, (3) understand the progression from acute recurrent to chronic sinusitis with complications, (4) recognize nasal polyps on exam and imaging as structural cause of symptoms, (5) understand when surgical intervention is indicated after medical management failure, (6) appreciate the role of allergies in chronic sinusitis, (7) identify delayed specialist referral as a care gap, and (8) understand importance of post-surgical maintenance and immunotherapy. The LLM should flag recurrent pattern by V2, recognize inadequate response to medical therapy by V3, identify need for imaging and ENT referral, understand CT findings showing severe disease at V4, and appreciate successful surgical outcome and prevention strategies at V5. This case emphasizes that chronic sinusitis often requires multimodal treatment including surgery and allergy management, not just antibiotics.",
-
-  "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The patient, a 42-year-old female, initially presented with recurrent acute sinusitis that progressed to chronic rhinosinusitis with nasal polyps, leading to significant nasal obstruction and facial pressure. Despite multiple courses of antibiotics and steroids, symptoms persisted and worsened. This trajectory ultimately necessitated functional endoscopic sinus surgery (FESS), polypectomy, and septoplasty, with subsequent notable improvement in symptoms and a plan for ongoing allergy management to prevent recurrence."
-      },
-      {
-        "Patient Allergies": "1. Penicillin: Hives, facial swelling    2. Dust mites: Nasal congestion, sneezing, itchy eyes    3. Ragweed pollen: Allergic rhinitis symptoms"
-      },
-      {
-        "Key Lab Trends": "1. White Blood Cell count (WBC) increased from 11.2 k/uL (2024-02-10) to 12.8 k/uL (2024-04-18)."
-      },
-      {
-        "Key Vital Sign Trends": "1. Fever increased from 99.8 (2024-02-10) to 100.2 (2024-04-18)."
-      },
-      {
-        "Treatment Response Summary": "Initial treatment with Azithromycin provided initial improvement, but symptoms returned within 3 weeks. Subsequent treatment with Levofloxacin and Prednisone for a 'treatment-resistant' infection also failed to achieve lasting resolution. Amoxicillin-clavulanate and Prednisone, with added Montelukast, did not fully resolve symptoms, leading to a diagnosis of chronic rhinosinusitis. Budesonide nasal rinses were initiated pre-surgery to reduce inflammation. Ultimately, medical management alone failed, necessitating Functional Endoscopic Sinus Surgery (FESS) with polypectomy and septoplasty. Post-surgery, the patient reported dramatic improvement."
-      },
-      {
-        "Medication Actions Taken": "   Started:   2024-02-10: Azithromycin 500mg day 1, then 250mg daily x4 days; Pseudoephedrine 30mg as needed for congestion.  2024-04-18: Levofloxacin 500mg daily x10 days; Prednisone 40mg daily x5 days.  2024-06-25: Amoxicillin-clavulanate 875mg twice daily x14 days; Prednisone 20mg daily x7 days; Montelukast 10mg daily.   2024-08-09: Budesonide nasal rinse (0.5mg in 240mL saline) twice daily.   2024-10-25: Sublingual immunotherapy (allergy drops).        Continued:  Fluticasone nasal spray 2 sprays each nostril daily (all visits).   Montelukast 10mg daily (from 2024-06-25 onwards).  Budesonide nasal rinse twice daily (from 2024-08-09 onwards).     Stopped: None explicitly listed.     Dose Changed: None explicitly listed."
-      },
-      {
-        "Clinical Outcome of Changes": "Medical management with various antibiotics and steroids initially provided only temporary relief for recurrent sinusitis. Symptoms progressed to chronic rhinosinusitis with polyposis despite continued medication. After Functional Endoscopic Sinus Surgery (FESS) with polypectomy and septoplasty, the patient experienced dramatic improvement in breathing, resolution of facial pressure, and return of sense of smell."
-      },
-      {
-        "Patient-Reported Barriers": "None documented."
-      },
-      {
-        "Identified Gaps": "None documented."
-      }
-    ],
-    "correlations": {
-    "anchor": "Chronic Rhinosinusitis with Nasal Polyps",
-    "factors": [
-      {
-        "name": "Recurrent Acute Sinusitis",
-        "type": "direct",
-        "reasoning": "The patient experienced multiple acute sinus infections within 6-8 months, with symptoms recurring quickly or never fully resolving, directly leading to the diagnosis and progression to chronic rhinosinusitis."
-      },
-      {
-        "name": "Environmental Allergies / Allergic Rhinitis",
-        "type": "direct",
-        "reasoning": "This chronic condition was noted as an active diagnosis throughout, with provider notes explicitly stating it was a 'contributing factor to polyp formation' and emphasizing its importance 'to prevent recurrence' after surgery."
-      },
-      {
-        "name": "Persistent Nasal Obstruction & Facial Pressure",
-        "type": "direct",
-        "reasoning": "These symptoms were consistently reported across visits, worsened over time, and were directly attributed to the severe inflammation and polyposis observed, improving dramatically after surgery."
-      },
-      {
-        "name": "Nasal Polyposis (Visualized and CT Confirmed)",
-        "type": "direct",
-        "reasoning": "Nasal polyps were first suspected during examination at Visit 3 ('appears to be polyps') and then confirmed as 'extensive nasal polyposis' by CT scan at Visit 4, becoming a defining characteristic of the chronic condition and necessitating surgical removal."
-      },
-      {
-        "name": "Failure of Medical Management",
-        "type": "direct",
-        "reasoning": "Despite multiple courses of antibiotics (Azithromycin, Levofloxacin, Amoxicillin-clavulanate), oral steroids, and nasal sprays, the patient's symptoms persisted and recurred, leading to the recommendation for surgical intervention."
-      }
-    ]
-  }
+  "evaluation_notes": "This case tests ability to: (1) recognize recurrent sinusitis pattern (5 episodes in 8 months) indicating chronic disease, (2) identify treatment failure with multiple antibiotic courses, (3) understand the progression from acute recurrent to chronic sinusitis with complications, (4) recognize nasal polyps on exam and imaging as structural cause of symptoms, (5) understand when surgical intervention is indicated after medical management failure, (6) appreciate the role of allergies in chronic sinusitis, (7) identify delayed specialist referral as a care gap, and (8) understand importance of post-surgical maintenance and immunotherapy. The LLM should flag recurrent pattern by V2, recognize inadequate response to medical therapy by V3, identify need for imaging and ENT referral, understand CT findings showing severe disease at V4, and appreciate successful surgical outcome and prevention strategies at V5. This case emphasizes that chronic sinusitis often requires multimodal treatment including surgery and allergy management, not just antibiotics."
 },
 
 {
