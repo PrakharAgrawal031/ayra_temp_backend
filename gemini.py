@@ -208,7 +208,7 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
     **Instructions:**
     1.  **Analyze the Prompt:** First, determine if it's a Time-Series or Correlated Data request.
     2.  **For Time-Series:** Scan the timeline. For each entry that contains the requested Y-axis data point, create a data object using the entry's `date` as `x` and the data point's numerical value as `y`. (Data is naturally sorted by date).
-    3.  **For Correlated Data (CRITICAL):** Scan the timeline. Find single entries that contain **BOTH** the X-axis variable and the Y-axis variable. Create a data object for each pair.
+    3.  **For Correlated Data (CRITICAL):** Scan the timeline **chronologically**. Find single entries that contain **BOTH** the X-axis variable and the Y-axis variable. Create a data object for each pair and add it to the `data` array. The final `data` array **must be in chronological order** based on the visit dates.
     4.  **NEW: Sort Correlated Data:** For Correlated Data requests only, **you must sort the final `data` array in ascending order based on the `x` value.**
     5.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
     6.  **Empty Data:** If no data or no correlated data is found, return an object with the correct labels and an empty "data" array `[]`.
