@@ -12,6 +12,6 @@ class GraphDataPoint(BaseModel):
 
 class GraphResponse(BaseModel):
     xAxisLabel: str
-    y1AxisLabel: str
+    yAxisLabel: str
     description: str  # <--- ADD THIS LINE
     data: List[GraphDataPoint]

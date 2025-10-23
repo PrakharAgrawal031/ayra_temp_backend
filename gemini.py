@@ -216,9 +216,13 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
     2.  **For Time-Series:** Scan the timeline. For each entry that contains the requested Y-axis data point, create a data object using the entry's `date` as `x` and the data point's numerical value as `y`.
     3.  **For Correlated Data:** Scan the timeline **chronologically**. Find single entries that contain **BOTH** the X-axis variable and the Y-axis variable. Create a data object for each pair and add it to the `data` array. The final `data` array **must be in chronological order** based on the visit dates.
     4.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
-    5.  **Labels & Description:** Identify metrics and create labels. Generate a brief `description` that **factually summarizes the data trend**. **Do not provide any medical suggestions, diagnosis, or advice.**
-    6.  **Empty Data:** If no data or no correlated data is found, return an object with the correct labels, an empty "data" array `[]`, and a description like "No data found for this request."
-    7.  **Response:** Respond **only** with the valid JSON object.
+    5.  **Legend:** (Chronology: #754BAB
+                     Vitals: #DF7635
+                     Condition: #2BA27D)
+    6.  **Using Legend:** Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> <span style="color: #754BAB;">25-12-2025</span> in graph description section only. Only specific values not entire lines. 
+    7.  **Labels & Description:** Identify metrics and create labels. Generate a brief `description` that **factually summarizes the data trend**. **Do not provide any medical suggestions, diagnosis, or advice.**
+    8.  **Empty Data:** If no data or no correlated data is found, return an object with the correct labels, an empty "data" array `[]`, and a description like "No data found for this request."
+    9.  **Response:** Respond **only** with the valid JSON object.
 
     ---
     HERE IS THE DATA TO ANALYZE:
