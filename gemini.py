@@ -167,6 +167,11 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
     - "xAxisLabel": Should always be "Date".
     - "y1AxisLabel": A descriptive label for the first data metric (e.g., "Weight (Kg)").
     - "y2AxisLabel": A descriptive label for the second metric. Send `null` if it's a Single-Metric Request.
+    - "y1AxisMin": The minimum value for the Y1-axis, *only if* specified by the user. Send `null` if not specified.
+    - "y1AxisMax": The maximum value for the Y1-axis, *only if* specified by the user. Send `null` if not specified.
+    - "y2AxisMin": The minimum value for the Y2-axis, *only if* specified by the user. Send `null` if not specified.
+    - "y2AxisMax": The maximum value for the Y2-axis, *only if* specified by the user. Send `null` if not specified.
+    - "description": "A concise 1-2 sentence factual summary..."
     - "description": "A concise 1-2 sentence factual summary of the data trend. **Strictly no suggestions or diagnosis.** (e.g., 'CK Level (U/L) shows a slight upward trend.', 'Weight (Kg) increased while GFR (mL/min/1.73m²) decreased.')"
     - "data": A JSON array of objects. Each object **must** have "x", "y1", and "y2" keys.
       - "x": The date of the timeline entry.
@@ -190,14 +195,18 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
         }}
         ```
 
-    **Example 2: Dual-Metric Request (Handles Missing Data)**
-    * **User Prompt:** "Plot weight against GFR."
+    **Example 2: Dual-Metric Request (with Custom Y-Axis Range)**
+    * **User Prompt:** "Plot weight against GFR. **Please set the weight axis from 70 to 80.**"
     * **Example Output:**
         ```json
         {{
           "xAxisLabel": "Date",
           "y1AxisLabel": "Weight (Kg)",
           "y2AxisLabel": "GFR (mL/min/1.73m²)",
+          "y1AxisMin": 70.0,
+          "y1AxisMax": 80.0,
+          "y2AxisMin": null,
+          "y2AxisMax": null,
           "description": "Shows Weight (Kg) and GFR (mL/min/1.73m²). Weight is shown increasing from 75.0 to 76.5, while GFR decreased from 60.0 to 58.0.",
           "data": [
             {{"x": "2023-01-15", "y1": 75.0, "y2": 60.0}},
@@ -215,11 +224,11 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
     4.  **Populate Data:**
         * For a Single-Metric request, fill `y1` and set `y2` to `null`.
         * For a Dual-Metric request, fill both `y1` and `y2`. If a metric is missing on a specific date, set its value to `null` for that date.
-    5. ** Legend: ** (Chronology:  # 754BAB
-    Vitals:  # DF7635
-    Condition:  # 2BA27D)
-    6. ** Using Legend: ** Put every Chronological / Vital / Condition values in < span > tags and assign respective colour values from legend, for example-> < span style="color: #754BAB;" > 25-12-2025 < / span > in graph description section only.Only specific values not entire lines.
-    7.  **Labels & Description:** Identify the metric(s) from the prompt (e.g., "Weight", "GFR") and create their full labels for `y1AxisLabel`/`y2AxisLabel`. Generate a brief `description` that **factually summarizes the data trend**. **Do not provide any medical suggestions, diagnosis, or advice.**
+    5.  ** Legend: ** ( Chronology:  # 754BAB
+                        Vitals:  # DF7635
+                        Condition:  # 2BA27D)
+    6.  ** Using Legend: ** Put every Chronological / Vital / Condition values in < span > tags and assign respective colour values from legend, for example-> < span style="color: #754BAB;" > 25-12-2025 < / span > in graph description section only.Only specific values not entire lines.
+    7.  **Labels, Range & Description:** Identify metrics and create labels. **Scan the user's prompt for explicit Y-axis range requests (e.g., "from 70 to 80", "set weight axis 75-100").** If found, extract the numbers and populate the corresponding `y1AxisMin/Max` or `y2AxisMin/Max` fields. If not found, set them all to `null`. Generate the factual `description` and provide no medical advice.
     8.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
     9.  **Response:** Respond **only** with the valid JSON object.
 
