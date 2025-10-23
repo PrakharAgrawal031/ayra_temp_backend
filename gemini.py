@@ -157,7 +157,7 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
 
     You must handle two different types of requests:
 
-    1.  **Time-Series Request:** If the prompt asks for a value "overtime" or "against time" or something similar (e.g., "Generate graph for weight changes overtime").
+    1.  **Time-Series Request:** If the prompt asks for a value "overtime" or "against time" (e.g., "Generate graph for weight changes overtime").
         * **X-Axis:** Date
         * **Y-Axis:** The requested variable (e.g., Weight)
 
@@ -167,10 +167,11 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
 
     ---
     **Strict Output Format:**
-    The output **must** be a valid JSON object with three keys: "xAxisLabel", "yAxisLabel", and "data".
+    The output **must** be a valid JSON object with four keys: "xAxisLabel", "yAxisLabel", "description", and "data".
 
     - "xAxisLabel": A descriptive label for the X-axis (e.g., "Date", "GFR (mL/min/1.73m²)")
     - "yAxisLabel": A descriptive label for the Y-axis (e.g., "Weight (Kg)")
+    - "description": "A concise 1-2 sentence factual summary of the data trend. **Strictly no suggestions or diagnosis.** (e.g., 'CK Level (U/L) shows a slight upward trend.', 'Weight (Kg) increased while GFR (mL/min/1.73m²) decreased.')"
     - "data": A JSON array of objects. Each object **must** have two keys: "x" and "y".
       - "x": The value for the X-axis (this can be a date string OR a number).
       - "y": The value for the Y-axis (this must be a number).
@@ -183,6 +184,7 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
         {{
           "xAxisLabel": "Date",
           "yAxisLabel": "CK Level (U/L)",
+          "description": "Shows the patient's CK Level (U/L), which increased from 120 to 125 over this period.",
           "data": [
             {{"x": "2023-01-15", "y": 120}},
             {{"x": "2023-03-22", "y": 125}}
@@ -192,26 +194,30 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
 
     **Example 2: Correlated Data Request**
     * **User Prompt:** "Plot weight against GFR."
-    * **Example Output:** (Note: data is sorted by x)
+    * **Source Data (Imagined):**
+        * `{{ "date": "2023-03-22", "gfr": 58, "weight": 76.5 }}`
+        * `{{ "date": "2023-01-15", "gfr": 60, "weight": 75 }}`
+    * **Example Output:** (Note: data is sorted by date, so the "2023-01-15" entry comes first)
         ```json
         {{
           "xAxisLabel": "GFR (mL/min/1.73m²)",
           "yAxisLabel": "Weight (Kg)",
+          "description": "Shows Weight (Kg) vs. GFR (mL/min/1.73m²). As GFR decreased from 60 to 58, Weight increased from 75 to 76.5.",
           "data": [
-            {{"x": 58, "y": 76.5}},
-            {{"x": 60, "y": 75}}
+            {{"x": 60, "y": 75}},
+            {{"x": 58, "y": 76.5}}
           ]
         }}
         ```
 
     ---
-    **Instructions:**
+    **Instructions (CRITICAL):**
     1.  **Analyze the Prompt:** First, determine if it's a Time-Series or Correlated Data request.
-    2.  **For Time-Series:** Scan the timeline. For each entry that contains the requested Y-axis data point, create a data object using the entry's `date` as `x` and the data point's numerical value as `y`. (Data is naturally sorted by date).
-    3.  **For Correlated Data (CRITICAL):** Scan the timeline **chronologically**. Find single entries that contain **BOTH** the X-axis variable and the Y-axis variable. Create a data object for each pair and add it to the `data` array. The final `data` array **must be in chronological order** based on the visit dates.
-    4.  **NEW: Sort Correlated Data:** For Correlated Data requests only, **you must sort the final `data` array in ascending order based on the `x` value.**
-    5.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
-    6.  **Empty Data:** If no data or no correlated data is found, return an object with the correct labels and an empty "data" array `[]`.
+    2.  **For Time-Series:** Scan the timeline. For each entry that contains the requested Y-axis data point, create a data object using the entry's `date` as `x` and the data point's numerical value as `y`.
+    3.  **For Correlated Data:** Scan the timeline **chronologically**. Find single entries that contain **BOTH** the X-axis variable and the Y-axis variable. Create a data object for each pair and add it to the `data` array. The final `data` array **must be in chronological order** based on the visit dates.
+    4.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
+    5.  **Labels & Description:** Identify metrics and create labels. Generate a brief `description` that **factually summarizes the data trend**. **Do not provide any medical suggestions, diagnosis, or advice.**
+    6.  **Empty Data:** If no data or no correlated data is found, return an object with the correct labels, an empty "data" array `[]`, and a description like "No data found for this request."
     7.  **Response:** Respond **only** with the valid JSON object.
 
     ---

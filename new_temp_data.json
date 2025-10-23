@@ -521,66 +521,7 @@
       "Detecting the critical care gap (missed retinal exam) amidst multiple other issues",
       "Understanding social determinants (food insecurity, medication costs) as contributors to poor control"
     ],
-    "evaluation_notes": "This case tests ability to: (1) track multiple lab trends simultaneously, (2) recognize progressive multi-organ diabetic complications, (3) identify medication non-response patterns, (4) detect preventive care gaps, and (5) incorporate social determinants into clinical reasoning. The LLM should flag the missing ophthalmology referral as high priority given duration and severity of diabetes.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The primary clinical concern is uncontrolled Type 2 Diabetes Mellitus with progressive complications, worsening renal function, and anemia. The patient also has uncontrolled hypertension and persistent fatigue. Despite multiple medication adjustments and additions, key lab values like HbA1c, GFR, and hemoglobin have worsened over time. Patient-reported barriers include difficulty with diet, financial constraints affecting medication adherence, and healthy food access."
-      },
-      {
-        "Patient Allergies": "1. Sulfa drugs (Sulfamethoxazole): Rash, itching    2. Contrast dye (iodinated): Hives, concern for nephropathy"
-      },
-      {
-        "Key Lab Trends": "1. HbA1c: Worsened from 8.2% (2024-03-15) to 10.8% (2024-10-25).   2. GFR: Declined from 68 ml/min (2024-03-15) to 48 ml/min (2024-10-25).   3. Hemoglobin: Decreased from 13.2 g/dl (2024-03-15) to 10.1 g/dl (2024-10-25).   4. Creatinine: Increased from 1.3 mg/dl (2024-03-15) to 1.8 mg/dl (2024-10-25).   5. Potassium: Increased from 4.2 meq/l (2024-03-15) to 5.1 meq/l (2024-10-25)."
-      },
-      {
-        "Key Vital Sign Trends": "None documented in the provided patient data."
-      },
-      {
-        "Treatment Response Summary": "Despite multiple dose escalations of oral antidiabetic medications (Metformin, Glipizide) and initiation of basal insulin, diabetes control continued to deteriorate as evidenced by worsening HbA1c and glucose levels. Gabapentin for neuropathy provided little improvement in foot numbness. Ferrous sulfate failed to significantly improve hemoglobin levels, which continued to decline. Lisinopril dose increase and subsequent addition of Amlodipine suggest persistent uncontrolled hypertension."
-      },
-      {
-        "Medication Actions Taken": "1. 2024-03-15: Started Glipizide 5mg daily.   2. 2024-05-10: Glipizide increased to 10mg daily. Started Gabapentin 300mg.  3. 2024-06-28: Metformin increased to 1000mg three times daily.   4. 2024-08-16: Lisinopril increased to 20mg daily. Started Ferrous sulfate 325mg daily.   5. 2024-09-20: Started Insulin glargine 10 units at bedtime.   6.  2024-10-25: Insulin glargine increased to 20 units at bedtime. Started Amlodipine 5mg daily."
-      },
-      {
-        "Clinical Outcome of Changes": "Following medication changes, the patient's diabetes control worsened with increasing A1c and glucose levels. Renal function continued to decline (GFR decreased, creatinine increased). Anemia persisted and worsened despite iron supplementation. Peripheral neuropathy symptoms showed little improvement, and hypertension remained uncontrolled."
-      },
-      {
-        "Patient-Reported Barriers": "1. Difficulty with portion control.   2. Financial barriers to medications and healthy food.   3. Not taking insulin consistently due to cost."
-      },
-      {
-        "Identified Gaps": "1. Missed nephrology appointment.  2. NO RETINAL EXAM DOCUMENTED IN 18+ MONTHS."
-      }
-    ],
-    "correlations": {
-      "anchor": "Uncontrolled Type 2 Diabetes Mellitus",
-      "factors": [
-        {
-          "name": "A1c Levels",
-          "type": "direct",
-          "reasoning": "The patient's A1c levels consistently rose from 8.2% to 10.8% across visits, directly indicating a deterioration in glycemic control."
-        },
-        {
-          "name": "Glomerular Filtration Rate (GFR)",
-          "type": "direct",
-          "reasoning": "The GFR progressively decreased from 68 ml/min to 48 ml/min over the visits, leading to diagnoses of diabetic nephropathy and Stage 3b CKD, a direct complication of uncontrolled diabetes."
-        },
-        {
-          "name": "Peripheral Neuropathy Symptoms",
-          "type": "direct",
-          "reasoning": "The patient developed and reported persistent tingling and numbness in feet, leading to a diagnosis of peripheral neuropathy, a direct complication of diabetes."
-        },
-        {
-          "name": "Hemoglobin Levels and Anemia",
-          "type": "direct",
-          "reasoning": "Hemoglobin levels declined from 13.2 g/dl to 10.1 g/dl, leading to a diagnosis of anemia, specifically 'anemia of chronic disease' which is directly linked to worsening renal function secondary to uncontrolled diabetes."
-        },
-        {
-          "name": "Medication Adherence and Financial Barriers",
-          "type": "contextual",
-          "reasoning": "The patient explicitly reported financial barriers impacting medication adherence, particularly with insulin, providing a contextual explanation for the persistent uncontrolled diabetes despite escalating therapies."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) track multiple lab trends simultaneously, (2) recognize progressive multi-organ diabetic complications, (3) identify medication non-response patterns, (4) detect preventive care gaps, and (5) incorporate social determinants into clinical reasoning. The LLM should flag the missing ophthalmology referral as high priority given duration and severity of diabetes."
   },
 
   {
@@ -1030,65 +971,8 @@
       "Recognizing that dose reduction was insufficient and discontinuation was necessary",
       "Understanding the confirmatory pattern of symptom/lab resolution after drug discontinuation"
     ],
-    "evaluation_notes": "This case tests ability to: (1) detect temporal associations between medication starts and new symptoms, (2) track progressive laboratory abnormalities correlating with drug exposure, (3) recognize medication non-response to dose adjustment, (4) identify causal relationships through drug discontinuation and symptom resolution, and (5) understand severity grading of adverse drug reactions. The LLM should recognize statin myopathy by Visit 2-3 based on CK elevation and myalgias, and should flag the need for discontinuation by Visit 3 when CK exceeded 5x normal with functional impairment.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The patient's primary clinical concern revolves around managing hyperlipidemia in the context of coronary artery disease and a history of MI. Initially, atorvastatin successfully lowered LDL, but subsequently led to progressive and severe statin-induced myopathy with significant muscle pain, weakness, and elevated CK levels, requiring its discontinuation. After stopping the statin, symptoms resolved, but LDL rebounded, necessitating alternative lipid management strategies."
-      },
-      {
-        "Patient Allergies": "1. Atorvastatin: Severe myopathy, CK elevation >1800, muscle weakness  2. Penicillin: Hives - childhood reaction"
-      },
-      {
-        "Key Lab Trends": "1.  CK (Creatine Kinase): Significantly worsened from a baseline of 125 U/L on 2024-03-22 to 385 U/L on 2024-05-10, then to 892 U/L on 2024-06-28, and critically to 1850 U/L on 2024-07-15.   2.  AST (Aspartate Aminotransferase): Worsened from 26 U/L on 2024-03-22 to 35 U/L on 2024-05-10, then to 52 U/L on 2024-06-28, and to 68 U/L on 2024-07-15.    3.  ALT (Alanine Aminotransferase): Worsened from 28 U/L on 2024-03-22 to 32 U/L on 2024-05-10, then to 45 U/L on 2024-06-28, and to 58 U/L on 2024-07-15."
-      },
-      {
-        "Key Vital Sign Trends": "None documented in the provided patient data."
-      },
-      {
-        "Treatment Response Summary": "Atorvastatin 40mg daily initially resulted in an excellent lipid response, lowering LDL from 175 mg/dl to 105 mg/dl. However, it led to increasing muscle aches and weakness, with CK levels rising significantly. Reducing atorvastatin to 20mg daily did not improve muscle pain or weakness, and CK levels continued to rise. Discontinuation of atorvastatin led to significant improvement in muscle symptoms, strength returning to baseline, and normalization of CK and liver enzymes. Ezetimibe 10mg daily was started for lipid management after atorvastatin intolerance was established."
-      },
-      {
-        "Medication Actions Taken": "- 2024-03-22: Started Atorvastatin 40mg daily.   - 2024-06-28: Atorvastatin dose reduced to 20mg daily. Started Coenzyme Q10 200mg daily.   - 2024-07-15: Atorvastatin discontinued.   - 2024-08-30: Started Ezetimibe 10mg daily."
-      },
-      {
-        "Clinical Outcome of Changes": "After atorvastatin was discontinued on 2024-07-15, the patient reported muscle pain nearly resolved and strength returned to baseline by 2024-08-30. Key lab trends improved with CK normalizing to 165 U/L and liver enzymes normalizing. However, LDL rebounded to 158 mg/dl after stopping the statin."
-      },
-      {
-        "Patient-Reported Barriers": "The patient reported progressively worsening muscle aches, leading to difficulty climbing stairs and lifting things (2024-06-28), and eventually significant weakness affecting daily activities, making it difficult to get up from a chair without using arms (2024-07-15). These side effects from atorvastatin acted as a significant barrier to continued statin therapy."
-      },
-      { "Identified Gaps": "None documented." }
-    ],
-    "correlations": {
-      "anchor": "Statin-induced myopathy",
-      "factors": [
-        {
-          "name": "Atorvastatin Use",
-          "type": "direct",
-          "reasoning": "The onset and progressive worsening of myopathy symptoms and elevation of CK levels directly followed the initiation of Atorvastatin, and symptoms/labs improved upon its discontinuation."
-        },
-        {
-          "name": "CK Levels",
-          "type": "direct",
-          "reasoning": "CK levels rose significantly from a baseline of 125 U/L to a peak of 1850 U/L while on atorvastatin, then normalized to 165 U/L after the drug was stopped, directly correlating with muscle damage and recovery."
-        },
-        {
-          "name": "Muscle Pain and Weakness (Chief Complaint)",
-          "type": "direct",
-          "reasoning": "The patient's reported muscle aches, increasing pain, weakness, and functional impairment directly coincided with the period of atorvastatin use and elevated CK, and improved significantly after discontinuation."
-        },
-        {
-          "name": "LDL Cholesterol Levels",
-          "type": "direct",
-          "reasoning": "LDL levels decreased effectively with atorvastatin (175 mg/dl to 105 mg/dl) but rebounded after its discontinuation (105 mg/dl to 158 mg/dl), illustrating the drug's efficacy and the subsequent challenge of lipid management post-myopathy."
-        },
-        {
-          "name": "Coronary Artery Disease / History of MI",
-          "type": "contextual",
-          "reasoning": "These pre-existing high-risk cardiovascular conditions provided the critical clinical context and necessity for aggressive lipid-lowering therapy, making the statin-induced myopathy a significant and challenging adverse event."
-        }
-      ]
-    }
-  },
+    "evaluation_notes": "This case tests ability to: (1) detect temporal associations between medication starts and new symptoms, (2) track progressive laboratory abnormalities correlating with drug exposure, (3) recognize medication non-response to dose adjustment, (4) identify causal relationships through drug discontinuation and symptom resolution, and (5) understand severity grading of adverse drug reactions. The LLM should recognize statin myopathy by Visit 2-3 based on CK elevation and myalgias, and should flag the need for discontinuation by Visit 3 when CK exceeded 5x normal with functional impairment."
+ },
 
   {
     "patient_name": "Samantha Jones",
@@ -1583,66 +1467,7 @@
       "Recognizing cardiorenal syndrome (worsening kidney function despite diuresis need)",
       "Understanding the escalation from oral to IV diuretics to ultrafiltration"
     ],
-    "evaluation_notes": "This case tests ability to: (1) recognize acute-on-chronic heart failure exacerbation through weight and symptom tracking, (2) understand the clinical significance of orthopnea, PND, and progressive edema, (3) correlate laboratory values (BNP, creatinine) with clinical deterioration, (4) recognize treatment failure requiring escalation of care, (5) understand cardiorenal syndrome complicating diuresis, and (6) appreciate the importance of medication adherence and dietary factors in CHF management. The LLM should flag early warning signs at V2 with 5 lb weight gain, recognize acute decompensation by V3, identify critical status requiring hospitalization at V4, and understand the long-term implications of EF decline by V5.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The patient's primary clinical concern is heart failure with reduced ejection fraction (initially 30%, declined to 25%). Her condition started stable but progressively worsened due to volume overload, exacerbated by dietary indiscretion. This led to acute decompensated heart failure with pulmonary edema and acute hypoxemic respiratory failure, requiring hospitalization in the CCU. Following aggressive diuresis and ultrafiltration, her condition improved, but her ejection fraction remains lower."
-      },
-      {
-        "Patient Allergies": "1. ACE inhibitors (Lisinopril): Angioedema - facial swelling, difficulty breathing   2. Shellfish: Hives, throat tightness"
-      },
-      {
-        "Key Lab Trends": "1.  Creatinine: Worsened from 1.1 mg/dl (2024-06-14) to 1.7 mg/dl (2024-08-14), then improved to 1.2 mg/dl (2024-09-06).  2.  GFR: Worsened from 68 ml/min (2024-06-14) to 46 ml/min (2024-08-14), then improved to 64 ml/min (2024-09-06).  3.  BNP: Increased from a stable 450 (2024-06-14, 2024-08-02 note) to critically elevated 2800 (2024-08-14 note)."
-      },
-      {
-        "Key Vital Sign Trends": "1.  Weight: Increased from a dry weight of 152 lbs (2024-06-14) to 166 lbs (2024-08-14), then decreased to a new dry weight of 150 lbs (2024-09-06).   2.  SpO2: Decreased from 91% on room air (2024-08-12) to 86% on room air (2024-08-14).   3.  Respiratory Status: Progressed from no dyspnea (2024-06-14) to mild dyspnea with usual activities (2024-08-02), then significant respiratory distress with orthopnea and PND (2024-08-12), and severe respiratory distress with pink frothy sputum and tachypnea (2024-08-14)."
-      },
-      {
-        "Treatment Response Summary": "Initially, the patient was stable on guideline-directed medical therapy. When mild volume overload occurred, increasing furosemide from 40mg to 60mg daily had limited effect. With severe decompensation, an 80mg IV dose of furosemide showed good initial response (800cc urination). However, subsequent oral diuresis failed, leading to severe acute decompensation. Aggressive IV furosemide (80mg Q8H) combined with metolazone 5mg, BiPAP, oxygen, and ultimately ultrafiltration during hospitalization led to significant improvement in symptoms and fluid status."
-      },
-      {
-        "Medication Actions Taken": "- 2024-08-02: Furosemide dose increased from 40mg daily to 60mg daily.  2024-08-12: Furosemide 80mg IV given once in urgent care. Oral Furosemide increased from 60mg daily to 80mg twice daily.  2024-08-14 (Admission): Oral furosemide stopped and switched to IV Furosemide 80mg every 8 hours. Metolazone 5mg daily started. BiPAP therapy and Oxygen 4L nasal cannula started.  2024-09-06 (Discharge): Furosemide 80mg twice daily continued. Metolazone 2.5mg three times weekly (Mon-Wed-Fri) started."
-      },
-      {
-        "Clinical Outcome of Changes": "Following initial diuretic increases, the patient's volume overload and symptoms worsened, leading to severe acute decompensated heart failure, pulmonary edema, hypoxemic respiratory failure, and acute kidney injury (cardiorenal syndrome). After aggressive IV diuresis, metolazone, BiPAP, oxygen, and ultrafiltration during a CCU admission, the patient's respiratory symptoms resolved, volume overload improved, weight decreased, and kidney function improved. However, her ejection fraction declined from 30% to 25%."
-      },
-      {
-        "Patient-Reported Barriers": "The patient admitted to 'eating more salty foods at family gathering' (2024-08-02) and 'dietary indiscretion - eating restaurant meals daily' (2024-08-12), indicating difficulty adhering to a low-sodium diet."
-      },
-      {
-        "Identified Gaps": "No explicit care gaps such as missed appointments or screenings are documented. However, the provider noted 'Considering ICD/CRT evaluation given EF decline' as a future consideration for care."
-      }
-    ],
-    "correlations": {
-      "anchor": "Acute Decompensated Heart Failure (ADHF)",
-      "factors": [
-        {
-          "name": "Chief Complaint / Symptoms (Dyspnea, Swelling, Orthopnea)",
-          "type": "direct",
-          "reasoning": "The patient's reported symptoms of ankle swelling and mild dyspnea progressively worsened to severe shortness of breath, orthopnea, and pink frothy sputum, directly mirroring the escalation of heart failure decompensation from mild volume overload to severe acute pulmonary edema, and improved with resolution of ADHF."
-        },
-        {
-          "name": "Weight Gain / Volume Overload",
-          "type": "direct",
-          "reasoning": "The patient's weight increased steadily (5 lbs, then 12 lbs, then 14 lbs above dry weight) from Visit 2 to Visit 4, directly correlating with the development and worsening of ADHF and signs of fluid overload (edema, crackles, JVP). Aggressive diuresis in hospital led to significant weight loss and resolution of ADHF symptoms."
-        },
-        {
-          "name": "Chronic Kidney Disease (Creatinine/GFR changes)",
-          "type": "direct",
-          "reasoning": "Creatinine levels rose (1.1 -> 1.7 mg/dL) and GFR declined (68 -> 46 mL/min) as ADHF worsened and volume overload became severe, leading to a diagnosis of cardiorenal syndrome. These kidney function parameters improved post-diuresis (Cr 1.2, GFR 64)."
-        },
-        {
-          "name": "Ejection Fraction (EF) Decline",
-          "type": "direct",
-          "reasoning": "The patient's baseline EF of 30% was noted to have declined to 25% during the severe ADHF exacerbation at Visit 4, and remained at 25% post-discharge, indicating a direct negative impact of the acute decompensation on cardiac function."
-        },
-        {
-          "name": "Dietary Indiscretion (High Sodium Intake)",
-          "type": "direct",
-          "reasoning": "Provider notes explicitly attribute the initial weight gain and mild volume overload (V2) to 'eating more salty foods' and the subsequent severe ADHF exacerbation (V3) to 'eating restaurant meals daily,' demonstrating a direct causal link between dietary sodium intake and heart failure decompensation."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) recognize acute-on-chronic heart failure exacerbation through weight and symptom tracking, (2) understand the clinical significance of orthopnea, PND, and progressive edema, (3) correlate laboratory values (BNP, creatinine) with clinical deterioration, (4) recognize treatment failure requiring escalation of care, (5) understand cardiorenal syndrome complicating diuresis, and (6) appreciate the importance of medication adherence and dietary factors in CHF management. The LLM should flag early warning signs at V2 with 5 lb weight gain, recognize acute decompensation by V3, identify critical status requiring hospitalization at V4, and understand the long-term implications of EF decline by V5."
   },
 
   {
@@ -2097,66 +1922,7 @@
       "Understanding the critical delay in performing colonoscopy despite multiple red flags",
       "Connecting seemingly disparate symptoms (weight loss, anemia, constipation, fatigue) to a unifying diagnosis"
     ],
-    "evaluation_notes": "This case tests ability to: (1) recognize occult cancer presentation through progressive symptoms over time, (2) identify alarm symptoms requiring urgent investigation, (3) understand that normal or minimally helpful initial tests do not exclude serious pathology, (4) track multiple converging clinical indicators (weight loss, anemia, bleeding, inflammatory markers), (5) recognize critical diagnostic delays as care gaps, and (6) appreciate the urgency needed when multiple red flags are present. The LLM should flag concern by V1-V2 with weight loss and anemia in elderly patient, recognize high suspicion for malignancy by V3 with progressive symptoms and normal EGD, identify critical urgency by V4 with overt bleeding and severe anemia, and understand that the 4-5 month delay to colonoscopy was a significant care gap that may have affected outcomes.",
-    "biomistral_summary": [
-      {
-        "Primary Clinical Concern": "The patient presented for an annual physical with unintentional weight loss. Over several months, this progressed to worsening iron deficiency anemia, persistent weight loss (total 22 lbs), new onset abdominal pain, worsening constipation, and eventual hematochezia and severe fatigue. This constellation of symptoms and lab abnormalities (declining hemoglobin/ferritin, elevated inflammatory markers, reactive thrombocytosis) ultimately led to a diagnosis of Stage II adenocarcinoma of the sigmoid colon."
-      },
-      {
-        "Patient Allergies": "1. Codeine: Severe nausea, vomiting   2. Latex: Contact dermatitis, skin irritation"
-      },
-      {
-        "Key Lab Trends": "1. Hemoglobin: Declined from 12.8 g/dl (2024-03-28) to 9.8 g/dl (2024-08-23).   2. Ferritin: Declined from 38.0 ng/ml (2024-03-28) to 28.0 ng/ml (2024-08-09).   3. Platelets: Increased from 385 k/ul (2024-03-28) to 468 k/ul (2024-08-23)."
-      },
-      {
-        "Key Vital Sign Trends": "None documented in the provided patient data."
-      },
-      {
-        "Treatment Response Summary": "Ferrous sulfate 325mg daily was started for anemia but hemoglobin continued to decline and ferritin levels did not improve, suggesting a non-responsive iron deficiency. Polyethylene glycol 3350 17g daily was started for constipation, but its effectiveness is not explicitly detailed; it was later discontinued."
-      },
-      {
-        "Medication Actions Taken": "2024-03-28: Ferrous sulfate 325mg daily started.  2024-06-28: Polyethylene glycol 3350 17g daily started.  2024-08-23: Polyethylene glycol discontinued."
-      },
-      {
-        "Clinical Outcome of Changes": "Despite starting iron supplementation, the patient's anemia worsened progressively. The patient's weight loss continued, and new gastrointestinal symptoms like abdominal pain, worsening constipation, and hematochezia developed, indicating a deterioration of the primary clinical concern. Overall, the patient's key problems and lab trends worsened, ultimately leading to a cancer diagnosis."
-      },
-      {
-        "Patient-Reported Barriers": "1. Patient was hesitant about colonoscopy, wanting to 'see what EGD shows first'.  2.Patient agreed to colonoscopy but wanted to wait until after daughter's wedding in 6 weeks."
-      },
-      {
-        "Identified Gaps": "1. Patient was overdue for screening colonoscopy (last one 12 years prior at age 59). 2. There was a delay in performing colonoscopy after red flags appeared, which the provider noted 'may have allowed progression.'"
-      }
-    ],
-    "correlations": {
-      "anchor": "Adenocarcinoma of sigmoid colon (C18.7)",
-      "factors": [
-        {
-          "name": "Progressive Weight Loss (R63.4)",
-          "type": "direct",
-          "reasoning": "The patient's unintentional weight loss started at Visit 1 and progressively worsened throughout the clinical course, ultimately explained by the diagnosed malignancy."
-        },
-        {
-          "name": "Worsening Iron Deficiency Anemia (D50.9, D63.0)",
-          "type": "direct",
-          "reasoning": "Initial anemia at Visit 1, characterized by low hemoglobin and ferritin, continued to decline despite iron supplementation and was eventually diagnosed as secondary to malignancy, explained by chronic blood loss from the tumor."
-        },
-        {
-          "name": "Changes in Bowel Habits (Abdominal Pain, Constipation, Hematochezia)",
-          "type": "direct",
-          "reasoning": "Vague abdominal discomfort progressed to worsening constipation and cramping abdominal pain, followed by reports of blood on toilet paper (hematochezia), all symptomatic of the colonic adenocarcinoma."
-        },
-        {
-          "name": "Elevated Inflammatory Markers (CRP, ESR) and Thrombocytosis",
-          "type": "direct",
-          "reasoning": "Elevated CRP and ESR, along with reactive thrombocytosis (elevated platelets), were observed as the disease progressed, indicating systemic inflammation commonly associated with malignancy."
-        },
-        {
-          "name": "Elevated CEA (Carcinoembryonic Antigen)",
-          "type": "direct",
-          "reasoning": "The CEA level of 42 ng/mL (normal <5) was found to be significantly elevated following the diagnosis, serving as a tumor marker directly correlated with the adenocarcinoma."
-        }
-      ]
-    }
+    "evaluation_notes": "This case tests ability to: (1) recognize occult cancer presentation through progressive symptoms over time, (2) identify alarm symptoms requiring urgent investigation, (3) understand that normal or minimally helpful initial tests do not exclude serious pathology, (4) track multiple converging clinical indicators (weight loss, anemia, bleeding, inflammatory markers), (5) recognize critical diagnostic delays as care gaps, and (6) appreciate the urgency needed when multiple red flags are present. The LLM should flag concern by V1-V2 with weight loss and anemia in elderly patient, recognize high suspicion for malignancy by V3 with progressive symptoms and normal EGD, identify critical urgency by V4 with overt bleeding and severe anemia, and understand that the 4-5 month delay to colonoscopy was a significant care gap that may have affected outcomes."
   },
 
   {
@@ -2653,66 +2419,2773 @@
       "Understanding the rapidity of progression requiring emergency delivery despite prematurity",
       "Appreciating long-term cardiovascular risk after preeclampsia/HELLP"
     ],
-    "evaluation_notes": "This case tests ability to: (1) track progressive BP elevation across pregnancy, (2) recognize preeclampsia development through BP + proteinuria, (3) identify laboratory trends indicating worsening disease (declining platelets, rising liver enzymes), (4) connect warning symptoms with severe features requiring immediate intervention, (5) understand HELLP syndrome as life-threatening complication, (6) recognize the need for emergency delivery despite prematurity, and (7) appreciate long-term health implications. The LLM should flag concern at V3 with elevated BP and edema, recognize preeclampsia diagnosis at V4, identify rapid progression and severe features at V5 requiring emergency intervention, and understand at V6 the implications for future pregnancy and cardiovascular health. This case demonstrates how quickly preeclampsia can progress from mild to life-threatening.",
-    "biomistral_summary": [
+    "evaluation_notes": "This case tests ability to: (1) track progressive BP elevation across pregnancy, (2) recognize preeclampsia development through BP + proteinuria, (3) identify laboratory trends indicating worsening disease (declining platelets, rising liver enzymes), (4) connect warning symptoms with severe features requiring immediate intervention, (5) understand HELLP syndrome as life-threatening complication, (6) recognize the need for emergency delivery despite prematurity, and (7) appreciate long-term health implications. The LLM should flag concern at V3 with elevated BP and edema, recognize preeclampsia diagnosis at V4, identify rapid progression and severe features at V5 requiring emergency intervention, and understand at V6 the implications for future pregnancy and cardiovascular health. This case demonstrates how quickly preeclampsia can progress from mild to life-threatening."
+  },
+  {
+    "patient_id": "TEST_PT_020",
+    "patient_name": "John Doe",
+    "archetype": "Cardiovascular_Acute_MI_STEMI",
+    "demographics": {
+      "age": 58,
+      "sex": "M",
+      "race_ethnicity": "Caucasian"
+    },
+    "allergies": [
       {
-        "Primary Clinical Concern": "The primary clinical concern was an intrauterine pregnancy (G1P0) complicated by the rapid onset and progression of preeclampsia, culminating in severe preeclampsia with HELLP syndrome requiring emergency delivery at 32 weeks. The patient presented for her first prenatal visit at 10 weeks, and by 28 weeks, developed elevated blood pressure and edema, raising concerns for preeclampsia. By 31 weeks, preeclampsia without severe features was diagnosed. One week later, at 32 weeks, her condition acutely worsened with severe headache, visual changes, and right upper quadrant pain, leading to a diagnosis of severe preeclampsia with HELLP syndrome. An emergency Cesarean section was performed. Post-delivery, the patient recovered well, with normalization of lab values and blood pressure by her 6-week postpartum visit, though she remains at high risk for future cardiovascular issues and preeclampsia in subsequent pregnancies."
+        "allergen": "Contrast dye (iodinated)",
+        "reaction": "Hives, mild bronchospasm during prior CT scan",
+        "severity": "moderate",
+        "onset": "2019"
       },
       {
-        "Patient Allergies": "Penicillin: Rash (patient report from childhood)"
-      },
-      {
-        "Key Lab Trends": "1.  Platelets (k/uL): Decreased from 245 (2024-04-12) to 185 (2024-09-06) to 98 (2024-09-13).   2. ALT (U/L): Increased from 18 (2024-04-12) to 42 (2024-09-06) to 168 (2024-09-13).   3. AST (U/L): Increased from 22 (2024-04-12) to 48 (2024-09-06) to 242 (2024-09-13)."
-      },
-      {
-        "Key Vital Sign Trends": "Blood Pressure (mmHg): Increased from baseline 112/68 (2024-04-12) to 138/86 (2024-08-16), then to 152/96 (2024-09-06), and severely to 168/108 (2024-09-13)."
-      },
-      {
-        "Treatment Response Summary": "Prenatal vitamins were continued throughout the pregnancy. Magnesium sulfate and Labetalol were started for seizure prophylaxis and BP control, respectively, at the time of severe preeclampsia and HELLP syndrome, in conjunction with Betamethasone for fetal lung maturity. The definitive treatment of delivery for severe preeclampsia with HELLP syndrome led to a resolution of the severe symptoms and normalization of blood pressure and lab abnormalities postpartum."
-      },
-      {
-        "Medication Actions Taken": "Started : Prenatal vitamins daily (2024-04-12),  Magnesium sulfate IV for seizure prophylaxis (2024-09-13), Labetalol IV for BP control (2024-09-13), Betamethasone IM for fetal lung maturity (completed) (2024-09-13)          Continued: Prenatal vitamins daily (from 2024-06-21 to 2024-09-13)             Stopped: All postpartum medications discontinued (2024-10-25)"
-      },
-      {
-        "Clinical Outcome of Changes": "Following the emergency delivery and supportive medications, the patient's critical condition resolved. Her blood pressure normalized immediately, and platelets and liver enzymes normalized by post-op day 3. At the 6-week postpartum visit, she had recovered well, with normal lab values and acceptable blood pressure."
-      },
-      {
-        "Patient-Reported Barriers": "No patient-reported barriers to treatment were documented."
-      },
-      {
-        "Identified Gaps": "No documented care gaps, such as missed appointments or screenings, were identified in the provided timeline."
+        "allergen": "Clopidogrel",
+        "reaction": "Severe rash, discontinued after prior stent",
+        "severity": "moderate",
+        "onset": "2020"
       }
     ],
-
-    "correlations": {
-      "anchor": "Severe Preeclampsia with HELLP syndrome",
-      "factors": [
-        {
-          "name": "Elevated Blood Pressure",
-          "type": "direct",
-          "reasoning": "Patient's BP progressively rose from a baseline of 112/68 to 152/96 (preeclampsia) and then 168/108 (severe preeclampsia/HELLP), normalizing postpartum."
+    "ground_truth_correlations": [
+      {
+        "correlation_id": "CORR_020_A",
+        "type": "symptom_lab_correlation",
+        "description": "Acute chest pain with ST-segment elevation and troponin rise indicating STEMI",
+        "entities_involved": [
+          "Chest pain",
+          "EKG changes",
+          "Troponin elevation",
+          "ST elevation"
+        ],
+        "visits_involved": ["V1", "V2"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.98
+      },
+      {
+        "correlation_id": "CORR_020_B",
+        "type": "lab_trend",
+        "description": "Progressive troponin elevation from 0.05 to peak 45.2 ng/mL indicating large MI with myocardial necrosis",
+        "entities_involved": ["Troponin I", "CK-MB", "Time from symptom onset"],
+        "visits_involved": ["V1", "V2", "V3"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.96
+      },
+      {
+        "correlation_id": "CORR_020_C",
+        "type": "symptom_lab_correlation",
+        "description": "Post-MI heart failure development with declining EF and rising BNP",
+        "entities_involved": ["Ejection fraction", "BNP", "Dyspnea", "Edema"],
+        "visits_involved": ["V2", "V3", "V4"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.9
+      },
+      {
+        "correlation_id": "CORR_020_D",
+        "type": "persistent_symptom",
+        "description": "Delayed presentation (12 hours from symptom onset) resulting in larger infarct and worse outcomes",
+        "entities_involved": [
+          "Time to treatment",
+          "Troponin peak",
+          "EF",
+          "Complications"
+        ],
+        "visits_involved": ["V1", "V2"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.88
+      }
+    ],
+    "clinical_timeline": [
+      {
+        "visit_id": "V1",
+        "visit_date": "2024-06-15",
+        "visit_type": "emergency",
+        "chief_complaint": "Severe crushing chest pain since yesterday evening, pain radiating to left arm and jaw",
+        "vitals": {
+          "temp_f": 98.8,
+          "bp_systolic": 168,
+          "bp_diastolic": 98,
+          "hr_bpm": 102,
+          "rr_bpm": 22,
+          "spo2_percent": 94.0,
+          "weight_lbs": 215.0,
+          "height_inches": 70.0,
+          "bmi": 30.8
         },
-        {
-          "name": "Proteinuria",
-          "type": "direct",
-          "reasoning": "Trace proteinuria developed at 28 weeks, progressed to 450mg in 24 hours at 31 weeks (confirming preeclampsia), and then 4+ at 32 weeks, resolving postpartum."
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 185,
+          "creatinine_mg_dl": 1.2,
+          "gfr_ml_min": 72,
+          "hemoglobin_g_dl": 14.8,
+          "wbc_k_ul": 12.5,
+          "platelets_k_ul": 285,
+          "sodium_meq_l": 138,
+          "potassium_meq_l": 4.5,
+          "alt_u_l": 38,
+          "ast_u_l": 52,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": 485
         },
-        {
-          "name": "Declining Platelet Count",
-          "type": "direct",
-          "reasoning": "Platelet count declined from 228 to 185, and then critically to 98 (meeting HELLP criteria) before normalizing postpartum."
+        "medications": {
+          "continued": [
+            "Atorvastatin 20mg daily",
+            "Metformin 1000mg twice daily"
+          ],
+          "started": [
+            "Aspirin 325mg chewed immediately",
+            "Nitroglycerin sublingual 0.4mg x3 doses",
+            "Morphine 4mg IV for pain",
+            "Heparin IV bolus then infusion",
+            "Metoprolol 5mg IV"
+          ],
+          "stopped": [],
+          "dose_changed": []
         },
-        {
-          "name": "Elevated Liver Enzymes (ALT/AST)",
-          "type": "direct",
-          "reasoning": "Liver enzymes (ALT/AST) rose from normal levels to mildly elevated (42/48) with preeclampsia, and then significantly to 168/242 (meeting HELLP criteria), normalizing postpartum."
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus (E11.9)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)",
+            "Hypertension (I10)"
+          ],
+          "new_acute": [
+            "ST-elevation myocardial infarction, inferior wall (I21.19)",
+            "Acute coronary syndrome (I24.9)"
+          ],
+          "differential": []
         },
-        {
-          "name": "Patient Symptoms (Headache, Visual Changes, RUQ Pain)",
-          "type": "direct",
-          "reasoning": "Patient reported increasing headaches, and later developed severe headache, visual disturbances ('seeing spots'), and right upper quadrant pain ('pain under right ribs'), which are severe features of preeclampsia and HELLP syndrome."
+        "procedures_ordered": [
+          "EKG - ST elevation in leads II, III, aVF (inferior STEMI)",
+          "Troponin I: 8.5 ng/mL (elevated, normal <0.04)",
+          "CK-MB: 85 ng/mL (elevated)",
+          "Chest X-ray - clear lung fields, normal cardiac silhouette",
+          "STAT cardiology consult for cardiac catheterization"
+        ],
+        "referrals": [
+          "Interventional cardiology - emergency cardiac catheterization"
+        ],
+        "provider_note_snippet": "ACUTE STEMI - EMERGENCY. 58 yo male presenting with 12 hours of severe substernal chest pain, radiating to left arm and jaw, associated with diaphoresis, nausea. Pain started at 8pm yesterday while watching TV. Patient delayed seeking care, hoping it would resolve. EKG shows classic inferior STEMI with ST elevation in II, III, aVF. Troponin significantly elevated at 8.5. DELAYED PRESENTATION - symptom onset 12 hours ago. Activated cardiac cath lab. Given aspirin, heparin, beta-blocker, morphine. Patient to cath lab emergently. Risk factors: diabetes, hyperlipidemia, obesity, hypertension, family history (father MI at age 52). Pre-treated with IV fluids and antihistamine due to contrast allergy history.",
+        "patient_reported_adherence": "fair",
+        "social_history_updates": {
+          "smoking": "current (1 pack per day x 35 years)",
+          "alcohol": "moderate (2-3 beers daily)",
+          "housing_status": "stable",
+          "food_security": "secure"
         }
-      ]
+      },
+      {
+        "visit_id": "V2",
+        "visit_date": "2024-06-16",
+        "visit_type": "office_visit",
+        "chief_complaint": "Post-catheterization day 1, CCU admission",
+        "vitals": {
+          "temp_f": 99.2,
+          "bp_systolic": 118,
+          "bp_diastolic": 72,
+          "hr_bpm": 78,
+          "rr_bpm": 18,
+          "spo2_percent": 96.0,
+          "weight_lbs": 213.0,
+          "height_inches": 70.0,
+          "bmi": 30.6
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 168,
+          "creatinine_mg_dl": 1.4,
+          "gfr_ml_min": 65,
+          "hemoglobin_g_dl": 13.8,
+          "wbc_k_ul": 14.2,
+          "platelets_k_ul": 275,
+          "sodium_meq_l": 137,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 45,
+          "ast_u_l": 128,
+          "crp_mg_l": 85.4,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": 248,
+          "ldl_mg_dl": 168,
+          "hdl_mg_dl": 32,
+          "triglycerides_mg_dl": 240,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": 2850
+        },
+        "medications": {
+          "continued": [
+            "Atorvastatin 20mg daily",
+            "Metformin 1000mg twice daily",
+            "Heparin infusion"
+          ],
+          "started": [
+            "Aspirin 81mg daily",
+            "Ticagrelor 90mg twice daily (alternative to clopidogrel due to allergy)",
+            "Metoprolol succinate 50mg daily",
+            "Lisinopril 5mg daily",
+            "Insulin sliding scale for hyperglycemia"
+          ],
+          "stopped": [],
+          "dose_changed": ["Atorvastatin increased to 80mg daily"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus (E11.9)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)",
+            "Hypertension (I10)"
+          ],
+          "new_acute": [
+            "ST-elevation myocardial infarction, inferior wall, acute (I21.19)",
+            "Right coronary artery occlusion, status post PCI with stent (I25.10)",
+            "Acute systolic heart failure (I50.21)"
+          ],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Cardiac catheterization report: 100% occlusion of RCA, successful PCI with drug-eluting stent placement",
+          "Troponin I peak: 45.2 ng/mL (massive elevation)",
+          "Echocardiogram: EF 35%, inferior wall akinesis, mild mitral regurgitation",
+          "Telemetry monitoring"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "Post-cath day 1. Successful PCI to RCA with single drug-eluting stent for 100% occlusion. TIMI 3 flow achieved. However, LARGE MI - troponin peaked at 45.2 (very high), CK 2850. Delayed presentation (12 hours) resulted in significant myocardial necrosis before reperfusion. Echo shows EF 35% with inferior wall akinesis. Now has systolic heart failure. Started GDMT: aspirin, ticagrelor (can't use clopidogrel due to allergy history), beta-blocker, ACE-I, high-dose statin. Creatinine slightly elevated at 1.4 (contrast-induced nephropathy vs cardiorenal). Patient hemodynamically stable, chest pain resolved. Will monitor for complications - arrhythmias, heart failure, free wall rupture. Cardiac rehab referral. Smoking cessation critical.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": "current - counseled extensively on cessation",
+          "alcohol": "none during hospitalization",
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V3",
+        "visit_date": "2024-06-20",
+        "visit_type": "office_visit",
+        "chief_complaint": "Hospital day 5, transfer to step-down unit, some shortness of breath",
+        "vitals": {
+          "temp_f": 98.6,
+          "bp_systolic": 108,
+          "bp_diastolic": 68,
+          "hr_bpm": 82,
+          "rr_bpm": 20,
+          "spo2_percent": 94.0,
+          "weight_lbs": 218.0,
+          "height_inches": 70.0,
+          "bmi": 31.3
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 142,
+          "creatinine_mg_dl": 1.3,
+          "gfr_ml_min": 68,
+          "hemoglobin_g_dl": 12.8,
+          "wbc_k_ul": 10.5,
+          "platelets_k_ul": 268,
+          "sodium_meq_l": 136,
+          "potassium_meq_l": 4.6,
+          "alt_u_l": 42,
+          "ast_u_l": 68,
+          "crp_mg_l": 52.3,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": 485
+        },
+        "medications": {
+          "continued": [
+            "Aspirin 81mg daily",
+            "Ticagrelor 90mg twice daily",
+            "Metoprolol succinate 50mg daily",
+            "Lisinopril 5mg daily",
+            "Atorvastatin 80mg daily",
+            "Metformin 1000mg twice daily"
+          ],
+          "started": ["Furosemide 40mg daily", "Spironolactone 25mg daily"],
+          "stopped": [
+            "Heparin discontinued",
+            "Insulin sliding scale discontinued"
+          ],
+          "dose_changed": ["Lisinopril increased to 10mg daily"]
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus (E11.9)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)",
+            "Hypertension (I10)"
+          ],
+          "new_acute": [
+            "Acute myocardial infarction, healing (I21.19)",
+            "Coronary artery disease with stent (I25.10, Z95.5)",
+            "Systolic heart failure, acute (I50.21)",
+            "Post-MI volume overload (E87.70)"
+          ],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "BNP: 1250 pg/mL (elevated)",
+          "Chest X-ray: mild pulmonary vascular congestion",
+          "Repeat echo: EF 32% (slightly worse), inferior/inferolateral akinesis"
+        ],
+        "referrals": ["Cardiac rehabilitation"],
+        "provider_note_snippet": "Hospital day 5. Patient developing post-MI heart failure symptoms - mild dyspnea on exertion, 5 lb weight gain, mild crackles at bases. BNP elevated at 1250. Repeat echo shows EF declined to 32%. Started diuretic therapy with furosemide and spironolactone. Uptitrated ACE-I. Patient hemodynamically stable. No arrhythmias on telemetry. CK trending down (was 2850, now 485). Discharge planning - will go home in 1-2 days. Extensive education on dual antiplatelet therapy (must take aspirin AND ticagrelor for minimum 1 year - cannot stop), heart failure medications, lifestyle modifications. Smoking cessation critical - provided resources. Cardiac rehab enrolled.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V4",
+        "visit_date": "2024-07-12",
+        "visit_type": "office_visit",
+        "chief_complaint": "Post-MI follow-up, 4 weeks after discharge, feeling weak and tired",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 102,
+          "bp_diastolic": 64,
+          "hr_bpm": 68,
+          "rr_bpm": 16,
+          "spo2_percent": 97.0,
+          "weight_lbs": 208.0,
+          "height_inches": 70.0,
+          "bmi": 29.9
+        },
+        "labs": {
+          "hba1c": 7.8,
+          "glucose_mg_dl": 138,
+          "creatinine_mg_dl": 1.2,
+          "gfr_ml_min": 72,
+          "hemoglobin_g_dl": 12.2,
+          "wbc_k_ul": 7.8,
+          "platelets_k_ul": 242,
+          "sodium_meq_l": 138,
+          "potassium_meq_l": 4.4,
+          "alt_u_l": 32,
+          "ast_u_l": 28,
+          "crp_mg_l": 8.5,
+          "esr_mm_hr": null,
+          "tsh_miu_l": 2.4,
+          "cholesterol_total_mg_dl": 142,
+          "ldl_mg_dl": 68,
+          "hdl_mg_dl": 38,
+          "triglycerides_mg_dl": 180,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Aspirin 81mg daily",
+            "Ticagrelor 90mg twice daily",
+            "Metoprolol succinate 50mg daily",
+            "Lisinopril 10mg daily",
+            "Atorvastatin 80mg daily",
+            "Metformin 1000mg twice daily",
+            "Furosemide 40mg daily",
+            "Spironolactone 25mg daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus (E11.9)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)",
+            "Hypertension (I10)",
+            "Coronary artery disease with history of MI and stent (I25.10, Z95.5)",
+            "Systolic heart failure (I50.22)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "BNP: 680 pg/mL (improved from 1250)",
+          "Echocardiogram: EF 38% (improved from 32%)"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "4 week post-MI follow-up. Patient doing reasonably well. Enrolled in cardiac rehab, attending 3x per week. 7 lb weight loss (intentional diet modification). Reports fatigue and weakness - likely deconditioning from MI and beta-blocker effect. No chest pain, no dyspnea at rest. Some dyspnea with exertion but improving. Echo shows EF improved to 38%. BNP down to 680. LDL excellent at 68 on high-dose statin. A1c 7.8 - needs better diabetes control. CRITICAL: Patient MUST continue dual antiplatelet therapy (aspirin + ticagrelor) for minimum 1 year - reinforced multiple times. Patient quit smoking 2 weeks ago - using nicotine patches. Excellent progress. Continue all medications. Gradual return to activities as tolerated through cardiac rehab.",
+        "patient_reported_adherence": "excellent",
+        "social_history_updates": {
+          "smoking": "quit 2 weeks ago (using nicotine replacement)",
+          "alcohol": "none since MI",
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      },
+      {
+        "visit_id": "V5",
+        "visit_date": "2024-10-18",
+        "visit_type": "office_visit",
+        "chief_complaint": "6-month post-MI follow-up, doing well overall",
+        "vitals": {
+          "temp_f": 98.4,
+          "bp_systolic": 118,
+          "bp_diastolic": 72,
+          "hr_bpm": 64,
+          "rr_bpm": 14,
+          "spo2_percent": 98.0,
+          "weight_lbs": 195.0,
+          "height_inches": 70.0,
+          "bmi": 28.0
+        },
+        "labs": {
+          "hba1c": 6.8,
+          "glucose_mg_dl": 118,
+          "creatinine_mg_dl": 1.1,
+          "gfr_ml_min": 78,
+          "hemoglobin_g_dl": 13.4,
+          "wbc_k_ul": 6.8,
+          "platelets_k_ul": 248,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 28,
+          "ast_u_l": 26,
+          "crp_mg_l": 2.8,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": 138,
+          "ldl_mg_dl": 62,
+          "hdl_mg_dl": 42,
+          "triglycerides_mg_dl": 170,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Aspirin 81mg daily",
+            "Ticagrelor 90mg twice daily",
+            "Metoprolol succinate 50mg daily",
+            "Lisinopril 10mg daily",
+            "Atorvastatin 80mg daily",
+            "Metformin 1000mg twice daily",
+            "Furosemide 40mg daily",
+            "Spironolactone 25mg daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Type 2 Diabetes Mellitus, improved control (E11.9)",
+            "Hyperlipidemia (E78.5)",
+            "Obesity (E66.9)",
+            "Hypertension (I10)",
+            "Coronary artery disease with history of MI and stent (I25.10, Z95.5)",
+            "Systolic heart failure (I50.22)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Echocardiogram: EF 42% (continued improvement)",
+          "BNP: 385 pg/mL (near normal)",
+          "Stress test at 1 year if no symptoms"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "Excellent 6-month post-MI progress. Patient lost 20 lbs total (215 to 195), completed cardiac rehab, remains smoke-free (6 months!), exercising regularly. EF improved to 42%. BNP near normal at 385. Diabetes control improved (A1c 6.8). LDL at goal (<70). No angina, no heart failure symptoms. Functionally independent, back to work. Will continue dual antiplatelet therapy for full year, then transition to aspirin monotherapy after discussion with cardiology. Patient understands importance of lifelong risk factor modification - diet, exercise, smoking cessation, medication adherence. This case demonstrates: (1) Consequences of delayed presentation in STEMI, (2) Development of post-MI heart failure, (3) Importance of comprehensive cardiac rehab and lifestyle modification, (4) Recovery potential with optimal medical therapy.",
+        "patient_reported_adherence": "excellent",
+        "social_history_updates": {
+          "smoking": "quit (6 months smoke-free)",
+          "alcohol": "none",
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      }
+    ],
+    "expected_llm_challenges": [
+      "Recognizing the significance of delayed presentation (12 hours) on infarct size",
+      "Understanding the relationship between troponin elevation magnitude and myocardial damage",
+      "Connecting acute MI with development of post-MI heart failure (EF decline)",
+      "Recognizing the importance of dual antiplatelet therapy after stent placement",
+      "Understanding contrast allergy management in emergency cardiac catheterization",
+      "Tracking recovery trajectory through serial EF measurements"
+    ],
+    "evaluation_notes": "This case tests ability to: (1) recognize acute STEMI presentation and need for emergency intervention, (2) understand impact of time-to-treatment on outcomes, (3) track troponin kinetics and correlation with infarct size, (4) recognize post-MI complications (heart failure development), (5) understand importance of secondary prevention medications, (6) appreciate role of lifestyle modifications and cardiac rehabilitation in recovery, and (7) recognize allergy considerations affecting treatment choices (clopidogrel allergy requiring ticagrelor, contrast allergy requiring premedication). The LLM should identify the critical nature of delayed presentation at V1, recognize massive MI with high troponin at V2, identify post-MI heart failure at V3, and track positive recovery trajectory through V4-V5 with lifestyle modifications."
+  },
+
+  {
+    "patient_id": "TEST_PT_021",
+    "patient_name": "Hillory Williams",
+    "archetype": "Cardiovascular_Atrial_Fibrillation_Stroke_Risk",
+    "demographics": {
+      "age": 68,
+      "sex": "F",
+      "race_ethnicity": "Asian"
+    },
+    "allergies": [],
+    "ground_truth_correlations": [
+      {
+        "correlation_id": "CORR_021_A",
+        "type": "symptom_lab_correlation",
+        "description": "New onset atrial fibrillation with palpitations and irregular heart rhythm",
+        "entities_involved": [
+          "Palpitations",
+          "Irregular pulse",
+          "EKG showing AFib",
+          "Heart rate"
+        ],
+        "visits_involved": ["V1", "V2"],
+        "expected_severity": "high",
+        "minimum_confidence_threshold": 0.94
+      },
+      {
+        "correlation_id": "CORR_021_B",
+        "type": "lab_trend",
+        "description": "Progressive decline in heart rate control despite medication escalation",
+        "entities_involved": [
+          "Heart rate",
+          "Beta-blocker doses",
+          "Calcium channel blocker",
+          "AFib burden"
+        ],
+        "visits_involved": ["V2", "V3", "V4"],
+        "expected_severity": "moderate",
+        "minimum_confidence_threshold": 0.88
+      },
+      {
+        "correlation_id": "CORR_021_C",
+        "type": "care_gap",
+        "description": "Delayed anticoagulation initiation despite high stroke risk (CHA2DS2-VASc score 5)",
+        "entities_involved": [
+          "CHA2DS2-VASc score",
+          "Anticoagulation",
+          "Stroke risk",
+          "Time to treatment"
+        ],
+        "visits_involved": ["V1", "V2", "V3"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.92
+      },
+      {
+        "correlation_id": "CORR_021_D",
+        "type": "symptom_lab_correlation",
+        "description": "Transient ischemic attack (TIA) occurring while on inadequate anticoagulation",
+        "entities_involved": [
+          "TIA symptoms",
+          "INR subtherapeutic",
+          "Atrial fibrillation",
+          "Stroke"
+        ],
+        "visits_involved": ["V3", "V4"],
+        "expected_severity": "critical",
+        "minimum_confidence_threshold": 0.96
+      }
+    ],
+    "clinical_timeline": [
+      {
+        "visit_id": "V1",
+        "visit_date": "2024-04-05",
+        "visit_type": "office_visit",
+        "chief_complaint": "Heart racing and fluttering sensation in chest for past week",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 142,
+          "bp_diastolic": 88,
+          "hr_bpm": 118,
+          "rr_bpm": 16,
+          "spo2_percent": 97.0,
+          "weight_lbs": 138.0,
+          "height_inches": 62.0,
+          "bmi": 25.2
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 108,
+          "creatinine_mg_dl": 0.9,
+          "gfr_ml_min": 78,
+          "hemoglobin_g_dl": 13.2,
+          "wbc_k_ul": 6.8,
+          "platelets_k_ul": 245,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 28,
+          "ast_u_l": 26,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": 2.8,
+          "cholesterol_total_mg_dl": 208,
+          "ldl_mg_dl": 132,
+          "hdl_mg_dl": 58,
+          "triglycerides_mg_dl": 90,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Amlodipine 5mg daily",
+            "Hydrochlorothiazide 25mg daily"
+          ],
+          "started": ["Metoprolol tartrate 25mg twice daily"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": ["Hypertension (I10)", "Hyperlipidemia (E78.5)"],
+          "new_acute": ["Palpitations (R00.2)", "Sinus tachycardia (R00.0)"],
+          "differential": ["Atrial fibrillation", "Anxiety", "Hyperthyroidism"]
+        },
+        "procedures_ordered": [
+          "EKG - sinus rhythm, rate 118, no acute changes",
+          "TSH ordered",
+          "24-hour Holter monitor ordered"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "68 yo female with 1 week of palpitations and racing heart. Heart rate 118 in office. EKG today shows sinus tachycardia. Pulse irregular on exam. No chest pain, no dyspnea. Patient anxious about symptoms. Started low-dose beta-blocker. Ordered Holter monitor to capture rhythm during symptoms. TSH to rule out hyperthyroidism. RTC in 2 weeks for Holter results.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": "never",
+          "alcohol": "social (wine with dinner)",
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      },
+      {
+        "visit_id": "V2",
+        "visit_date": "2024-04-22",
+        "visit_type": "office_visit",
+        "chief_complaint": "Follow-up for Holter monitor results, still having episodes of rapid heartbeat",
+        "vitals": {
+          "temp_f": 98.4,
+          "bp_systolic": 138,
+          "bp_diastolic": 84,
+          "hr_bpm": 96,
+          "rr_bpm": 16,
+          "spo2_percent": 98.0,
+          "weight_lbs": 137.0,
+          "height_inches": 62.0,
+          "bmi": 25.1
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": null,
+          "creatinine_mg_dl": null,
+          "gfr_ml_min": null,
+          "hemoglobin_g_dl": null,
+          "wbc_k_ul": null,
+          "platelets_k_ul": null,
+          "sodium_meq_l": null,
+          "potassium_meq_l": null,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": 2.6,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Amlodipine 5mg daily",
+            "Hydrochlorothiazide 25mg daily"
+          ],
+          "started": [],
+          "stopped": [],
+          "dose_changed": ["Metoprolol tartrate increased to 50mg twice daily"]
+        },
+        "diagnoses": {
+          "active_chronic": ["Hypertension (I10)", "Hyperlipidemia (E78.5)"],
+          "new_acute": ["Atrial fibrillation, paroxysmal (I48.0)"],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Holter monitor results: Multiple episodes of atrial fibrillation, longest 4 hours, heart rates 110-145 during AFib",
+          "Echocardiogram ordered",
+          "EKG today - atrial fibrillation with rapid ventricular response, rate 96"
+        ],
+        "referrals": ["Cardiology"],
+        "provider_note_snippet": "ATRIAL FIBRILLATION diagnosed on Holter monitor. Multiple paroxysmal AFib episodes over 24 hours. EKG today also shows AFib. TSH normal. Patient has multiple stroke risk factors: age 68, female, hypertension. CHA2DS2-VASc score = 4 (age, female, hypertension) - HIGH RISK for stroke, anticoagulation indicated. However, patient very anxious about 'blood thinners' after reading online. Spent significant time discussing stroke risk (annual risk ~4% without anticoagulation). Patient wants to 'think about it' before starting anticoagulation. Increased beta-blocker for rate control. Ordered echo to assess heart structure. Cardiology referral for AFib management and discussion of anticoagulation vs cardioversion options. CRITICAL: Patient needs anticoagulation but declining currently.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V3",
+        "visit_date": "2024-05-24",
+        "visit_type": "office_visit",
+        "chief_complaint": "Cardiology follow-up completed, still having palpitations, agreed to start blood thinner",
+        "vitals": {
+          "temp_f": 98.3,
+          "bp_systolic": 144,
+          "bp_diastolic": 86,
+          "hr_bpm": 88,
+          "rr_bpm": 16,
+          "spo2_percent": 98.0,
+          "weight_lbs": 136.0,
+          "height_inches": 62.0,
+          "bmi": 24.9
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 102,
+          "creatinine_mg_dl": 0.9,
+          "gfr_ml_min": 78,
+          "hemoglobin_g_dl": 13.4,
+          "wbc_k_ul": 6.5,
+          "platelets_k_ul": 242,
+          "sodium_meq_l": 139,
+          "potassium_meq_l": 4.1,
+          "alt_u_l": 26,
+          "ast_u_l": 24,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Amlodipine 5mg daily",
+            "Hydrochlorothiazide 25mg daily",
+            "Metoprolol tartrate 50mg twice daily"
+          ],
+          "started": ["Warfarin 5mg daily (target INR 2-3)"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Atrial fibrillation, paroxysmal (I48.0)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Echocardiogram results: Normal LV function, EF 60%, mild LA enlargement, no valvular disease",
+          "Baseline INR: 1.0",
+          "INR recheck in 3 days"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "Saw cardiology. Echo shows preserved EF 60%, mild LA enlargement. Cardiologist discussed rate vs rhythm control, anticoagulation options. Patient finally agreed to anticoagulation after cardiologist reinforced stroke risk. Started warfarin (patient preferred over DOACs due to cost/insurance coverage). Explained INR monitoring, dietary vitamin K considerations, drug interactions. Patient understanding seems good. Will need frequent INR checks initially. CHA2DS2-VASc score actually 5 (rereviewed - age, female, hypertension, vascular disease history - patient had DVT 10 years ago, forgot to mention initially). VERY HIGH stroke risk. Critical that INR maintained in therapeutic range 2-3.",
+        "patient_reported_adherence": "good",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": "stopped drinking wine on warfarin",
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V4",
+        "visit_date": "2024-06-28",
+        "visit_type": "emergency",
+        "chief_complaint": "Sudden onset of slurred speech and right arm weakness this morning, resolved after 20 minutes",
+        "vitals": {
+          "temp_f": 98.6,
+          "bp_systolic": 168,
+          "bp_diastolic": 94,
+          "hr_bpm": 102,
+          "rr_bpm": 18,
+          "spo2_percent": 97.0,
+          "weight_lbs": 135.0,
+          "height_inches": 62.0,
+          "bmi": 24.7
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 118,
+          "creatinine_mg_dl": 0.9,
+          "gfr_ml_min": 78,
+          "hemoglobin_g_dl": 13.2,
+          "wbc_k_ul": 7.2,
+          "platelets_k_ul": 238,
+          "sodium_meq_l": 138,
+          "potassium_meq_l": 4.0,
+          "alt_u_l": null,
+          "ast_u_l": null,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": null,
+          "ldl_mg_dl": null,
+          "hdl_mg_dl": null,
+          "triglycerides_mg_dl": null,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Amlodipine 5mg daily",
+            "Hydrochlorothiazide 25mg daily",
+            "Metoprolol tartrate 50mg twice daily",
+            "Warfarin 5mg daily"
+          ],
+          "started": ["Atorvastatin 80mg daily"],
+          "stopped": [],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Atrial fibrillation, paroxysmal (I48.0)"
+          ],
+          "new_acute": [
+            "Transient ischemic attack (G45.9)",
+            "Cerebrovascular disease (I67.9)"
+          ],
+          "differential": ["Stroke"]
+        },
+        "procedures_ordered": [
+          "CT head - no acute hemorrhage or infarct",
+          "MRI brain - small acute infarct in left MCA territory",
+          "Carotid ultrasound - <30% stenosis bilaterally",
+          "EKG - atrial fibrillation, rate 102",
+          "INR: 1.4 (SUBTHERAPEUTIC - should be 2-3)"
+        ],
+        "referrals": ["Neurology", "Admitted for observation"],
+        "provider_note_snippet": "TRANSIENT ISCHEMIC ATTACK / SMALL STROKE. Patient presented with sudden slurred speech and right arm weakness at 9am, resolved by 9:20am. By ED arrival at 10am, neurologically intact. CT negative for hemorrhage. MRI shows small acute infarct in left MCA territory consistent with cardioembolic stroke from atrial fibrillation. CRITICAL FINDING: INR only 1.4, SUBTHERAPEUTIC (should be 2-3). Patient on warfarin only 5 weeks. Reviewed INR records - has been erratic: 1.2, 2.8, 1.6, 1.4. Patient admits inconsistent warfarin dosing - sometimes forgets, sometimes takes double dose when remembers she forgot. Also eating large amounts of leafy greens inconsistently. This stroke was PREVENTABLE with adequate anticoagulation. Started high-dose statin. Admitted for observation, telemetry monitoring. Neurology recommends switching to DOAC (direct oral anticoagulant) - more predictable, no monitoring needed, better for non-adherent patients. Discussed with patient - will transition to apixaban.",
+        "patient_reported_adherence": "poor",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": null,
+          "food_security": null
+        }
+      },
+      {
+        "visit_id": "V5",
+        "visit_date": "2024-07-26",
+        "visit_type": "office_visit",
+        "chief_complaint": "Follow-up after TIA, now on apixaban, feeling well",
+        "vitals": {
+          "temp_f": 98.2,
+          "bp_systolic": 132,
+          "bp_diastolic": 78,
+          "hr_bpm": 76,
+          "rr_bpm": 16,
+          "spo2_percent": 98.0,
+          "weight_lbs": 134.0,
+          "height_inches": 62.0,
+          "bmi": 24.5
+        },
+        "labs": {
+          "hba1c": null,
+          "glucose_mg_dl": 98,
+          "creatinine_mg_dl": 0.9,
+          "gfr_ml_min": 78,
+          "hemoglobin_g_dl": 13.0,
+          "wbc_k_ul": 6.8,
+          "platelets_k_ul": 245,
+          "sodium_meq_l": 140,
+          "potassium_meq_l": 4.2,
+          "alt_u_l": 28,
+          "ast_u_l": 26,
+          "crp_mg_l": null,
+          "esr_mm_hr": null,
+          "tsh_miu_l": null,
+          "cholesterol_total_mg_dl": 162,
+          "ldl_mg_dl": 78,
+          "hdl_mg_dl": 62,
+          "triglycerides_mg_dl": 110,
+          "b12_pg_ml": null,
+          "folate_ng_ml": null,
+          "ferritin_ng_ml": null,
+          "ck_u_l": null
+        },
+        "medications": {
+          "continued": [
+            "Amlodipine 5mg daily",
+            "Hydrochlorothiazide 25mg daily",
+            "Metoprolol tartrate 50mg twice daily",
+            "Atorvastatin 80mg daily"
+          ],
+          "started": ["Apixaban 5mg twice daily"],
+          "stopped": ["Warfarin discontinued"],
+          "dose_changed": []
+        },
+        "diagnoses": {
+          "active_chronic": [
+            "Hypertension (I10)",
+            "Hyperlipidemia (E78.5)",
+            "Atrial fibrillation, paroxysmal (I48.0)",
+            "History of TIA/stroke (Z86.73)"
+          ],
+          "new_acute": [],
+          "differential": []
+        },
+        "procedures_ordered": [
+          "Repeat MRI brain in 3 months",
+          "Neurology follow-up scheduled"
+        ],
+        "referrals": [],
+        "provider_note_snippet": "1 month post-TIA. Patient doing well, no neurologic deficits. No recurrent symptoms. Switched from warfarin to apixaban - much easier for patient (no INR monitoring, no dietary restrictions, twice daily dosing). Patient reports excellent adherence with apixaban - using pill organizer and phone alarms. Heart rate better controlled on metoprolol. Still in paroxysmal AFib. LDL excellent at 78 on high-dose statin. BP improved. Patient very motivated after stroke scare. This case demonstrates: (1) Importance of CHA2DS2-VASc scoring and early anticoagulation, (2) Consequences of subtherapeutic anticoagulation, (3) Impact of medication non-adherence on stroke risk, (4) Advantages of DOACs over warfarin for certain patients, (5) Stroke as preventable complication of untreated/undertreated AFib. Patient's stroke was PREVENTABLE - either earlier anticoagulation or better warfarin adherence would have prevented this.",
+        "patient_reported_adherence": "excellent",
+        "social_history_updates": {
+          "smoking": null,
+          "alcohol": null,
+          "housing_status": "stable",
+          "food_security": "secure"
+        }
+      }
+    ],
+    "expected_llm_challenges": [
+      "Recognizing delayed anticoagulation as a critical care gap despite high stroke risk",
+      "Understanding CHA2DS2-VASc scoring and its implications for anticoagulation decisions",
+      "Connecting subtherapeutic INR with TIA/stroke occurrence",
+      "Identifying medication non-adherence as contributing factor to adverse outcome",
+      "Understanding the difference between rate control and anticoagulation in AFib",
+      "Recognizing preventable nature of the stroke with earlier/better anticoagulation"
+    ],
+    "evaluation_notes": "This case tests ability to: (1) recognize new-onset atrial fibrillation and its clinical significance, (2) calculate stroke risk using CHA2DS2-VASc score, (3) identify delayed anticoagulation as a care gap despite clear indications, (4) understand the relationship between subtherapeutic anticoagulation and stroke risk, (5) recognize medication non-adherence and its consequences, (6) understand advantages of DOACs over warfarin for certain patient populations, and (7) identify the preventable nature of complications when guideline-directed therapy is not followed. The LLM should flag high stroke risk at V2 when AFib is diagnosed, identify the care gap of delayed anticoagulation at V2-V3, recognize subtherapeutic INR as critical finding at V4, connect poor adherence with stroke occurrence, and understand the improved safety/adherence profile with DOAC switch at V5. This case emphasizes that strokes from AFib are largely preventable with appropriate anticoagulation."
+  },
+
+  {
+  "patient_id": "TEST_PT_022",
+  "patient_name": "Rebecca Barber",
+  "archetype": "ENT_Chronic_Sinusitis_Complications",
+  "demographics": {
+    "age": 42,
+    "sex": "F",
+    "race_ethnicity": "Caucasian"
+  },
+  "allergies": [
+    {
+      "allergen": "Penicillin",
+      "reaction": "Hives, facial swelling",
+      "severity": "moderate",
+      "onset": "childhood"
+    },
+    {
+      "allergen": "Dust mites",
+      "reaction": "Nasal congestion, sneezing, itchy eyes",
+      "severity": "moderate",
+      "onset": "adult"
+    },
+    {
+      "allergen": "Ragweed pollen",
+      "reaction": "Allergic rhinitis symptoms",
+      "severity": "moderate",
+      "onset": "teenage years"
     }
-  }
+  ],
+  "ground_truth_correlations": [
+    {
+      "correlation_id": "CORR_022_A",
+      "type": "persistent_symptom",
+      "description": "Recurrent sinus infections (5 episodes in 8 months) despite multiple antibiotic courses indicating chronic sinusitis",
+      "entities_involved": ["Sinus infections", "Facial pain", "Nasal discharge", "Antibiotic treatments"],
+      "visits_involved": ["V1", "V2", "V3", "V4"],
+      "expected_severity": "high",
+      "minimum_confidence_threshold": 0.92
+    },
+    {
+      "correlation_id": "CORR_022_B",
+      "type": "symptom_lab_correlation",
+      "description": "Nasal polyps and chronic inflammation on CT correlating with persistent symptoms and allergic history",
+      "entities_involved": ["Nasal polyps", "CT findings", "Allergies", "Eosinophilia"],
+      "visits_involved": ["V3", "V4", "V5"],
+      "expected_severity": "moderate",
+      "minimum_confidence_threshold": 0.88
+    },
+    {
+      "correlation_id": "CORR_022_C",
+      "type": "medication_nonresponse",
+      "description": "Failure of medical management (antibiotics, steroids, nasal sprays) requiring surgical intervention",
+      "entities_involved": ["Multiple antibiotics", "Nasal steroids", "Oral steroids", "Symptom persistence"],
+      "visits_involved": ["V1", "V2", "V3", "V4"],
+      "expected_severity": "moderate",
+      "minimum_confidence_threshold": 0.85
+    },
+    {
+      "correlation_id": "CORR_022_D",
+      "type": "care_gap",
+      "description": "Delayed ENT referral despite recurrent infections and inadequate response to medical therapy",
+      "entities_involved": ["ENT referral timing", "Number of infections", "Treatment failures"],
+      "visits_involved": ["V2", "V3", "V4"],
+      "expected_severity": "moderate",
+      "minimum_confidence_threshold": 0.82
+    }
+  ],
+  "clinical_timeline": [
+    {
+      "visit_id": "V1",
+      "visit_date": "2024-02-10",
+      "visit_type": "office_visit",
+      "chief_complaint": "Sinus infection, facial pain and pressure, thick yellow nasal discharge x1 week",
+      "vitals": {
+        "temp_f": 99.8,
+        "bp_systolic": 118,
+        "bp_diastolic": 74,
+        "hr_bpm": 78,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 152.0,
+        "height_inches": 65.0,
+        "bmi": 25.3
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": null,
+        "wbc_k_ul": 11.2,
+        "platelets_k_ul": null,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Fluticasone nasal spray 2 sprays each nostril daily (for allergies)"
+        ],
+        "started": [
+          "Azithromycin 500mg day 1, then 250mg daily x4 days (Z-pack)",
+          "Pseudoephedrine 30mg as needed for congestion"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Allergic rhinitis (J30.1)",
+          "Environmental allergies (Z91.040)"
+        ],
+        "new_acute": [
+          "Acute sinusitis (J01.90)"
+        ],
+        "differential": []
+      },
+      "procedures_ordered": [],
+      "referrals": [],
+      "provider_note_snippet": "42 yo female with 1 week of facial pain, pressure over maxillary sinuses, thick purulent nasal discharge, post-nasal drip, mild headache. Low-grade fever 99.8. Exam: tenderness over maxillary and frontal sinuses, purulent discharge in nares, pharynx mildly erythematous from post-nasal drip. Diagnosed acute bacterial sinusitis. Started azithromycin (penicillin allergy documented). Patient has history of seasonal allergies, already on fluticasone nasal spray. This is her third sinus infection in past 6 months per patient report.",
+      "patient_reported_adherence": "good",
+      "social_history_updates": {
+        "smoking": "never",
+        "alcohol": "social",
+        "housing_status": "stable (owns home)",
+        "food_security": "secure"
+      }
+    },
+    {
+      "visit_id": "V2",
+      "visit_date": "2024-04-18",
+      "visit_type": "office_visit",
+      "chief_complaint": "Another sinus infection, same symptoms as before, not getting better with antibiotics",
+      "vitals": {
+        "temp_f": 100.2,
+        "bp_systolic": 122,
+        "bp_diastolic": 76,
+        "hr_bpm": 82,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 153.0,
+        "height_inches": 65.0,
+        "bmi": 25.5
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": null,
+        "wbc_k_ul": 12.8,
+        "platelets_k_ul": null,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Fluticasone nasal spray 2 sprays each nostril daily"
+        ],
+        "started": [
+          "Levofloxacin 500mg daily x10 days",
+          "Prednisone 40mg daily x5 days"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Allergic rhinitis (J30.1)",
+          "Environmental allergies (Z91.040)"
+        ],
+        "new_acute": [
+          "Acute sinusitis, recurrent (J01.91)",
+          "Treatment-resistant sinusitis (J32.9)"
+        ],
+        "differential": ["Chronic sinusitis"]
+      },
+      "procedures_ordered": [],
+      "referrals": [],
+      "provider_note_snippet": "Fourth sinus infection in 6 months. Patient completed azithromycin in February with initial improvement, but symptoms returned within 3 weeks. Presents now with fever 100.2, severe facial pain, thick green nasal discharge. Exam: significant tenderness over all sinuses, purulent drainage, nasal mucosa edematous and inflamed. This is becoming recurrent/chronic pattern. Started fluoroquinolone (levofloxacin) for broader coverage and oral steroids for inflammation. Discussed possibility of chronic sinusitis. Should consider ENT referral if this doesn't resolve or recurs again.",
+      "patient_reported_adherence": "good",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": null,
+        "food_security": null
+      }
+    },
+    {
+      "visit_id": "V3",
+      "visit_date": "2024-06-25",
+      "visit_type": "office_visit",
+      "chief_complaint": "Sinus symptoms never really went away, now worse again, can't breathe through nose, constant pressure",
+      "vitals": {
+        "temp_f": 98.8,
+        "bp_systolic": 126,
+        "bp_diastolic": 78,
+        "hr_bpm": 76,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 154.0,
+        "height_inches": 65.0,
+        "bmi": 25.6
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": null,
+        "wbc_k_ul": 9.5,
+        "platelets_k_ul": null,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Fluticasone nasal spray 2 sprays each nostril daily"
+        ],
+        "started": [
+          "Amoxicillin-clavulanate 875mg twice daily x14 days",
+          "Prednisone 20mg daily x7 days",
+          "Montelukast 10mg daily"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Allergic rhinitis (J30.1)",
+          "Environmental allergies (Z91.040)",
+          "Chronic rhinosinusitis (J32.9)"
+        ],
+        "new_acute": [
+          "Acute exacerbation of chronic sinusitis (J01.90)"
+        ],
+        "differential": ["Nasal polyps", "Deviated septum"]
+      },
+      "procedures_ordered": [
+        "CT sinuses ordered",
+        "CBC with differential - eosinophils 8% (mildly elevated)"
+      ],
+      "referrals": ["ENT referral placed"],
+      "provider_note_snippet": "CHRONIC SINUSITIS - fifth episode in 8 months. Patient reports symptoms never fully resolved after last infection. Now with complete nasal obstruction, can't breathe through nose, constant facial pressure, thick post-nasal drip, reduced sense of smell. No fever today. Exam: nasal passages almost completely obstructed with boggy, inflamed mucosa bilaterally. Visualized what appears to be polyps in left naris. Sinuses very tender. This is CHRONIC RHINOSINUSITIS. Started augmentin (amoxicillin-clavulanate works for penicillin allergy when true allergy is just rash/hives, not anaphylaxis), oral steroids, added montelukast for anti-inflammatory effect and allergic component. Ordered CT sinuses. ENT REFERRAL - patient needs specialist evaluation, likely needs functional endoscopic sinus surgery (FESS) if medical management continues to fail.",
+      "patient_reported_adherence": "good",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": null,
+        "food_security": null
+      }
+    },
+    {
+      "visit_id": "V4",
+      "visit_date": "2024-08-09",
+      "visit_type": "office_visit",
+      "chief_complaint": "ENT follow-up completed, discussing CT results and surgery options",
+      "vitals": {
+        "temp_f": 98.4,
+        "bp_systolic": 120,
+        "bp_diastolic": 74,
+        "hr_bpm": 74,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 152.0,
+        "height_inches": 65.0,
+        "bmi": 25.3
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": 12.8,
+        "wbc_k_ul": 8.2,
+        "platelets_k_ul": 245,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": 22,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Fluticasone nasal spray 2 sprays each nostril daily",
+          "Montelukast 10mg daily"
+        ],
+        "started": [
+          "Budesonide nasal rinse (0.5mg in 240mL saline) twice daily"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Allergic rhinitis (J30.1)",
+          "Environmental allergies (Z91.040)",
+          "Chronic rhinosinusitis with nasal polyps (J33.1)",
+          "Pansinusitis (J32.4)"
+        ],
+        "new_acute": [],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "CT sinuses results: Complete opacification of maxillary sinuses bilaterally, near-complete opacification of ethmoid and frontal sinuses, nasal polyps throughout nasal cavity and ethmoid sinuses, deviated nasal septum to right, ostiomeatal complex obstruction bilaterally",
+        "Allergy testing scheduled"
+      ],
+      "referrals": ["Allergy/Immunology", "ENT surgery scheduled"],
+      "provider_note_snippet": "Saw ENT specialist. CT shows severe chronic pansinusitis with extensive nasal polyposis - explains recurrent infections and treatment failures. ENT recommends functional endoscopic sinus surgery (FESS) with polypectomy and septoplasty. Patient scheduled for surgery in 4 weeks. In meantime, started on budesonide sinus rinses (steroid irrigation) to reduce inflammation. Will also see allergist for comprehensive testing and potential immunotherapy - environmental allergies are contributing factor to polyp formation. ENT explained surgery will open blocked sinuses, remove polyps, improve drainage. Patient understanding and agreeable to surgical plan. This case shows progression from recurrent acute sinusitis to chronic sinusitis with polyposis requiring surgical intervention when medical management fails.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": "stable",
+        "food_security": "secure"
+      }
+    },
+    {
+      "visit_id": "V5",
+      "visit_date": "2024-10-25",
+      "visit_type": "office_visit",
+      "chief_complaint": "Post-op follow-up, 6 weeks after sinus surgery, doing much better",
+      "vitals": {
+        "temp_f": 98.2,
+        "bp_systolic": 118,
+        "bp_diastolic": 72,
+        "hr_bpm": 70,
+        "rr_bpm": 14,
+        "spo2_percent": 99.0,
+        "weight_lbs": 149.0,
+        "height_inches": 65.0,
+        "bmi": 24.8
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": null,
+        "wbc_k_ul": null,
+        "platelets_k_ul": null,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Fluticasone nasal spray 2 sprays each nostril daily",
+          "Montelukast 10mg daily",
+          "Budesonide nasal rinse twice daily"
+        ],
+        "started": [],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Allergic rhinitis (J30.1)",
+          "Environmental allergies (Z91.040)",
+          "Chronic rhinosinusitis with nasal polyps, status post FESS (J33.1, Z98.89)"
+        ],
+        "new_acute": [],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "Allergy testing results: Strongly positive to dust mites, mold, ragweed, tree pollen"
+      ],
+      "referrals": ["Starting sublingual immunotherapy (allergy drops)"],
+      "provider_note_snippet": "6 weeks post-FESS with polypectomy and septoplasty. Surgery successful per ENT - all polyps removed, sinuses opened, septum corrected. Patient reports DRAMATIC improvement - can breathe through nose for first time in years, no facial pressure, sense of smell returning. No infections since surgery. Continuing nasal steroid spray and budesonide rinses to prevent polyp recurrence. Allergy testing showed multiple strong environmental allergies. Starting sublingual immunotherapy (allergy drops) - proven to reduce polyp recurrence and improve long-term control. Patient very satisfied with surgical outcome. Will need ongoing ENT surveillance for polyp recurrence. This case demonstrates: (1) Natural history of chronic sinusitis with polyposis, (2) Failure of medical management alone in severe disease, (3) Role of surgery in refractory cases, (4) Importance of addressing underlying allergies to prevent recurrence, (5) Need for long-term maintenance therapy post-surgery.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": "stable",
+        "food_security": "secure"
+      }
+    }
+  ],
+  "expected_llm_challenges": [
+    "Recognizing the pattern of recurrent acute sinusitis progressing to chronic sinusitis",
+    "Understanding when medical management has failed and surgical referral is indicated",
+    "Identifying nasal polyps as a complication of chronic inflammation and allergies",
+    "Recognizing the role of environmental allergies in chronic sinusitis pathophysiology",
+    "Understanding the importance of post-surgical maintenance therapy to prevent recurrence",
+    "Identifying the care gap of delayed ENT referral despite multiple treatment failures"
+  ],
+  "evaluation_notes": "This case tests ability to: (1) recognize recurrent sinusitis pattern (5 episodes in 8 months) indicating chronic disease, (2) identify treatment failure with multiple antibiotic courses, (3) understand the progression from acute recurrent to chronic sinusitis with complications, (4) recognize nasal polyps on exam and imaging as structural cause of symptoms, (5) understand when surgical intervention is indicated after medical management failure, (6) appreciate the role of allergies in chronic sinusitis, (7) identify delayed specialist referral as a care gap, and (8) understand importance of post-surgical maintenance and immunotherapy. The LLM should flag recurrent pattern by V2, recognize inadequate response to medical therapy by V3, identify need for imaging and ENT referral, understand CT findings showing severe disease at V4, and appreciate successful surgical outcome and prevention strategies at V5. This case emphasizes that chronic sinusitis often requires multimodal treatment including surgery and allergy management, not just antibiotics."
+},
+
+{
+  "patient_id": "TEST_PT_023",
+  "patient_name":"David Kimmel",
+  "archetype": "ENT_Sudden_Sensorineural_Hearing_Loss",
+  "demographics": {
+    "age": 55,
+    "sex": "M",
+    "race_ethnicity": "African American"
+  },
+  "allergies": [
+    {
+      "allergen": "Sulfa drugs (Sulfamethoxazole)",
+      "reaction": "Severe rash, Stevens-Johnson syndrome risk per patient",
+      "severity": "severe",
+      "onset": "1998"
+    }
+  ],
+  "ground_truth_correlations": [
+    {
+      "correlation_id": "CORR_023_A",
+      "type": "symptom_lab_correlation",
+      "description": "Sudden unilateral hearing loss with tinnitus and vertigo indicating inner ear pathology (SSHL)",
+      "entities_involved": ["Hearing loss", "Tinnitus", "Vertigo", "Audiogram findings"],
+      "visits_involved": ["V1", "V2"],
+      "expected_severity": "critical",
+      "minimum_confidence_threshold": 0.96
+    },
+    {
+      "correlation_id": "CORR_023_B",
+      "type": "care_gap",
+      "description": "Critical delay in treatment - patient waited 5 days before seeking care, missing optimal treatment window",
+      "entities_involved": ["Symptom onset", "Time to treatment", "Steroid efficacy", "Hearing recovery"],
+      "visits_involved": ["V1", "V2", "V3"],
+      "expected_severity": "critical",
+      "minimum_confidence_threshold": 0.94
+    },
+    {
+      "correlation_id": "CORR_023_C",
+      "type": "medication_nonresponse",
+      "description": "Incomplete hearing recovery despite high-dose steroids due to delayed treatment initiation",
+      "entities_involved": ["Oral prednisone", "Intratympanic dexamethasone", "Audiogram results", "Hearing thresholds"],
+      "visits_involved": ["V2", "V3", "V4"],
+      "expected_severity": "high",
+      "minimum_confidence_threshold": 0.88
+    },
+    {
+      "correlation_id": "CORR_023_D",
+      "type": "persistent_symptom",
+      "description": "Permanent hearing loss and persistent tinnitus resulting in significant functional impairment",
+      "entities_involved": ["Hearing loss", "Tinnitus", "Quality of life", "Work difficulties"],
+      "visits_involved": ["V3", "V4", "V5"],
+      "expected_severity": "high",
+      "minimum_confidence_threshold": 0.90
+    }
+  ],
+  "clinical_timeline": [
+    {
+      "visit_id": "V1",
+      "visit_date": "2024-05-23",
+      "visit_type": "office_visit",
+      "chief_complaint": "Can't hear out of left ear for past 5 days, ringing in ear, some dizziness",
+      "vitals": {
+        "temp_f": 98.4,
+        "bp_systolic": 142,
+        "bp_diastolic": 88,
+        "hr_bpm": 76,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 198.0,
+        "height_inches": 70.0,
+        "bmi": 28.4
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 118,
+        "creatinine_mg_dl": 1.0,
+        "gfr_ml_min": 88,
+        "hemoglobin_g_dl": 14.5,
+        "wbc_k_ul": 7.2,
+        "platelets_k_ul": 252,
+        "sodium_meq_l": 140,
+        "potassium_meq_l": 4.1,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": 18,
+        "tsh_miu_l": 2.4,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Lisinopril 20mg daily",
+          "Metformin 1000mg twice daily"
+        ],
+        "started": [],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension (I10)",
+          "Type 2 Diabetes Mellitus (E11.9)",
+          "Obesity (E66.9)"
+        ],
+        "new_acute": [
+          "Hearing loss, left ear (H91.90)",
+          "Tinnitus (H93.1)",
+          "Vertigo (R42)"
+        ],
+        "differential": ["Cerumen impaction", "Ear infection", "Sudden sensorineural hearing loss"]
+      },
+      "procedures_ordered": [
+        "Otoscopic exam - bilateral TMs clear, no effusion, no cerumen impaction",
+        "Weber test - lateralizes to RIGHT ear (away from affected left ear)",
+        "Rinne test - LEFT ear: bone conduction > air conduction (abnormal); RIGHT ear: air > bone (normal)"
+      ],
+      "referrals": ["STAT ENT referral placed"],
+      "provider_note_snippet": "55 yo male with SUDDEN onset left-sided hearing loss 5 days ago. Woke up on May 18th and noticed couldn't hear out of left ear. Associated with loud ringing (tinnitus) and episodes of dizziness/vertigo. NO ear pain, no discharge, no recent URI, no trauma. Exam: TMs normal bilaterally, no obvious cause. Weber lateralizes to RIGHT (good ear) - suggests sensorineural loss on left. Rinne shows bone > air on left (abnormal). This is CONCERNING for sudden sensorineural hearing loss (SSHL) - ENT EMERGENCY requiring urgent treatment. CRITICAL: Patient waited 5 days before coming in - optimal treatment window is within 72 hours of onset. Placed STAT ENT referral. Patient has diabetes and hypertension - risk factors for vascular causes of SSHL.",
+      "patient_reported_adherence": "good",
+      "social_history_updates": {
+        "smoking": "former (quit 10 years ago)",
+        "alcohol": "moderate (2-3 drinks per week)",
+        "housing_status": "stable",
+        "food_security": "secure"
+      }
+    },
+    {
+      "visit_id": "V2",
+      "visit_date": "2024-05-24",
+      "visit_type": "office_visit",
+      "chief_complaint": "ENT urgent appointment, sudden hearing loss evaluation",
+      "vitals": {
+        "temp_f": 98.2,
+        "bp_systolic": 138,
+        "bp_diastolic": 84,
+        "hr_bpm": 74,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 198.0,
+        "height_inches": 70.0,
+        "bmi": 28.4
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": null,
+        "wbc_k_ul": null,
+        "platelets_k_ul": null,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Lisinopril 20mg daily",
+          "Metformin 1000mg twice daily"
+        ],
+        "started": [
+          "Prednisone 60mg daily x7 days, then taper over 2 weeks",
+          "Meclizine 25mg three times daily as needed for vertigo",
+          "Omeprazole 20mg daily (GI prophylaxis with steroids)"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension (I10)",
+          "Type 2 Diabetes Mellitus (E11.9)",
+          "Obesity (E66.9)"
+        ],
+        "new_acute": [
+          "Sudden sensorineural hearing loss, left ear (H91.21)",
+          "Tinnitus, left ear (H93.11)",
+          "Vestibular dysfunction (H81.9)"
+        ],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "Audiogram: LEFT ear - severe-to-profound sensorineural hearing loss across all frequencies (70-90 dB loss); RIGHT ear - normal hearing",
+        "Tympanometry - normal bilaterally (middle ear function intact)",
+        "MRI brain/IAC with contrast ordered to rule out acoustic neuroma",
+        "Labs: CBC, CMP, ESR, ANA, RPR - to rule out autoimmune, infectious, or vascular causes"
+      ],
+      "referrals": [],
+      "provider_note_snippet": "ENT EVALUATION: Confirmed SUDDEN SENSORINEURAL HEARING LOSS (SSHL) - idiopathic. Audiogram shows severe-to-profound hearing loss in left ear (70-90 dB across all frequencies). RIGHT ear normal. This is a TRUE ENT EMERGENCY. Unfortunately, patient delayed seeking care for 5 DAYS - optimal treatment window is <72 hours from onset. Prognosis for recovery is significantly worse with delayed treatment. Started high-dose oral prednisone immediately - may help reduce inflammation in inner ear. Will also consider intratympanic steroid injections if no improvement in 1 week. Ordered MRI to rule out retrocochlear pathology (acoustic neuroma, though typically causes gradual hearing loss). Most cases of SSHL are idiopathic (unknown cause). Patient has vascular risk factors (diabetes, hypertension) which may contribute. Educated patient that recovery is uncertain given delay in presentation.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": null,
+        "food_security": null
+      }
+    },
+    {
+      "visit_id": "V3",
+      "visit_date": "2024-06-07",
+      "visit_type": "office_visit",
+      "chief_complaint": "2 week follow-up, completed steroid course, minimal improvement in hearing",
+      "vitals": {
+        "temp_f": 98.6,
+        "bp_systolic": 152,
+        "bp_diastolic": 92,
+        "hr_bpm": 82,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 202.0,
+        "height_inches": 70.0,
+        "bmi": 29.0
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 168,
+        "creatinine_mg_dl": 1.0,
+        "gfr_ml_min": 88,
+        "hemoglobin_g_dl": 14.2,
+        "wbc_k_ul": 7.8,
+        "platelets_k_ul": 248,
+        "sodium_meq_l": 138,
+        "potassium_meq_l": 4.3,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": 16,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": 385,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Lisinopril 20mg daily",
+          "Metformin 1000mg twice daily",
+          "Meclizine 25mg as needed (using less frequently)"
+        ],
+        "started": [
+          "Intratympanic dexamethasone injections scheduled (series of 3)"
+        ],
+        "stopped": [
+          "Prednisone completed taper",
+          "Omeprazole discontinued"
+        ],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension (I10)",
+          "Type 2 Diabetes Mellitus (E11.9)",
+          "Obesity (E66.9)",
+          "Sudden sensorineural hearing loss, left ear (H91.21)",
+          "Tinnitus, left ear (H93.11)"
+        ],
+        "new_acute": [],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "Repeat audiogram: LEFT ear - severe sensorineural hearing loss, minimal improvement (65-85 dB loss, improved 5-10 dB from baseline); RIGHT ear - remains normal",
+        "MRI brain/IAC - negative for acoustic neuroma, no structural abnormalities",
+        "First intratympanic steroid injection performed"
+      ],
+      "referrals": [],
+      "provider_note_snippet": "2 weeks post-treatment initiation. Completed oral steroid course. Repeat audiogram shows MINIMAL improvement - only 5-10 dB recovery. Still has severe hearing loss in left ear. MRI negative for tumor or structural cause. Vertigo has resolved. Tinnitus persists - very bothersome to patient. Started intratympanic steroid injections (dexamethasone injected directly through eardrum into middle ear space) - can deliver higher steroid concentration to inner ear. Will do series of 3 injections over 2 weeks. However, prognosis is guarded - delayed treatment (5 days from onset) significantly reduces likelihood of recovery. Most recovery occurs in first 2-4 weeks; if no improvement by 6-8 weeks, hearing loss is likely permanent. Patient very distressed - hearing loss affecting work (he's a high school teacher, can't hear students on left side), social situations difficult. Side effects from steroids: BP elevated to 152/92 (was 138/84), glucose elevated to 168 (was 118), weight gain 4 lbs.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": null,
+        "food_security": null
+      }
+    },
+    {
+      "visit_id": "V4",
+      "visit_date": "2024-07-19",
+      "visit_type": "office_visit",
+      "chief_complaint": "8 week follow-up, completed all treatments, some improvement but still significant hearing loss",
+      "vitals": {
+        "temp_f": 98.4,
+        "bp_systolic": 146,
+        "bp_diastolic": 86,
+        "hr_bpm": 76,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 200.0,
+        "height_inches": 70.0,
+        "bmi": 28.7
+      },
+      "labs": {
+        "hba1c": 7.2,
+        "glucose_mg_dl": 142,
+        "creatinine_mg_dl": 1.0,
+        "gfr_ml_min": 88,
+        "hemoglobin_g_dl": 14.0,
+        "wbc_k_ul": 7.0,
+        "platelets_k_ul": 245,
+        "sodium_meq_l": 139,
+        "potassium_meq_l": 4.2,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Lisinopril 20mg daily",
+          "Metformin 1000mg twice daily"
+        ],
+        "started": [],
+        "stopped": [
+          "Meclizine discontinued (vertigo resolved)"
+        ],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension (I10)",
+          "Type 2 Diabetes Mellitus (E11.9)",
+          "Obesity (E66.9)",
+          "Sensorineural hearing loss, left ear, permanent (H90.42)",
+          "Tinnitus, left ear, chronic (H93.11)"
+        ],
+        "new_acute": [],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "Final audiogram: LEFT ear - moderate-to-severe sensorineural hearing loss (50-70 dB loss across frequencies); RIGHT ear - normal",
+        "Hearing aid evaluation scheduled"
+      ],
+      "referrals": ["Audiology for hearing aid fitting", "Tinnitus management program"],
+      "provider_note_snippet": "8 weeks from onset. Completed all treatments: oral prednisone and intratympanic steroid injections (3 sessions). Final audiogram shows PARTIAL recovery - improved from 70-90 dB loss to 50-70 dB loss. This represents moderate-to-severe hearing loss. Patient regained some hearing (about 20-30 dB improvement overall) but has PERMANENT significant hearing loss. Vertigo completely resolved. Tinnitus persists - constant ringing/buzzing in left ear, very distressing to patient. Discussed prognosis: unlikely to see further spontaneous improvement at this point. Referred to audiology for hearing aid - will need amplification. Also enrolled in tinnitus management program (sound therapy, cognitive behavioral techniques). Patient disappointed with outcome - understandably frustrated that delay in seeking care may have affected recovery. Reviewed that SSHL is a medical emergency requiring treatment within 72 hours for best outcomes. Even with prompt treatment, only 50-60% of patients achieve good recovery; delayed treatment significantly worsens prognosis. This case will result in permanent disability.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": "stable",
+        "food_security": "secure"
+      }
+    },
+    {
+      "visit_id": "V5",
+      "visit_date": "2024-10-11",
+      "visit_type": "office_visit",
+      "chief_complaint": "Follow-up with hearing aid, adjusting to new reality of hearing loss",
+      "vitals": {
+        "temp_f": 98.2,
+        "bp_systolic": 138,
+        "bp_diastolic": 82,
+        "hr_bpm": 72,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 195.0,
+        "height_inches": 70.0,
+        "bmi": 28.0
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 128,
+        "creatinine_mg_dl": 1.0,
+        "gfr_ml_min": 88,
+        "hemoglobin_g_dl": 14.2,
+        "wbc_k_ul": 6.8,
+        "platelets_k_ul": 242,
+        "sodium_meq_l": 140,
+        "potassium_meq_l": 4.1,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Lisinopril 20mg daily",
+          "Metformin 1000mg twice daily"
+        ],
+        "started": [],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension (I10)",
+          "Type 2 Diabetes Mellitus (E11.9)",
+          "Obesity (E66.9)",
+          "Sensorineural hearing loss, left ear, permanent (H90.42)",
+          "Tinnitus, left ear, chronic (H93.11)"
+        ],
+        "new_acute": [],
+        "differential": []
+      },
+      "procedures_ordered": [],
+      "referrals": [],
+      "provider_note_snippet": "5 months from initial presentation. Patient fitted with hearing aid in left ear - reports significant improvement in ability to function. Hearing aid helps amplify sounds but doesn't restore normal hearing. Still struggles in noisy environments, group conversations. Tinnitus remains constant but patient learning coping strategies through tinnitus management program - using white noise at night, CBT techniques. Patient reports some depression and social isolation related to hearing loss - may benefit from counseling. Lost 5 lbs through diet/exercise. BP and glucose better controlled. This case demonstrates: (1) SSHL is a true ENT emergency requiring immediate treatment, (2) Delayed presentation (>72 hours) significantly worsens prognosis, (3) Even with aggressive treatment, recovery may be incomplete, (4) Permanent hearing loss has significant functional and psychological impact, (5) Importance of patient education about red flag symptoms requiring urgent care, (6) Role of rehabilitation (hearing aids, tinnitus management) when recovery incomplete. Patient's outcome could have been better with immediate presentation - critical teaching point.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": "stable",
+        "food_security": "secure"
+      }
+    }
+  ],
+  "expected_llm_challenges": [
+    "Recognizing sudden sensorineural hearing loss as a medical emergency requiring urgent treatment",
+    "Understanding the critical importance of time-to-treatment (<72 hours) on prognosis",
+    "Identifying the 5-day delay as a major factor in poor outcome",
+    "Correlating delayed treatment with incomplete hearing recovery",
+    "Understanding the difference between conductive and sensorineural hearing loss",
+    "Recognizing permanent functional impairment despite maximal medical therapy"
+  ],
+  "evaluation_notes": "This case tests ability to: (1) recognize sudden sensorineural hearing loss (SSHL) as an ENT emergency requiring immediate intervention, (2) understand the critical time-window for treatment (optimal <72 hours), (3) identify patient delay in seeking care as a major factor affecting outcome, (4) track partial hearing recovery through serial audiograms, (5) understand that even with aggressive treatment (oral and intratympanic steroids), delayed presentation results in worse outcomes, (6) recognize permanent disability and need for rehabilitation, and (7) appreciate psychological and functional impacts of sudden hearing loss. The LLM should flag the 5-day delay at V1 as critical, recognize SSHL diagnosis and urgent treatment initiation at V2, identify minimal improvement despite treatment at V3, understand permanent hearing loss by V4, and appreciate long-term disability and rehabilitation needs at V5. This case emphasizes that SSHL is a 'stroke of the ear' requiring emergency treatment, and patient education about urgent symptoms is crucial."
+},
+
+{
+  "patient_id": "TEST_PT_024",
+  "patient_name": "Richard Nelson",
+  "archetype": "ENT_Peritonsillar_Abscess_Emergency",
+  "demographics": {
+    "age": 28,
+    "sex": "M",
+    "race_ethnicity": "Hispanic/Latino"
+  },
+  "allergies": [
+    {
+      "allergen": "Codeine",
+      "reaction": "Severe nausea and vomiting",
+      "severity": "moderate",
+      "onset": "2018"
+    }
+  ],
+  "ground_truth_correlations": [
+    {
+      "correlation_id": "CORR_024_A",
+      "type": "symptom_lab_correlation",
+      "description": "Progressive worsening from pharyngitis to peritonsillar abscess with airway compromise",
+      "entities_involved": ["Sore throat", "Fever", "Dysphagia", "Trismus", "Airway obstruction"],
+      "visits_involved": ["V1", "V2", "V3"],
+      "expected_severity": "critical",
+      "minimum_confidence_threshold": 0.96
+    },
+    {
+      "correlation_id": "CORR_024_B",
+      "type": "lab_trend",
+      "description": "Progressive leukocytosis and inflammatory markers indicating worsening bacterial infection",
+      "entities_involved": ["WBC count", "CRP", "ESR", "Fever curve"],
+      "visits_involved": ["V1", "V2", "V3"],
+      "expected_severity": "high",
+      "minimum_confidence_threshold": 0.92
+    },
+    {
+      "correlation_id": "CORR_024_C",
+      "type": "medication_nonresponse",
+      "description": "Failure of oral antibiotics for pharyngitis leading to abscess formation requiring surgical drainage",
+      "entities_involved": ["Amoxicillin", "Symptom progression", "Abscess formation"],
+      "visits_involved": ["V1", "V2", "V3"],
+      "expected_severity": "high",
+      "minimum_confidence_threshold": 0.88
+    },
+    {
+      "correlation_id": "CORR_024_D",
+      "type": "care_gap",
+      "description": "Patient delay in follow-up despite worsening symptoms and inadequate initial antibiotic coverage",
+      "entities_involved": ["Follow-up compliance", "Symptom progression", "Time to intervention"],
+      "visits_involved": ["V1", "V2"],
+      "expected_severity": "high",
+      "minimum_confidence_threshold": 0.85
+    }
+  ],
+  "clinical_timeline": [
+    {
+      "visit_id": "V1",
+      "visit_date": "2024-07-08",
+      "visit_type": "urgent_care",
+      "chief_complaint": "Severe sore throat x3 days, fever, hard to swallow",
+      "vitals": {
+        "temp_f": 101.8,
+        "bp_systolic": 128,
+        "bp_diastolic": 78,
+        "hr_bpm": 92,
+        "rr_bpm": 18,
+        "spo2_percent": 98.0,
+        "weight_lbs": 182.0,
+        "height_inches": 69.0,
+        "bmi": 26.9
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": null,
+        "wbc_k_ul": 13.5,
+        "platelets_k_ul": null,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [],
+        "started": [
+          "Amoxicillin 500mg three times daily x10 days",
+          "Ibuprofen 600mg every 6 hours as needed for pain/fever",
+          "Acetaminophen 650mg every 6 hours alternating with ibuprofen"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [],
+        "new_acute": [
+          "Acute pharyngitis (J02.9)",
+          "Acute tonsillitis (J03.90)"
+        ],
+        "differential": ["Strep throat", "Viral pharyngitis", "Mononucleosis"]
+      },
+      "procedures_ordered": [
+        "Rapid strep test - negative",
+        "Throat culture sent"
+      ],
+      "referrals": [],
+      "provider_note_snippet": "28 yo male with 3 days severe sore throat, fever to 101.8, odynophagia (painful swallowing). Denies cough, congestion. Exam: pharynx markedly erythematous, tonsils 3+ enlarged with white exudate bilaterally, tender anterior cervical lymphadenopathy. Rapid strep negative but sent culture. WBC 13.5 (elevated). Started amoxicillin empirically for bacterial pharyngitis/tonsillitis. Advised fluids, rest, pain control. Return if worse or not improving in 48-72 hours.",
+      "patient_reported_adherence": "good",
+      "social_history_updates": {
+        "smoking": "never",
+        "alcohol": "social (weekends)",
+        "housing_status": "stable (apartment with roommates)",
+        "food_security": "secure"
+      }
+    },
+    {
+      "visit_id": "V2",
+      "visit_date": "2024-07-14",
+      "visit_type": "emergency",
+      "chief_complaint": "Sore throat much worse, can barely swallow or open mouth, voice sounds different, drooling",
+      "vitals": {
+        "temp_f": 103.2,
+        "bp_systolic": 138,
+        "bp_diastolic": 84,
+        "hr_bpm": 108,
+        "rr_bpm": 20,
+        "spo2_percent": 97.0,
+        "weight_lbs": 178.0,
+        "height_inches": 69.0,
+        "bmi": 26.3
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 118,
+        "creatinine_mg_dl": 1.0,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": 14.2,
+        "wbc_k_ul": 18.5,
+        "platelets_k_ul": 385,
+        "sodium_meq_l": 138,
+        "potassium_meq_l": 4.0,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": 125.6,
+        "esr_mm_hr": 48,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Amoxicillin 500mg three times daily (patient reports taking as prescribed)",
+          "Ibuprofen 600mg as needed",
+          "Acetaminophen 650mg as needed"
+        ],
+        "started": [
+          "Morphine 4mg IV for pain",
+          "IV fluids (normal saline) - patient dehydrated",
+          "Dexamethasone 10mg IV"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [],
+        "new_acute": [
+          "Peritonsillar abscess, suspected (J36)",
+          "Severe odynophagia (R13.12)",
+          "Trismus (M26.62)",
+          "Dehydration (E86.0)"
+        ],
+        "differential": ["Retropharyngeal abscess", "Epiglottitis"]
+      },
+      "procedures_ordered": [
+        "CT neck with contrast - LEFT peritonsillar abscess 3.2cm x 2.8cm with mass effect displacing airway medially",
+        "Throat culture from 7/8 resulted: Group A Streptococcus positive (came back after patient already started amoxicillin)"
+      ],
+      "referrals": ["ENT emergency consult"],
+      "provider_note_snippet": "PERITONSILLAR ABSCESS - ENT EMERGENCY. Patient took amoxicillin as prescribed but symptoms WORSENED dramatically. Now with high fever 103.2, severe dysphagia (can't swallow even saliva - drooling), trismus (can barely open mouth), 'hot potato' muffled voice, deviation of uvula to RIGHT side. Exam very limited due to trismus but visible bulging of left soft palate with uvular deviation. WBC 18.5 (was 13.5 six days ago). CRP markedly elevated 125.6. CT confirms LARGE left peritonsillar abscess 3.2cm with airway displacement. This is AIRWAY EMERGENCY - abscess could rupture and cause aspiration or cause complete airway obstruction. Started IV steroids, IV fluids (patient hasn't eaten/drunk in 2 days due to pain), morphine for pain. STAT ENT consult for incision and drainage. Patient admitted. Retrospective review: throat culture from initial visit came back positive for Group A Strep - amoxicillin SHOULD have been effective, but patient progressed to abscess despite treatment. Suggests either resistant organism, inadequate drug penetration, or abscess was already forming at initial presentation.",
+      "patient_reported_adherence": "good",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": null,
+        "food_security": null
+      }
+    },
+    {
+      "visit_id": "V3",
+      "visit_date": "2024-07-15",
+      "visit_type": "office_visit",
+      "chief_complaint": "Hospital day 2, status post I&D of peritonsillar abscess",
+      "vitals": {
+        "temp_f": 99.8,
+        "bp_systolic": 122,
+        "bp_diastolic": 76,
+        "hr_bpm": 88,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 180.0,
+        "height_inches": 69.0,
+        "bmi": 26.6
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": 0.9,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": 13.8,
+        "wbc_k_ul": 12.2,
+        "platelets_k_ul": 358,
+        "sodium_meq_l": 139,
+        "potassium_meq_l": 4.1,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": 68.4,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Morphine IV as needed for pain (using less)",
+          "IV fluids continued",
+          "Dexamethasone IV"
+        ],
+        "started": [
+          "Clindamycin 600mg IV every 8 hours",
+          "Ampicillin-sulbactam 3g IV every 6 hours"
+        ],
+        "stopped": [
+          "Amoxicillin discontinued"
+        ],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [],
+        "new_acute": [
+          "Peritonsillar abscess, left, status post I&D (J36)",
+          "Bacteremia (A49.9)",
+          "Dehydration, improving (E86.0)"
+        ],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "I&D performed by ENT in OR under general anesthesia - drained 15mL purulent material",
+        "Abscess culture: Group A Streptococcus and Fusobacterium necrophorum (anaerobe)",
+        "Blood cultures x2 - positive for Group A Streptococcus (BACTEREMIA)"
+      ],
+      "referrals": [],
+      "provider_note_snippet": "Post-op day 1 from I&D of peritonsillar abscess. ENT drained 15mL of purulent material in OR. Pathology CRITICAL: abscess grew Group A Strep (as expected from throat culture) PLUS Fusobacterium necrophorum (anaerobic bacteria). This polymicrobial infection explains why amoxicillin alone was insufficient - amoxicillin doesn't cover anaerobes well. Blood cultures POSITIVE for Group A Strep - patient had BACTEREMIA (bacteria in bloodstream), which is serious complication. Now on IV clindamycin (covers both strep and anaerobes) and ampicillin-sulbactam for broad coverage. Patient significantly improved after drainage - fever down to 99.8, WBC improving (18.5 to 12.2), CRP trending down, able to swallow liquids and soft foods, trismus resolved, pain much better. Will continue IV antibiotics x48 hours then transition to oral if continued improvement. Minimum 2 week total antibiotic course. ENT recommends elective tonsillectomy in 6-8 weeks to prevent recurrence (30% recurrence rate of peritonsillar abscess without tonsillectomy).",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": null,
+        "housing_status": null,
+        "food_security": null
+      }
+    },
+    {
+      "visit_id": "V4",
+      "visit_date": "2024-07-18",
+      "visit_type": "office_visit",
+      "chief_complaint": "Hospital discharge, feeling much better, able to eat soft foods",
+      "vitals": {
+        "temp_f": 98.6,
+        "bp_systolic": 118,
+        "bp_diastolic": 72,
+        "hr_bpm": 76,
+        "rr_bpm": 16,
+        "spo2_percent": 99.0,
+        "weight_lbs": 181.0,
+        "height_inches": 69.0,
+        "bmi": 26.7
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": null,
+        "wbc_k_ul": 9.2,
+        "platelets_k_ul": null,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": 24.5,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [],
+        "started": [
+          "Clindamycin 450mg by mouth four times daily x10 more days (total 14 days)",
+          "Ibuprofen 600mg every 6 hours as needed",
+          "Hydrocodone-acetaminophen 5-325mg every 6 hours as needed for pain (avoiding codeine due to allergy)"
+        ],
+        "stopped": [
+          "All IV medications discontinued",
+          "IV fluids discontinued"
+        ],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [],
+        "new_acute": [
+          "Peritonsillar abscess, left, treated (J36)",
+          "History of bacteremia (Z86.19)"
+        ],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "ENT follow-up in 2 weeks",
+        "Tonsillectomy consultation scheduled for 6 weeks"
+      ],
+      "referrals": ["ENT for tonsillectomy consultation"],
+      "provider_note_snippet": "Discharged after 4 days hospitalization. Completed 72 hours IV antibiotics with excellent response. WBC normalized to 9.2, CRP down to 24.5 (was 125.6). Blood cultures cleared after 48 hours of treatment. Patient able to swallow, eating soft diet, pain controlled. Transitioned to oral clindamycin to complete 14-day course. Educated on warning signs: difficulty breathing, worsening swallowing, high fever, neck stiffness - return to ED immediately. CRITICAL TEACHING: This was life-threatening infection that could have obstructed airway. ENT strongly recommends tonsillectomy in 6-8 weeks once acute infection fully resolved - will prevent recurrence. Without tonsillectomy, 30% chance of another peritonsillar abscess. Patient agrees to surgery. This case demonstrates: (1) Progression from simple pharyngitis to life-threatening abscess, (2) Polymicrobial nature of deep space neck infections requiring broad-spectrum antibiotics, (3) Serious complications including bacteremia, (4) Need for surgical drainage when abscess forms, (5) Importance of follow-up and definitive treatment (tonsillectomy) to prevent recurrence.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": "none until fully recovered",
+        "housing_status": "stable",
+        "food_security": "secure"
+      }
+    },
+    {
+      "visit_id": "V5",
+      "visit_date": "2024-09-06",
+      "visit_type": "office_visit",
+      "chief_complaint": "Post-tonsillectomy follow-up, 2 weeks after surgery, doing well",
+      "vitals": {
+        "temp_f": 98.4,
+        "bp_systolic": 122,
+        "bp_diastolic": 74,
+        "hr_bpm": 72,
+        "rr_bpm": 16,
+        "spo2_percent": 99.0,
+        "weight_lbs": 176.0,
+        "height_inches": 69.0,
+        "bmi": 26.0
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": null,
+        "creatinine_mg_dl": null,
+        "gfr_ml_min": null,
+        "hemoglobin_g_dl": null,
+        "wbc_k_ul": null,
+        "platelets_k_ul": null,
+        "sodium_meq_l": null,
+        "potassium_meq_l": null,
+        "alt_u_l": null,
+        "ast_u_l": null,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [],
+        "started": [],
+        "stopped": [
+          "All pain medications discontinued"
+        ],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [],
+        "new_acute": [
+          "Status post bilateral tonsillectomy (Z90.02)"
+        ],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "Tonsillectomy performed 8/22 - bilateral tonsillectomy without complications"
+      ],
+      "referrals": [],
+      "provider_note_snippet": "2 weeks post-tonsillectomy. Surgery performed without complications. Post-op course typical - 7-10 days of throat pain, difficulty swallowing, managed with pain medications and soft diet. Throat now healed, tonsillar fossae well-granulated, no signs of infection or bleeding. Patient back to normal diet, no pain, back to work. Lost 6 lbs during recovery period (expected). This definitive treatment eliminates risk of recurrent peritonsillar abscess. Patient very relieved to have this behind him - was frightening experience with the abscess. Final teaching points: (1) Peritonsillar abscess is serious, potentially life-threatening infection, (2) Early recognition and treatment critical, (3) Don't delay seeking care for severe or worsening sore throat, (4) Polymicrobial infections may require broader antibiotic coverage than simple pharyngitis, (5) Surgical drainage necessary for abscess, (6) Tonsillectomy prevents recurrence in high-risk patients. Complete resolution of case.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": null,
+        "alcohol": "resumed social drinking",
+        "housing_status": "stable",
+        "food_security": "secure"
+      }
+    }
+  ],
+  "expected_llm_challenges": [
+    "Recognizing progression from simple pharyngitis to life-threatening peritonsillar abscess",
+    "Understanding why initial antibiotic (amoxicillin) failed despite Group A Strep sensitivity",
+    "Identifying polymicrobial infection (strep + anaerobe) as cause of treatment failure",
+    "Recognizing airway emergency and need for urgent surgical intervention",
+    "Understanding complications including bacteremia from deep space infection",
+    "Appreciating need for tonsillectomy to prevent recurrence"
+  ],
+  "evaluation_notes": "This case tests ability to: (1) recognize progression from acute pharyngitis to peritonsillar abscess, (2) identify red flag symptoms (trismus, drooling, uvular deviation, muffled voice) indicating abscess formation, (3) understand polymicrobial nature of deep space infections requiring anaerobic coverage, (4) recognize treatment failure despite appropriate initial antibiotic, (5) identify life-threatening complications including airway compromise and bacteremia, (6) understand need for surgical drainage when abscess forms, (7) appreciate role of definitive treatment (tonsillectomy) in preventing recurrence, and (8) recognize this as an ENT emergency requiring immediate specialist involvement. The LLM should flag initial pharyngitis treatment at V1, recognize dramatic worsening and airway emergency at V2, understand polymicrobial infection and bacteremia at V3, identify successful treatment response at V4, and appreciate complete resolution with tonsillectomy at V5. This case emphasizes that seemingly simple throat infections can rapidly progress to life-threatening conditions requiring emergency intervention."
+},
+
+{
+  "patient_id": "TEST_PT_025",
+  "patient_name": "Shallan Davar",
+  "archetype": "Cardiovascular_Hypertensive_Emergency",
+  "demographics": {
+    "age": 52,
+    "sex": "M",
+    "race_ethnicity": "African American"
+  },
+  "allergies": [
+    {
+      "allergen": "Hydrochlorothiazide",
+      "reaction": "Severe hyponatremia requiring hospitalization",
+      "severity": "severe",
+      "onset": "2022"
+    }
+  ],
+  "ground_truth_correlations": [
+    {
+      "correlation_id": "CORR_025_A",
+      "type": "symptom_lab_correlation",
+      "description": "Severe hypertension (BP 220/128) with acute end-organ damage (kidney injury, hypertensive encephalopathy, retinopathy)",
+      "entities_involved": ["Blood pressure", "Creatinine", "Neurologic symptoms", "Retinal changes"],
+      "visits_involved": ["V1", "V2", "V3"],
+      "expected_severity": "critical",
+      "minimum_confidence_threshold": 0.98
+    },
+    {
+      "correlation_id": "CORR_025_B",
+      "type": "lab_trend",
+      "description": "Progressive worsening of renal function from baseline CKD to acute kidney injury during hypertensive crisis",
+      "entities_involved": ["Creatinine", "GFR", "Blood pressure", "Proteinuria"],
+      "visits_involved": ["V1", "V2", "V3", "V4"],
+      "expected_severity": "critical",
+      "minimum_confidence_threshold": 0.94
+    },
+    {
+      "correlation_id": "CORR_025_C",
+      "type": "medication_nonresponse",
+      "description": "Medication non-adherence leading to uncontrolled hypertension and hypertensive emergency",
+      "entities_involved": ["Medication adherence", "BP control", "ER visits", "Cost barriers"],
+      "visits_involved": ["V1", "V2", "V3"],
+      "expected_severity": "critical",
+      "minimum_confidence_threshold": 0.90
+    },
+    {
+      "correlation_id": "CORR_025_D",
+      "type": "care_gap",
+      "description": "Lost to follow-up for 18 months despite severe hypertension and CKD, lack of medication access",
+      "entities_involved": ["Appointment adherence", "Medication access", "Insurance status", "Time gap"],
+      "visits_involved": ["V1", "V2"],
+      "expected_severity": "critical",
+      "minimum_confidence_threshold": 0.88
+    }
+  ],
+  "clinical_timeline": [
+    {
+      "visit_id": "V1",
+      "visit_date": "2023-01-20",
+      "visit_type": "office_visit",
+      "chief_complaint": "Follow-up for high blood pressure and kidney disease",
+      "vitals": {
+        "temp_f": 98.6,
+        "bp_systolic": 168,
+        "bp_diastolic": 102,
+        "hr_bpm": 84,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 245.0,
+        "height_inches": 71.0,
+        "bmi": 34.2
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 105,
+        "creatinine_mg_dl": 2.1,
+        "gfr_ml_min": 38,
+        "hemoglobin_g_dl": 11.8,
+        "wbc_k_ul": 7.5,
+        "platelets_k_ul": 238,
+        "sodium_meq_l": 139,
+        "potassium_meq_l": 4.8,
+        "alt_u_l": 32,
+        "ast_u_l": 28,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": 218,
+        "ldl_mg_dl": 142,
+        "hdl_mg_dl": 38,
+        "triglycerides_mg_dl": 190,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Amlodipine 10mg daily",
+          "Lisinopril 40mg daily",
+          "Metoprolol 100mg twice daily"
+        ],
+        "started": [
+          "Hydralazine 50mg three times daily"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension, severe (I10)",
+          "Chronic kidney disease Stage 3b (N18.32)",
+          "Obesity (E66.9)",
+          "Hypertensive nephrosclerosis (I12.9)"
+        ],
+        "new_acute": [],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "Urinalysis: 2+ protein, trace blood",
+        "Urine protein/creatinine ratio: 850 mg/g (elevated)"
+      ],
+      "referrals": ["Nephrology referral placed"],
+      "provider_note_snippet": "52 yo African American male with long-standing hypertension and CKD Stage 3b. BP today 168/102 - UNCONTROLLED despite triple therapy. Creatinine 2.1 (baseline ~1.8-2.0), GFR 38. Significant proteinuria. Added hydralazine as fourth agent. Patient admits inconsistent medication adherence - sometimes skips doses, ran out of medications last month and didn't refill for 2 weeks due to cost. Lost insurance 6 months ago, now paying out of pocket. Discussed patient assistance programs. Nephrology referral for CKD management. CRITICAL: Patient at very high risk for cardiovascular events and progression to ESRD. Stressed importance of medication adherence and BP control. RTC 4 weeks.",
+      "patient_reported_adherence": "fair",
+      "social_history_updates": {
+        "smoking": "current (1/2 pack per day)",
+        "alcohol": "moderate (3-4 beers daily)",
+        "housing_status": "stable (rents apartment)",
+        "food_security": "insecure (high sodium diet, fast food frequent)"
+      }
+    },
+    {
+      "visit_id": "V2",
+      "visit_date": "2024-07-25",
+      "visit_type": "emergency",
+      "chief_complaint": "Severe headache, confusion, blurry vision, chest pressure x2 days",
+      "vitals": {
+        "temp_f": 99.2,
+        "bp_systolic": 220,
+        "bp_diastolic": 128,
+        "hr_bpm": 102,
+        "rr_bpm": 22,
+        "spo2_percent": 96.0,
+        "weight_lbs": 252.0,
+        "height_inches": 71.0,
+        "bmi": 35.2
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 118,
+        "creatinine_mg_dl": 3.8,
+        "gfr_ml_min": 18,
+        "hemoglobin_g_dl": 10.2,
+        "wbc_k_ul": 9.8,
+        "platelets_k_ul": 225,
+        "sodium_meq_l": 136,
+        "potassium_meq_l": 5.4,
+        "alt_u_l": 42,
+        "ast_u_l": 38,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [],
+        "started": [
+          "Nicardipine IV infusion for BP control",
+          "Labetalol 20mg IV boluses",
+          "Aspirin 325mg"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension, severe (I10)",
+          "Chronic kidney disease Stage 3b (N18.32)",
+          "Obesity (E66.9)",
+          "Hypertensive nephrosclerosis (I12.9)"
+        ],
+        "new_acute": [
+          "Hypertensive emergency (I16.1)",
+          "Hypertensive encephalopathy (I67.4)",
+          "Acute kidney injury on CKD (N17.9, N18.32)",
+          "Hypertensive retinopathy (H35.03)"
+        ],
+        "differential": ["Stroke", "Acute coronary syndrome"]
+      },
+      "procedures_ordered": [
+        "CT head - no acute hemorrhage or infarct, mild cerebral edema",
+        "Chest X-ray - cardiomegaly, no pulmonary edema",
+        "EKG - LVH with strain pattern, no acute STEMI",
+        "Troponin - mildly elevated 0.12 ng/mL (likely demand ischemia)",
+        "BNP - 850 pg/mL (elevated)",
+        "Urinalysis - 3+ protein, 2+ blood, RBC casts",
+        "Fundoscopic exam - bilateral papilledema, flame hemorrhages, cotton-wool spots (Grade IV hypertensive retinopathy)"
+      ],
+      "referrals": ["ICU admission", "Nephrology consult", "Ophthalmology consult"],
+      "provider_note_snippet": "HYPERTENSIVE EMERGENCY - LIFE-THREATENING. 52 yo male presenting with BP 220/128, severe headache, confusion, visual changes, chest pressure. LOST TO FOLLOW-UP for 18 MONTHS since last visit. Patient admits stopped taking ALL blood pressure medications 6 months ago - couldn't afford them, lost insurance, felt 'fine' so didn't think he needed them. Now with ACUTE END-ORGAN DAMAGE: (1) Hypertensive encephalopathy - confusion, severe headache, CT shows cerebral edema, (2) Acute kidney injury - creatinine 3.8 (was 2.1 in Jan 2023), GFR 18 (was 38), now Stage 4 CKD, (3) Hypertensive retinopathy Grade IV - papilledema, hemorrhages, at risk for vision loss, (4) Possible cardiac ischemia - troponin 0.12, chest pressure, EKG shows LVH with strain. Started IV nicardipine for controlled BP reduction - goal to lower MAP by 10-20% in first hour, 25% in first 24 hours (too rapid reduction can cause stroke). ADMITTED TO ICU. This is PREVENTABLE emergency caused by medication non-adherence.",
+      "patient_reported_adherence": "poor",
+      "social_history_updates": {
+        "smoking": "current (increased to 1 pack per day)",
+        "alcohol": "moderate to heavy (5-6 beers daily)",
+        "housing_status": "stable but financial stress",
+        "food_security": "insecure"
+      }
+    },
+    {
+      "visit_id": "V3",
+      "visit_date": "2024-07-28",
+      "visit_type": "office_visit",
+      "chief_complaint": "ICU day 3, BP improving, mental status clearing",
+      "vitals": {
+        "temp_f": 98.4,
+        "bp_systolic": 168,
+        "bp_diastolic": 96,
+        "hr_bpm": 82,
+        "rr_bpm": 18,
+        "spo2_percent": 97.0,
+        "weight_lbs": 248.0,
+        "height_inches": 71.0,
+        "bmi": 34.6
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 108,
+        "creatinine_mg_dl": 3.2,
+        "gfr_ml_min": 22,
+        "hemoglobin_g_dl": 9.8,
+        "wbc_k_ul": 8.2,
+        "platelets_k_ul": 232,
+        "sodium_meq_l": 137,
+        "potassium_meq_l": 5.1,
+        "alt_u_l": 38,
+        "ast_u_l": 32,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": null,
+        "ldl_mg_dl": null,
+        "hdl_mg_dl": null,
+        "triglycerides_mg_dl": null,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Nicardipine IV (being weaned)",
+          "Aspirin 81mg daily"
+        ],
+        "started": [
+          "Amlodipine 10mg daily",
+          "Lisinopril 40mg daily",
+          "Carvedilol 25mg twice daily (switched from metoprolol)",
+          "Hydralazine 100mg three times daily (increased dose)",
+          "Atorvastatin 80mg daily"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension, severe (I10)",
+          "Chronic kidney disease Stage 4 (N18.4)",
+          "Obesity (E66.9)",
+          "Hypertensive nephrosclerosis (I12.9)"
+        ],
+        "new_acute": [
+          "Hypertensive emergency, resolving (I16.1)",
+          "Hypertensive encephalopathy, resolved (I67.4)",
+          "Acute kidney injury on CKD, improving (N17.9, N18.4)",
+          "Hypertensive retinopathy Grade IV (H35.03)"
+        ],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "Repeat fundoscopic exam - papilledema improving, hemorrhages stable",
+        "Echocardiogram - severe LVH, EF 45% (reduced), diastolic dysfunction"
+      ],
+      "referrals": ["Nephrology following", "Social work for medication assistance", "Case management for insurance enrollment"],
+      "provider_note_snippet": "ICU day 3. BP controlled with IV nicardipine, now weaning to oral medications. BP down to 168/96 (from 220/128). Mental status completely cleared - patient alert, oriented, no longer confused. Headache resolved. Vision improving but still some blurriness. Creatinine improved from 3.8 to 3.2 but still much worse than baseline 2.1 - now has Stage 4 CKD (was Stage 3b). Some kidney damage may be permanent. Restarted oral antihypertensives at MAXIMUM doses - four-drug regimen. Echo shows severe LVH and reduced EF 45% (hypertensive cardiomyopathy). EXTENSIVE COUNSELING: This was life-threatening, preventable emergency. Could have died or had permanent stroke/blindness/kidney failure. Social work involved - enrolled patient in medication assistance programs, all BP meds now FREE. Helping with insurance enrollment. Patient very shaken by this experience, now understands severity. Transfer to step-down unit, discharge tomorrow if BP stable.",
+      "patient_reported_adherence": "excellent (motivated after near-death experience)",
+      "social_history_updates": {
+        "smoking": "quit in hospital (using nicotine patch)",
+        "alcohol": "none since admission",
+        "housing_status": "stable",
+        "food_security": "working with social work"
+      }
+    },
+    {
+      "visit_id": "V4",
+      "visit_date": "2024-08-22",
+      "visit_type": "office_visit",
+      "chief_complaint": "1-month post-discharge follow-up, adhering to all medications",
+      "vitals": {
+        "temp_f": 98.2,
+        "bp_systolic": 142,
+        "bp_diastolic": 88,
+        "hr_bpm": 74,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 242.0,
+        "height_inches": 71.0,
+        "bmi": 33.8
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 102,
+        "creatinine_mg_dl": 2.8,
+        "gfr_ml_min": 26,
+        "hemoglobin_g_dl": 10.4,
+        "wbc_k_ul": 7.0,
+        "platelets_k_ul": 242,
+        "sodium_meq_l": 138,
+        "potassium_meq_l": 4.9,
+        "alt_u_l": 28,
+        "ast_u_l": 26,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": 168,
+        "ldl_mg_dl": 92,
+        "hdl_mg_dl": 42,
+        "triglycerides_mg_dl": 170,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Amlodipine 10mg daily",
+          "Lisinopril 40mg daily",
+          "Carvedilol 25mg twice daily",
+          "Hydralazine 100mg three times daily",
+          "Atorvastatin 80mg daily",
+          "Aspirin 81mg daily"
+        ],
+        "started": [],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension, severe (I10)",
+          "Chronic kidney disease Stage 4 (N18.4)",
+          "Obesity (E66.9)",
+          "Hypertensive nephrosclerosis (I12.9)",
+          "Hypertensive cardiomyopathy (I11.0)"
+        ],
+        "new_acute": [],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "Urinalysis - 2+ protein, no blood",
+        "Home BP monitoring log reviewed - BPs 135-155/85-95"
+      ],
+      "referrals": ["Nephrology - discussing preparation for dialysis"],
+      "provider_note_snippet": "Excellent 1-month follow-up. Patient 100% adherent to medications (verified with pharmacy records, patient using pill organizer). BP much improved at 142/88 (goal <130/80 but this is significant improvement). Creatinine stabilized at 2.8 (was 3.8 at worst, baseline 2.1). GFR 26 - Stage 4 CKD, likely some permanent kidney damage from hypertensive crisis. Nephrology discussing preparation for eventual dialysis - may need within 1-2 years. Patient lost 6 lbs, quit smoking (3 weeks smoke-free), stopped alcohol, working with dietitian on low-sodium diet. Vision fully recovered. No headaches. Medication assistance programs working well - all meds free. Re-enrolled in Medicaid. Patient attending all appointments. This case demonstrates: (1) Catastrophic consequences of medication non-adherence, (2) Social determinants (insurance, cost) as barriers to care, (3) Hypertensive emergency with multi-organ damage, (4) Some damage (kidney, heart) may be permanent despite treatment, (5) Importance of addressing barriers to medication access, (6) Behavior change after serious health scare. Patient's life was saved but long-term complications remain.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": "quit (1 month smoke-free)",
+        "alcohol": "none",
+        "housing_status": "stable, Medicaid approved",
+        "food_security": "improved with food assistance"
+      }
+    },
+    {
+      "visit_id": "V5",
+      "visit_date": "2024-10-25",
+      "visit_type": "office_visit",
+      "chief_complaint": "3-month follow-up, BP well-controlled, preparing for dialysis",
+      "vitals": {
+        "temp_f": 98.4,
+        "bp_systolic": 136,
+        "bp_diastolic": 82,
+        "hr_bpm": 70,
+        "rr_bpm": 16,
+        "spo2_percent": 98.0,
+        "weight_lbs": 235.0,
+        "height_inches": 71.0,
+        "bmi": 32.8
+      },
+      "labs": {
+        "hba1c": null,
+        "glucose_mg_dl": 98,
+        "creatinine_mg_dl": 3.1,
+        "gfr_ml_min": 23,
+        "hemoglobin_g_dl": 10.6,
+        "wbc_k_ul": 6.8,
+        "platelets_k_ul": 248,
+        "sodium_meq_l": 139,
+        "potassium_meq_l": 4.7,
+        "alt_u_l": 26,
+        "ast_u_l": 24,
+        "crp_mg_l": null,
+        "esr_mm_hr": null,
+        "tsh_miu_l": null,
+        "cholesterol_total_mg_dl": 158,
+        "ldl_mg_dl": 82,
+        "hdl_mg_dl": 48,
+        "triglycerides_mg_dl": 140,
+        "b12_pg_ml": null,
+        "folate_ng_ml": null,
+        "ferritin_ng_ml": null,
+        "ck_u_l": null
+      },
+      "medications": {
+        "continued": [
+          "Amlodipine 10mg daily",
+          "Lisinopril 40mg daily",
+          "Carvedilol 25mg twice daily",
+          "Hydralazine 100mg three times daily",
+          "Atorvastatin 80mg daily",
+          "Aspirin 81mg daily"
+        ],
+        "started": [
+          "Erythropoietin injections for anemia of CKD"
+        ],
+        "stopped": [],
+        "dose_changed": []
+      },
+      "diagnoses": {
+        "active_chronic": [
+          "Hypertension, controlled (I10)",
+          "Chronic kidney disease Stage 4 (N18.4)",
+          "Obesity (E66.9)",
+          "Hypertensive nephrosclerosis (I12.9)",
+          "Hypertensive cardiomyopathy (I11.0)",
+          "Anemia of chronic kidney disease (D63.1)"
+        ],
+        "new_acute": [],
+        "differential": []
+      },
+      "procedures_ordered": [
+        "AV fistula placement scheduled for dialysis access"
+      ],
+      "referrals": ["Vascular surgery for AV fistula", "Dialysis center tour"],
+      "provider_note_snippet": "3 months post-hypertensive emergency. Patient doing remarkably well. BP excellent at 136/82 on four-drug regimen. 100% medication adherent. Lost total 17 lbs through diet changes. Smoke-free for 3.5 months. No alcohol. Creatinine stable 3.1, GFR 23 (Stage 4 CKD approaching Stage 5). Nephrology preparing for dialysis - AV fistula surgery scheduled next month, estimated need for dialysis in 6-9 months when GFR <15. Patient has accepted this reality - understands permanent kidney damage from years of uncontrolled hypertension culminating in hypertensive crisis. Started erythropoietin for anemia. On transplant waiting list. This case illustrates: (1) Hypertensive emergency is medical catastrophe with multi-organ damage, (2) Medication non-adherence due to cost/access is major public health issue, (3) Some end-organ damage is irreversible even with subsequent excellent control, (4) Addressing social determinants is critical for long-term management, (5) Near-death experience can be powerful motivator for behavior change, (6) Comprehensive support (medication assistance, insurance, dietitian, social work) improves outcomes. Patient's life was saved but faces dialysis - sobering reminder of consequences of untreated hypertension.",
+      "patient_reported_adherence": "excellent",
+      "social_history_updates": {
+        "smoking": "quit (3.5 months smoke-free)",
+        "alcohol": "none",
+        "housing_status": "stable with Medicaid",
+        "food_security": "stable with assistance programs"
+      }
+    }
+  ],
+  "expected_llm_challenges": [
+    "Recognizing hypertensive emergency vs hypertensive urgency (presence of end-organ damage)",
+    "Understanding the progression from uncontrolled hypertension to multi-organ failure",
+    "Identifying medication non-adherence as root cause of preventable emergency",
+    "Recognizing social determinants (insurance, cost) as barriers to medication access",
+    "Understanding irreversible end-organ damage despite subsequent control",
+    "Appreciating the role of comprehensive social support in long-term management"
+  ],
+  "evaluation_notes": "This case tests ability to: (1) recognize hypertensive emergency (BP >180/120 WITH acute end-organ damage) vs urgency (elevated BP without damage), (2) identify multiple end-organ injuries (brain, kidney, eye, heart), (3) understand medication non-adherence as root cause, (4) recognize 18-month care gap and its consequences, (5) identify social determinants as critical barriers to care, (6) understand that some organ damage is permanent despite later excellent control, (7) track progression from Stage 3b to Stage 4 CKD approaching dialysis, (8) appreciate need for comprehensive support addressing insurance, medication access, and social needs, and (9) understand this as preventable catastrophe. The LLM should flag uncontrolled hypertension and medication non-adherence at V1, identify 18-month gap and recognize life-threatening emergency with multi-organ damage at V2, understand ICU management and partial recovery at V3, track improved control but permanent damage at V4, and recognize long-term consequences (approaching dialysis) despite excellent subsequent adherence at V5. This case emphasizes that hypertension is 'silent killer' until catastrophic complications occur, and addressing social barriers is essential for management."
+}
 ]
