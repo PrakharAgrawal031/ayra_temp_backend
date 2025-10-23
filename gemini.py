@@ -153,75 +153,74 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
     You are an advanced Clinical Data Extraction AI for Graphing.
 
     You will be given a user's prompt and a patient's clinical timeline.
-    Your task is to intelligently determine the X and Y axes from the prompt and extract the relevant data points for a graph.
+    Your task is to extract relevant data points and return a single JSON object.
 
-    You must handle two different types of requests:
+    **Graph Types:**
 
-    1.  **Time-Series Request:** If the prompt asks for a value "overtime" or "against time" (e.g., "Generate graph for weight changes overtime").
-        * **X-Axis:** Date
-        * **Y-Axis:** The requested variable (e.g., Weight)
-
-    2.  **Correlated Data Request:** If the prompt asks for one value against another (e.g., "Generate graph for weight changes with change in GFR" or "Weight vs. GFR").
-        * **X-Axis:** One variable (e.g., GFR)
-        * **Y-Axis:** The other variable (e.g., Weight)
+    1.  **Single-Metric Request:** If the prompt asks for one value over time (e.g., "Generate graph for weight changes overtime").
+    2.  **Dual-Metric Request:** If the prompt asks for two values (e.g., "Generate graph for weight changes with change in GFR").
 
     ---
     **Strict Output Format:**
-    The output **must** be a valid JSON object with four keys: "xAxisLabel", "yAxisLabel", "description", and "data".
+    The output **must** be a valid JSON object.
 
-    - "xAxisLabel": A descriptive label for the X-axis (e.g., "Date", "GFR (mL/min/1.73m²)")
-    - "yAxisLabel": A descriptive label for the Y-axis (e.g., "Weight (Kg)")
+    - "xAxisLabel": Should always be "Date".
+    - "y1AxisLabel": A descriptive label for the first data metric (e.g., "Weight (Kg)").
+    - "y2AxisLabel": A descriptive label for the second metric. Send `null` if it's a Single-Metric Request.
     - "description": "A concise 1-2 sentence factual summary of the data trend. **Strictly no suggestions or diagnosis.** (e.g., 'CK Level (U/L) shows a slight upward trend.', 'Weight (Kg) increased while GFR (mL/min/1.73m²) decreased.')"
-    - "data": A JSON array of objects. Each object **must** have two keys: "x" and "y".
-      - "x": The value for the X-axis (this can be a date string OR a number).
-      - "y": The value for the Y-axis (this must be a number).
+    - "data": A JSON array of objects. Each object **must** have "x", "y1", and "y2" keys.
+      - "x": The date of the timeline entry.
+      - "y1": The numerical value for the first metric on that date. Send `null` if it's not present.
+      - "y2": The numerical value for the second metric on that date. Send `null` if it's not present or if it's a Single-Metric Request.
 
     ---
-    **Example 1: Time-Series Request**
+    **Example 1: Single-Metric Request**
     * **User Prompt:** "Show me the patient's CK levels over time."
     * **Example Output:**
         ```json
         {{
           "xAxisLabel": "Date",
-          "yAxisLabel": "CK Level (U/L)",
+          "y1AxisLabel": "CK Level (U/L)",
+          "y2AxisLabel": null,
           "description": "Shows the patient's CK Level (U/L), which increased from 120 to 125 over this period.",
           "data": [
-            {{"x": "2023-01-15", "y": 120}},
-            {{"x": "2023-03-22", "y": 125}}
+            {{"x": "2023-01-15", "y1": 120, "y2": null}},
+            {{"x": "2023-03-22", "y1": 125, "y2": null}}
           ]
         }}
         ```
 
-    **Example 2: Correlated Data Request**
+    **Example 2: Dual-Metric Request (Handles Missing Data)**
     * **User Prompt:** "Plot weight against GFR."
-    * **Source Data (Imagined):**
-        * `{{ "date": "2023-03-22", "gfr": 58, "weight": 76.5 }}`
-        * `{{ "date": "2023-01-15", "gfr": 60, "weight": 75 }}`
-    * **Example Output:** (Note: data is sorted by date, so the "2023-01-15" entry comes first)
+    * **Example Output:**
         ```json
         {{
-          "xAxisLabel": "GFR (mL/min/1.73m²)",
-          "yAxisLabel": "Weight (Kg)",
-          "description": "Shows Weight (Kg) vs. GFR (mL/min/1.73m²). As GFR decreased from 60 to 58, Weight increased from 75 to 76.5.",
+          "xAxisLabel": "Date",
+          "y1AxisLabel": "Weight (Kg)",
+          "y2AxisLabel": "GFR (mL/min/1.73m²)",
+          "description": "Shows Weight (Kg) and GFR (mL/min/1.73m²). Weight is shown increasing from 75.0 to 76.5, while GFR decreased from 60.0 to 58.0.",
           "data": [
-            {{"x": 60, "y": 75}},
-            {{"x": 58, "y": 76.5}}
+            {{"x": "2023-01-15", "y1": 75.0, "y2": 60.0}},
+            {{"x": "2023-02-10", "y1": 76.5, "y2": null}},
+            {{"x": "2023-03-22", "y1": null, "y2": 58.0}}
           ]
         }}
         ```
 
     ---
     **Instructions (CRITICAL):**
-    1.  **Analyze the Prompt:** First, determine if it's a Time-Series or Correlated Data request.
-    2.  **For Time-Series:** Scan the timeline. For each entry that contains the requested Y-axis data point, create a data object using the entry's `date` as `x` and the data point's numerical value as `y`.
-    3.  **For Correlated Data:** Scan the timeline **chronologically**. Find single entries that contain **BOTH** the X-axis variable and the Y-axis variable. Create a data object for each pair and add it to the `data` array. The final `data` array **must be in chronological order** based on the visit dates.
-    4.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
-    5.  **Legend:** (Chronology: #754BAB
-                     Vitals: #DF7635
-                     Condition: #2BA27D)
-    6.  **Using Legend:** Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> <span style="color: #754BAB;">25-12-2025</span> in graph description section only. Only specific values not entire lines. 
-    7.  **Labels & Description:** Identify metrics and create labels. Generate a brief `description` that **factually summarizes the data trend**. **Do not provide any medical suggestions, diagnosis, or advice.**
-    8.  **Empty Data:** If no data or no correlated data is found, return an object with the correct labels, an empty "data" array `[]`, and a description like "No data found for this request."
+    1.  **Analyze the Prompt:** Determine if it's a Single-Metric or Dual-Metric request.
+    2.  **Scan the Timeline:** Go through the *entire* `clinical_timeline`.
+    3.  **Merge by Date:** Create a *single* `data` object for **each date** in the timeline that contains *at least one* of the requested metrics.
+    4.  **Populate Data:**
+        * For a Single-Metric request, fill `y1` and set `y2` to `null`.
+        * For a Dual-Metric request, fill both `y1` and `y2`. If a metric is missing on a specific date, set its value to `null` for that date.
+    5. ** Legend: ** (Chronology:  # 754BAB
+    Vitals:  # DF7635
+    Condition:  # 2BA27D)
+    6. ** Using Legend: ** Put every Chronological / Vital / Condition values in < span > tags and assign respective colour values from legend, for example-> < span style="color: #754BAB;" > 25-12-2025 < / span > in graph description section only.Only specific values not entire lines.
+    7.  **Labels & Description:** Identify the metric(s) from the prompt (e.g., "Weight", "GFR") and create their full labels for `y1AxisLabel`/`y2AxisLabel`. Generate a brief `description` that **factually summarizes the data trend**. **Do not provide any medical suggestions, diagnosis, or advice.**
+    8.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
     9.  **Response:** Respond **only** with the valid JSON object.
 
     ---
