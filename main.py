@@ -63,7 +63,8 @@ async def get_all_patients():
     patients = list(collection.find({}, {
         "_id": 0,  # Exclude the default MongoDB _id
         "patient_id": 1,
-        "patient_name": 1, # Added patient_name
+        "patient_name": 1,# Added patient_name
+        "patient_profile": 1,# Added patient_profile
         "archetype": 1,
         "demographics": 1
     }))
@@ -81,6 +82,7 @@ async def get_patient_details(patient_id: str):
         "_id": 0,
         "patient_id": 1,
         "patient_name": 1,
+        "patient_profile": 1,  # Added patient_profile
         "demographics": 1,
         "allergies": 1,
         "clinical_timeline": 1,
