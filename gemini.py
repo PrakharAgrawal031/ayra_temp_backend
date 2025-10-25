@@ -227,9 +227,9 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
         * For a Single-Metric request, fill `y1` and set `y2` to `null`.
         * For a Dual-Metric request, fill both `y1` and `y2`. If a metric is missing on a specific date, set its value to `null` for that date.
     5.  **Legend:** (Chronology: #754BAB,
-                     Vitals: #DF7635,
+                     Vitals/Values: #DF7635,
                      Rx (Medications, Vaccinations): #12909B)
-    6.  ** Using Legend: ** Put every Chronological / Vital / Condition values in < span > tags and assign respective colour values from legend, for example-> < span style="color: #754BAB;" > 25-12-2025 < / span > in graph description section only.Only specific values not entire lines.
+    6.  ** Using Legend: ** Put every Chronological / Vital / Condition values in < span > tags and assign respective colour values from legend, for example->< span style="color: #DF7635;" > 58 U/L < / span > on < span style="color: #754BAB;" > 25-12-2025 < / span > in graph description section only.Only specific values not entire lines.
     7.  **Labels, Range & Description:** Identify metrics and create labels. **Scan the user's prompt for explicit Y-axis range requests (e.g., "from 70 to 80", "set weight axis 75-100").** If found, extract the numbers and populate the corresponding `y1AxisMin/Max` or `y2AxisMin/Max` fields. If not found, set them all to `null`. Generate the factual `description` and provide no medical advice.
     8.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
     9.  **Response:** Respond **only** with the valid JSON object.
