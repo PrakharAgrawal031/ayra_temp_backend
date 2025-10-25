@@ -68,7 +68,7 @@ You must return a JSON response structured strictly as follows:
       "Remarks": "..."
   }},
 
-  //This will be a table with following Columns: Data Points, Last Visit, Current Evaluation, Change, Connection to Symptoms. You are allowed to make changes in JSON format of ComparisonOfProminentDataPoints to achieve this 
+  //This will be a table with following Columns: Data Points, Last Visit, Current Evaluation, Change, Connection to Symptoms. You are allowed to make changes in JSON format of ComparisonOfProminentDataPoints to achieve this. Don't miss the colour codes in quantative values.
 
   "ComparisonOfProminentDataPoints": [
       {{
@@ -103,7 +103,7 @@ Guidelines:
 - Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> <span style="color: #754BAB;">12-25-2025</span>. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
 - Also leave out colour codes for dates mentioned in last visit and current visit in comparision of data points section.
 - At the end of each section(Except ComparisonOfProminentDataPoints) you should add sources JSON Object as well which will have source of information marked. for ex: "Sources": ["Notes": "dd-mm-yyyy", "Blood Report": "dd-mm-yyyy"....] there might not be any sources listed for now so you can fabricate your own as example based on data provided.
-- This is only for demo so generate fake Family history for demo purpose if it suits the patient's condition. It should also contain the relation of that family member to patient.
+- This is only for demo so generate fake Family history for demo purpose if it suits the patient's condition. It should also contain the relation of that family member to patient. Generate only 2-3 at most.
 - Respond **only** with valid JSON (no extra text, explanation, or markdown).
 Here is the patient data:
 {json.dumps(patient_data, indent=2)}
