@@ -94,12 +94,14 @@ Guidelines:
 - Use the provided patient data to fill all sections. 
 - If data is missing, use "Not Available".
 - Be concise and factual.
+- date format should be MM/DD/YYYY 
 - Last visit summary should be short and concise and in points. Should be easy to read and should contain only the most important information that would best describe the visit. This field should be a array of strings where each string represent a point.
 - In correlations matrix key should only be 2-3 words long and description should be either 1 sentence or 2 short sentences. Also impact field can have value either "direct" or "indirect". You must mention at least one indirect correlation if it looks necessary in patient data. 
-- Legend -> (Chronology: #754BAB
-             Vitals: #DF7635
-             Condition: #2BA27D)
-- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> <span style="color: #754BAB;">25-12-2025</span>. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
+- Legend -> (Chronology: #754BAB,
+             Vitals: #DF7635,
+             Rx (Medications, Vaccinations): #12909B)
+- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> <span style="color: #754BAB;">12-25-2025</span>. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
+- Also leave out colour codes for dates mentioned in last visit and current visit in comparision of data points section.
 - At the end of each section(Except ComparisonOfProminentDataPoints) you should add sources JSON Object as well which will have source of information marked. for ex: "Sources": ["Notes": "dd-mm-yyyy", "Blood Report": "dd-mm-yyyy"....] there might not be any sources listed for now so you can fabricate your own as example based on data provided.
 - This is only for demo so generate fake Family history for demo purpose if it suits the patient's condition. It should also contain the relation of that family member to patient.
 - Respond **only** with valid JSON (no extra text, explanation, or markdown).
@@ -164,7 +166,7 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
     **Strict Output Format:**
     The output **must** be a valid JSON object.
 
-    - "xAxisLabel": Should always be "Date".
+    - "xAxisLabel": Should always be "Date" in this format "MM/DD/YYYY".
     - "y1AxisLabel": A descriptive label for the first data metric (e.g., "Weight (Kg)").
     - "y2AxisLabel": A descriptive label for the second metric. Send `null` if it's a Single-Metric Request.
     - "y1AxisMin": The minimum value for the Y1-axis, *only if* specified by the user. Send `null` if not specified.
@@ -189,8 +191,8 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
           "y2AxisLabel": null,
           "description": "Shows the patient's CK Level (U/L), which increased from 120 to 125 over this period.",
           "data": [
-            {{"x": "2023-01-15", "y1": 120, "y2": null}},
-            {{"x": "2023-03-22", "y1": 125, "y2": null}}
+            {{"x": "01/15/2023", "y1": 120, "y2": null}},
+            {{"x": "03/22/2023", "y1": 125, "y2": null}}
           ]
         }}
         ```
@@ -209,9 +211,9 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
           "y2AxisMax": null,
           "description": "Shows Weight (Kg) and GFR (mL/min/1.73m²). Weight is shown increasing from 75.0 to 76.5, while GFR decreased from 60.0 to 58.0.",
           "data": [
-            {{"x": "2023-01-15", "y1": 75.0, "y2": 60.0}},
-            {{"x": "2023-02-10", "y1": 76.5, "y2": null}},
-            {{"x": "2023-03-22", "y1": null, "y2": 58.0}}
+            {{"x": "01/15/2023", "y1": 75.0, "y2": 60.0}},
+            {{"x": "02/10/2023", "y1": 76.5, "y2": null}},
+            {{"x": "03/22/2023", "y1": null, "y2": 58.0}}
           ]
         }}
         ```
@@ -224,9 +226,9 @@ def generate_graph_data(clinical_timeline: List[Dict[str, Any]], user_prompt: st
     4.  **Populate Data:**
         * For a Single-Metric request, fill `y1` and set `y2` to `null`.
         * For a Dual-Metric request, fill both `y1` and `y2`. If a metric is missing on a specific date, set its value to `null` for that date.
-    5.  ** Legend: ** ( Chronology:  # 754BAB
-                        Vitals:  # DF7635
-                        Condition:  # 2BA27D)
+    5.  **Legend:** (Chronology: #754BAB,
+                     Vitals: #DF7635,
+                     Rx (Medications, Vaccinations): #12909B)
     6.  ** Using Legend: ** Put every Chronological / Vital / Condition values in < span > tags and assign respective colour values from legend, for example-> < span style="color: #754BAB;" > 25-12-2025 < / span > in graph description section only.Only specific values not entire lines.
     7.  **Labels, Range & Description:** Identify metrics and create labels. **Scan the user's prompt for explicit Y-axis range requests (e.g., "from 70 to 80", "set weight axis 75-100").** If found, extract the numbers and populate the corresponding `y1AxisMin/Max` or `y2AxisMin/Max` fields. If not found, set them all to `null`. Generate the factual `description` and provide no medical advice.
     8.  **Data Extraction:** Always extract only the numerical value (e.g., "75 kg" -> 75).
