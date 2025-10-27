@@ -97,11 +97,11 @@ Guidelines:
 - date format should be MM/DD/YYYY 
 - Last visit summary should be short and concise and in points. Should be easy to read and should contain only the most important information that would best describe the visit. This field should be a array of strings where each string represent a point.
 - In correlations matrix key should only be 2-3 words long and description should be either 1 sentence or 2 short sentences. Also impact field can have value either "direct" or "indirect". You must mention at least one indirect correlation if it looks necessary in patient data. 
-- Legend -> (Chronology: #754BAB,
-             Vitals: #DF7635,
+- Legend -> (Chronology(Time related data): #754BAB,
+             Vitals/Values: #DF7635,
              Rx (Medications, Vaccinations): #12909B)
-- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> <span style="color: #754BAB;">12-25-2025</span>. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
-- Also leave out colour codes for dates mentioned in last visit and current visit in comparision of data points section.
+- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> < span style="color: #DF7635;" > 58 U/L < / span > on < span style="color: #754BAB;" > 25-12-2025 < / span >. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
+- Also leave out colour codes for dates mentioned in last visit and current visit in comparison of data points section.
 - At the end of each section(Except ComparisonOfProminentDataPoints) you should add sources JSON Object as well which will have source of information marked. for ex: "Sources": ["Notes": "dd-mm-yyyy", "Blood Report": "dd-mm-yyyy"....] there might not be any sources listed for now so you can fabricate your own as example based on data provided.
 - This is only for demo so generate fake Family history for demo purpose if it suits the patient's condition. It should also contain the relation of that family member to patient. Generate only 2-3 at most.
 - Respond **only** with valid JSON (no extra text, explanation, or markdown).
