@@ -18,7 +18,7 @@ except Exception as e:
     raise RuntimeError(f"Failed to configure Gemini API: {e}")
 
 
-def evaluate_patient_record(patient_data):
+def evaluate_patient_record(all_emr_data):
     GEMINI_KEY = os.getenv("GEMINI_KEY")
     try:
         # Replace "YOUR_API_KEY_HERE" with your key from Google AI Studio
@@ -35,83 +35,139 @@ def evaluate_patient_record(patient_data):
     - Important Vitals
     """
 
-    evaluation_prompt = f"""
-You are a Doctor Record Evaluator AI.
+    prompt = f"""
+    You are a Doctor Record Evaluator AI.
 
-You are given a patient's medical record or report data. 
-You must return a JSON response structured strictly as follows:
+    You are given a patient's medical record or report data. 
+    You must return a JSON response structured strictly as follows:
 
-{{
-  "LastVisitSummary": "...",
-  "CorrelationMatrix": {{
-      "Observation": {{
-                        "key": "...",
-                        "description": "...",
-                        "impact": "..."
-                     }},
-      "CorrelatedFactors": [
-                            {{
-                                "key": "...",
-                                "description": "...",
-                                "impact": "..."
-                            }},
-                            ....
-                            ]
-  }},
-  "FamilyHistory": {{
-      "Conditions": [
-                    {{
-                        "condition": "...",
-                        "family-member":"..."
-                    }}
-                    ],
-      "Remarks": "..."
-  }},
+    {{
+      "LastVisitSummary": ["...", "...", "..."],
+      "CorrelationMatrix": {{
+          "Observation": {{
+                            "key": "...",
+                            "description": "...",
+                            "impact": "direct|indirect"
+                         }},
+          "CorrelatedFactors": [
+                                {{
+                                    "key": "...",
+                                    "description": "...",
+                                    "impact": "direct|indirect"
+                                }}
+                                ]
+      }},
+      "FamilyHistory": {{
+          "Conditions": [
+                        {{
+                            "condition": "...",
+                            "family-member":"..."
+                        }}
+                        ],
+          "Remarks": "...",
+          "Sources": ["Notes: dd-mm-yyyy", "Blood Report: dd-mm-yyyy"]
+      }},
 
-  //This will be a table with following Columns: Data Points, Last Visit, Current Evaluation, Change, Connection to Symptoms. You are allowed to make changes in JSON format of ComparisonOfProminentDataPoints to achieve this. Don't miss the colour codes in quantative values.
+      "ComparisonOfProminentDataPoints": [
+          {{
+              "DataPoint": "...",
+              "LastVisit": "...",
+              "CurrentEvaluation": "...",
+              "Change": "...",
+              "Connection": "..."
+          }}
+      ],
 
-  "ComparisonOfProminentDataPoints": [
-      {{
-          "DataPoint": "...",
-          "Last Visit": "...",
-          "Current Evaluation": "...",
-          "Change": "...",
-          "Connection": "..."
+      "ImportantVitals": {{
+          "BloodPressure": "...",
+          "HeartRate": "...",
+          "Temperature": "...",
+          "OxygenLevel": "...",
+          "OtherVitals": ["..."],
+          "Sources": ["Notes: dd-mm-yyyy", "Blood Report: dd-mm-yyyy"]
       }}
-  ],
+    }}
 
-  "ImportantVitals": {{
-      "BloodPressure": "...",
-      "HeartRate": "...",
-      "Temperature": "...",
-      "OxygenLevel": "...",
-      "OtherVitals": ["..."]
-  }}
+    CRITICAL COLOR CODING RULES - FOLLOW EXACTLY:
 
-}}
+    1. COLOR CODE LEGEND:
+       - Chronology (dates/times): #754BAB
+       - Vitals/Numerical Values (BP, heart rate, lab values, measurements): #DF7635
+       - Prescriptions (medications, vaccinations, treatments): #12909B
 
-Guidelines:
-- Use the provided patient data to fill all sections. 
-- If data is missing, use "Not Available".
-- Be concise and factual.
-- date format should be MM/DD/YYYY 
-- Last visit summary should be short and concise and in points. Should be easy to read and should contain only the most important information that would best describe the visit. This field should be a array of strings where each string represent a point.
-- In correlations matrix key should only be 2-3 words long and description should be either 1 sentence or 2 short sentences. Also impact field can have value either "direct" or "indirect". You must mention at least one indirect correlation if it looks necessary in patient data. 
-- Legend -> (Chronology(Time related data): #754BAB,
-             Vitals/Values: #DF7635,
-             Rx (Medications, Vaccinations): #12909B)
-- Put every Chronological/Vital/Condition values in <span> tags and assign respective colour values from legend,for example-> < span style="color: #DF7635;" > 58 U/L < / span > on < span style="color: #754BAB;" > 25-12-2025 < / span >. Only specific values not entire sentences or paragraphs. Do this for all sections except correlation matrix's key and impact values, but don't leave out description value. 
-- Also leave out colour codes for dates mentioned in last visit and current visit in comparison of data points section.
-- At the end of each section(Except ComparisonOfProminentDataPoints) you should add sources JSON Object as well which will have source of information marked. for ex: "Sources": ["Notes": "dd-mm-yyyy", "Blood Report": "dd-mm-yyyy"....] there might not be any sources listed for now so you can fabricate your own as example based on data provided.
-- This is only for demo so generate fake Family history for demo purpose if it suits the patient's condition. It should also contain the relation of that family member to patient. Generate only 2-3 at most.
-- Respond **only** with valid JSON (no extra text, explanation, or markdown).
-Here is the patient data:
-{json.dumps(patient_data, indent=2)}
-"""
+    2. WHAT TO COLOR CODE:
+       ✓ Dates in format DD-MM-YYYY or MM/DD/YYYY → #754BAB
+       ✓ Numerical measurements (120/80, 98.6°F, 58 U/L, 150 mg/dL) → #DF7635
+       ✓ Medication names and dosages (Aspirin 100mg, Metformin) → #12909B
+
+    3. WHAT NOT TO COLOR CODE:
+       ✗ Medical condition names (hypertension, diabetes, fever)
+       ✗ Symptoms (headache, nausea, fatigue)
+       ✗ Body parts or organs (heart, liver, kidney)
+       ✗ Test names (blood test, ECG, X-ray)
+       ✗ General descriptive text
+       ✗ Keys in CorrelationMatrix (key and impact fields)
+
+    4. SPECIFIC SECTION RULES:
+
+       LastVisitSummary:
+       - Color code: dates (#754BAB), vital values (#DF7635), medications (#12909B)
+       - DO NOT color code: condition names, symptoms, test names
+       - Example: "Patient presented with elevated BP of <span style='color: #DF7635;'>140/90</span> on <span style='color: #754BAB;'>15-10-2024</span>"
+
+       CorrelationMatrix:
+       - In "description" field: color code dates, values, and medications
+       - DO NOT color code: "key" field or "impact" field
+       - Example description: "BP elevated to <span style='color: #DF7635;'>145/95</span> correlating with stress"
+
+       ComparisonOfProminentDataPoints:
+       - DO NOT color code dates in "LastVisit" and "CurrentEvaluation" columns
+       - DO color code vital/numerical values in "LastVisit" and "CurrentEvaluation" columns
+       - Example LastVisit: "<span style='color: #DF7635;'>120/80</span>" NOT "<span style='color: #754BAB;'>12-10-2024</span>"
+
+       ImportantVitals:
+       - Color code all numerical values → #DF7635
+       - Example: "BloodPressure": "<span style='color: #DF7635;'>120/80 mmHg</span>"
+
+       FamilyHistory:
+       - Color code dates if mentioned → #754BAB
+       - DO NOT color code condition names
+       - Example: "Mother diagnosed with diabetes in <span style='color: #754BAB;'>2010</span>"
+
+    5. HTML FORMAT (NO SPACES IN TAGS):
+       Correct: <span style="color: #DF7635;">58 U/L</span>
+       Wrong: < span style="color: #DF7635;" > 58 U/L < / span >
+
+    GENERAL GUIDELINES:
+    - Date format: MM/DD/YYYY throughout the response
+    - LastVisitSummary: Array of 3-5 concise bullet points, most critical information only
+    - CorrelationMatrix keys: 2-3 words maximum
+    - CorrelationMatrix descriptions: 1-2 short sentences maximum
+    - Include at least one "indirect" correlation if relevant
+    - Use "Not Available" for missing data
+    - Generate 2-3 realistic family history conditions for demo (if appropriate)
+    - Add "Sources" object to all sections except ComparisonOfProminentDataPoints
+    - Be factual and concise
+
+    VALIDATION CHECKLIST BEFORE RESPONDING:
+    □ No condition names are color coded
+    □ All numerical vital values use #DF7635
+    □ All dates use #754BAB
+    □ All medications use #12909B
+    □ CorrelationMatrix "key" and "impact" have NO color codes
+    □ ComparisonOfProminentDataPoints dates are NOT color coded
+    □ No spaces in <span> tags
+    □ Valid JSON only (no markdown, no explanation)
+
+    Patient Data:
+    {json.dumps(all_emr_data, indent=2)}
+
+    Respond ONLY with valid JSON. No additional text, explanation, or markdown formatting.
+    """
 
     try:
         # Use the defined client object
-        response = client.generate_content(evaluation_prompt)
+        response = client.generate_content(prompt)
 
         cleaned_text = response.text.strip()
 
